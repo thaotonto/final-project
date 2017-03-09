@@ -1,6 +1,6 @@
-package Views;
+package views;
 
-import Models.GameModel;
+import models.GameModel;
 
 import java.awt.*;
 

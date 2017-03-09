@@ -1,7 +1,7 @@
-package Controllers;
+package controllers;
 
-import Models.GameModel;
-import Views.GameView;
+import models.GameModel;
+import views.GameView;
 
 import java.awt.*;
 
