@@ -4,11 +4,10 @@ package models;
  * Created by Thaotonto on 3/9/2017.
  */
 public class GameModel {
-    protected int x;
-    protected int y;
+    protected float x;
+    protected float y;
     protected int width;
     protected int height;
-    protected int SPEED;
 
     public GameModel(int x, int y, int width, int height) {
         this.x = x;
@@ -17,11 +16,11 @@ public class GameModel {
         this.height = height;
     }
 
-    public int getX() {
+    public float getX() {
         return x;
     }
 
-    public int getY() {
+    public float getY() {
         return y;
     }
 
@@ -33,11 +32,11 @@ public class GameModel {
         return height;
     }
 
-    public void setX(int x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(float y) {
         this.y = y;
     }
 

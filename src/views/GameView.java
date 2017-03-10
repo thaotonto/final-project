@@ -15,6 +15,6 @@ public class GameView {
     }
 
     public void draw(Graphics2D graphics, GameModel model){
-        graphics.drawImage(image,model.getX(), model.getY(), model.getWidth(), model.getHeight(),null);
+        graphics.drawImage(image,(int) model.getX(),(int) model.getY(), model.getWidth(), model.getHeight(),null);
     }
 }

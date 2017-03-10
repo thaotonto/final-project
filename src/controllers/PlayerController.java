@@ -22,8 +22,8 @@ public class PlayerController extends GameController {
         super(model, view);
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
-                model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
-                model.getY() + model.getHeight() - 20,
+                (int)model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
+                (int)model.getY() + model.getHeight() - 20,
                 island.getWidth(null),
                 island.getHeight(null)),
                 new GameView(island));

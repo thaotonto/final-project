@@ -8,7 +8,7 @@ import gamemain.Game;
  */
 public class GameModelCanMove extends GameModel {
     protected MoveBehavior moveBehavior;
-    private static float speed = 5;
+    public float speed = 0.9F;
 
     public GameModelCanMove(int x, int y, int width, int height) {
         super(x, y, width, height);

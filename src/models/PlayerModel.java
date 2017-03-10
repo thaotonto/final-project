@@ -11,11 +11,13 @@ import java.util.BitSet;
 public class PlayerModel extends GameModelCanMove{
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
+    private final float SPEED = 1.5F;
 
     BitSet bitSet ;
     public PlayerModel(int x, int y, int width, int height, BitSet bitSet) {
         super(x, y, width, height);
         this.bitSet = bitSet;
+        this.speed = SPEED;
     }
 
     @Override
