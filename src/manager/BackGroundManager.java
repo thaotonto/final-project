@@ -14,7 +14,7 @@ import java.util.Vector;
 public class BackGroundManager {
     public static void addBackground(Vector<GameController> gameControllers){
         GameController controller = new GameController(new GameModel(0,0, Game.FRAME_WIDTH, Game.FRAME_HEIGHT),
-                new GameView(Utils.loadImageFromres("BG-1.png")));
+                new GameView(Utils.loadImageFromres("BG-0.png")));
         gameControllers.add(controller);
     }
 }
