@@ -14,20 +14,39 @@ import java.util.Vector;
 // Quản lí các đối tượng trong game
 public class GameManager {
     Vector<GameController> gameControllers;
+    Vector<GameController> backGrounds;
 
     public GameManager() {
         this.gameControllers = new Vector<>();
+        this.backGrounds = new Vector<>();
+
+        BackGroundManager.addBackground(backGrounds);
     }
 
     // Chạy run của tất cả cá đối tượng
     public void run(){
+        // chạy Background
+        for (GameController controller : backGrounds){
+            controller.run();
+        }
+
+        // Chạy các đối tượng khác
         for(GameController controller : gameControllers){
             controller.run();
         }
+
+        //xóa đối tượng đi ra ngoài màn
+        clearOutScreen();
     }
 
     // Vẽ các đối tượng
     public void draw(Graphics2D g){
+        // vẽ Background
+        for (GameController controller : backGrounds){
+            controller.draw(g);
+        }
+
+        // vẽ các đối tượng throng game
         for(GameController controller : gameControllers){
             controller.draw(g);
         }
