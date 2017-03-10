@@ -18,6 +18,7 @@ public class GameController {
     }
 
     public void run() {
+        model.run();
     }
 
     public void draw(Graphics2D graphics) {

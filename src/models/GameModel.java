@@ -40,4 +40,7 @@ public class GameModel {
     public void setY(int y) {
         this.y = y;
     }
+
+    public void run() {
+    }
 }

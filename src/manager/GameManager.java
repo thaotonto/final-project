@@ -4,6 +4,7 @@ import controllers.GameController;
 import gamemain.Game;
 
 import java.awt.*;
+import java.util.BitSet;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -13,15 +14,19 @@ import java.util.Vector;
 
 // Quản lí các đối tượng trong game
 public class GameManager {
+    BitSet bitSet1;
+    BitSet bitSet2;
     Vector<GameController> gameControllers;
     Vector<GameController> backGrounds;
 
-    public GameManager() {
+    public GameManager(BitSet bitSet1, BitSet bitSet2) {
         this.gameControllers = new Vector<>();
         this.backGrounds = new Vector<>();
+        this.bitSet1 =bitSet1;
+        this.bitSet2 =bitSet2;
 
         BackGroundManager.addBackground(backGrounds);
-        PlayerManger.addPlayer(gameControllers);
+        PlayerManger.addPlayer(gameControllers,bitSet1, bitSet2);
     }
 
     // Chạy run của tất cả cá đối tượng
