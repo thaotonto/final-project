@@ -1,3 +1,4 @@
+package gamemain;
 
 import javax.swing.*;
 import java.awt.*;
@@ -5,13 +6,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.util.BitSet;
 
 /**
  * Created by Thaotonto on 3/9/2017.
  */
 public class Game extends Frame {
+    public static final int FRAME_WIDTH = 1000;
+    public static final int FRAME_HEIGHT = 600;
 
     // Biến
     BitSet bitSet ; // Lưu lại các hành động khi chơi game
@@ -21,12 +23,12 @@ public class Game extends Frame {
         // Bỏ nút - , vuông , x góc trên bên phải của màn hình
         setUndecorated(true);
         // Set full màn hình
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        // Cho ra giữa màn
-        setLocationRelativeTo(null);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         setVisible(true);
-        setSize(1366, 768);
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        // Cho ra giữa màn
+        setLocationRelativeTo(null);
 
         // Thêm và khởi tạo các object abn đầu
         addObjectInit();

@@ -20,7 +20,15 @@ public class GameController {
     public void run() {
     }
 
-    public void draw(Graphics graphics) {
+    public void draw(Graphics2D graphics) {
         view.draw(graphics, model);
+    }
+
+    public GameModel getModel() {
+        return model;
+    }
+
+    public GameView getView() {
+        return view;
     }
 }
