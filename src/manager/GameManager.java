@@ -21,6 +21,7 @@ public class GameManager {
         this.backGrounds = new Vector<>();
 
         BackGroundManager.addBackground(backGrounds);
+        PlayerManger.addPlayer(gameControllers);
     }
 
     // Chạy run của tất cả cá đối tượng
@@ -57,11 +58,12 @@ public class GameManager {
         Iterator<GameController> iterator = gameControllers.iterator();
         while (iterator.hasNext()){
             GameController controller = iterator.next();
-            if(controller.getModel().getX()<(Game.FRAME_WIDTH-controller.getModel().getWidth())
+            if(controller.getModel().getX()<(0-controller.getModel().getWidth())
                     || controller.getModel().getX()>(Game.FRAME_WIDTH+controller.getModel().getWidth())
-                    || controller.getModel().getY()<(Game.FRAME_HEIGHT-controller.getModel().getHeight())
-                    ||controller.getModel().getY()>(Game.FRAME_HEIGHT+controller.getModel().getHeight())){
+                    || controller.getModel().getY()<(0-controller.getModel().getHeight())
+                    || controller.getModel().getY()>(Game.FRAME_HEIGHT+controller.getModel().getHeight())){
                 iterator.remove();
+                System.out.println("ok");
             }
         }
     }
