@@ -6,7 +6,7 @@ import gamemain.Game;
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
-public class GameModelCanMove extends GameModel {
+public class GameModelCanMove extends GameModel implements CanMove{
     protected MoveBehavior moveBehavior;
     public float speed = 0.9F;
 
@@ -52,6 +52,7 @@ public class GameModelCanMove extends GameModel {
 
     @Override
     public void run() {
+        move();
         if (moveBehavior != null) {
             moveBehavior.move(this);
         }
