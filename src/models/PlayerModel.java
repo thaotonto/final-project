@@ -31,11 +31,11 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
     // Nhận vào các phím
     private BitSet bitSet;
     // Đạn để shoot
-    private int numberOfBullet = 0;
-    private int numberOfBulletMax;
-    private int timeDelayShoot = 500;
-    private int timeCount = 0;
-    private Vector<GameController> bullet;
+    private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
+    private int numberOfBulletMax;  //Đạn max
+    private int timeDelayShoot = 500;   // Khoản cách của mỗi viên đạn (về time)
+    private int timeCount = 0;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
+    private Vector<GameController> bullet;  // Vector gameObject chung để add đạn
 
     public PlayerModel(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height);
@@ -105,16 +105,20 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
     @Override
     public void run() {
         super.run();
+        // set move (Nhận xem move bên nào)
         move();
+        //move
         if (moveBehavior != null) {
             moveBehavior.move(this);
         }
+        setMoveBehavior(null);
 
+        // set shoot (Nhận xem move bên nào)
         shoot();
         if (shootBehavior != null) {
             shootBehavior.shoot(this);
         }
-        setMoveBehavior(null);
+        // Nếu bắn đủ số đạn rồi thì không bắn nữa
         if (numberOfBullet >= numberOfBulletMax) {
             shootBehavior = null;
         }
@@ -128,10 +132,12 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
         this.moveBehavior = moveBehavior;
     }
 
+    // Khi đổi lại lượt
     private void resetShoot() {
         numberOfBullet = 0;
     }
 
+    // Set khi bắn
     @Override
     public void shoot() {
         if (bitSet.get(KeyEvent.VK_SPACE)) {
@@ -145,11 +151,15 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
 
     @Override
     public void shootNormal() {
+        // Tăng time kể từ lần bắn trước
         timeCount += Game.GAME_LOOP_TIME;
-        if (timeCount >= timeDelayShoot) {
+
+        if (timeCount >= timeDelayShoot) {      // Đủ time bắn
+            // set lại
             timeCount = 0;
+            // Tăng lượng đạn đã bắn
             numberOfBullet++;
-            System.out.println("ok");
+            // Bắn
             BulletController bulletController = new BulletController(this.getMidX(), this.getMidY());
             bullet.add(bulletController);
         }
