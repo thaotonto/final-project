@@ -66,6 +66,11 @@ public class Game extends Frame {
                     // Pause
                 } else if (e.getKeyCode() == KeyEvent.VK_C) {
                     // đổi turn
+                    if (turn == 1) {
+                        bitSet1.set(e.getKeyCode());
+                    } else if (turn == 2) {
+                        bitSet2.set(e.getKeyCode());
+                    }
                     turn = 3 - turn;
                 } else {
                     // Phím điều khiển khi chơi game

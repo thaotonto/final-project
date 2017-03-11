@@ -129,6 +129,10 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
         if (bitSet.get(KeyEvent.VK_SPACE)) {
             shootBehavior = new NormalShoot();
         }
+
+        if(bitSet.get(KeyEvent.VK_C)){
+            numberOfBullet =0;
+        }
     }
 
     @Override
