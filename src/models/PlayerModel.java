@@ -31,15 +31,17 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
     // Nhận vào các phím
     private BitSet bitSet;
     // Đạn để shoot
-    int numberOfBullet = 0;
+    private int numberOfBullet = 0;
     private int numberOfBulletMax;
+    private int timeDelayShoot = 500;
+    private int timeCount = 0;
     private Vector<GameController> bullet;
 
     public PlayerModel(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height);
         this.bitSet = bitSet;
         this.bullet = bullet;
-        this.numberOfBulletMax = 1;
+        this.numberOfBulletMax = 5;
         this.speed = SPEED;
     }
 
@@ -113,7 +115,9 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
             shootBehavior.shoot(this);
         }
         setMoveBehavior(null);
-        shootBehavior = null;
+        if (numberOfBullet >= numberOfBulletMax) {
+            shootBehavior = null;
+        }
     }
 
     public MoveBehavior getMoveBehavior() {
@@ -124,21 +128,28 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
         this.moveBehavior = moveBehavior;
     }
 
+    private void resetShoot() {
+        numberOfBullet = 0;
+    }
+
     @Override
     public void shoot() {
         if (bitSet.get(KeyEvent.VK_SPACE)) {
             shootBehavior = new NormalShoot();
         }
 
-        if(bitSet.get(KeyEvent.VK_C)){
-            numberOfBullet =0;
+        if (bitSet.get(KeyEvent.VK_C)) {
+            resetShoot();
         }
     }
 
     @Override
     public void shootNormal() {
-        if (numberOfBullet < numberOfBulletMax) {
+        timeCount += Game.GAME_LOOP_TIME;
+        if (timeCount >= timeDelayShoot) {
+            timeCount = 0;
             numberOfBullet++;
+            System.out.println("ok");
             BulletController bulletController = new BulletController(this.getMidX(), this.getMidY());
             bullet.add(bulletController);
         }
