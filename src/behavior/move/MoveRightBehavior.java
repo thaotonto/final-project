@@ -1,4 +1,4 @@
-package begavior.move;
+package behavior.move;
 
 import models.GameModel;
 import models.GameModelCanMove;

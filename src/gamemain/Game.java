@@ -62,7 +62,7 @@ public class Game extends Frame {
                 // Thoát game
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     System.exit(0);
-                } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     // Pause
                 } else if (e.getKeyCode() == KeyEvent.VK_C) {
                     // đổi turn

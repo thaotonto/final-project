@@ -1,7 +1,5 @@
 package controllers;
 
-import begavior.move.MoveBehavior;
-import gamemain.Game;
 import models.GameModel;
 import models.PlayerModel;
 import utils.Utils;
@@ -10,6 +8,7 @@ import views.PlayerView;
 
 import java.awt.*;
 import java.util.BitSet;
+import java.util.Vector;
 
 /**
  * Created by TrKaJv on 10-Mar-17.
@@ -29,8 +28,8 @@ public class PlayerController extends GameController {
                 new GameView(island));
     }
 
-    public PlayerController(int x, int y, BitSet bitSet, String iconPath) {
-        this(new PlayerModel(x, y, PlayerModel.DEFAULT_WIDTH, PlayerModel.DEFAULT_HEGHT, bitSet),
+    public PlayerController(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
+        this(new PlayerModel(x, y, PlayerModel.DEFAULT_WIDTH, PlayerModel.DEFAULT_HEGHT, bitSet, bullet),
                 new PlayerView(Utils.loadImageFromres(iconPath)));
     }
 

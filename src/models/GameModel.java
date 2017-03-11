@@ -40,6 +40,14 @@ public class GameModel {
         this.y = y;
     }
 
+    public int getMidX(){
+        return ((int)(x+width/2));
+    }
+
+    public int getMidY(){
+        return ((int)(y+height/2));
+    }
+
     public void run() {
     }
 }

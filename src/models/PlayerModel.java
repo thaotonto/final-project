@@ -1,29 +1,48 @@
 package models;
 
-import begavior.move.*;
+import behavior.move.*;
+import behavior.shoot.NormalShoot;
+import behavior.shoot.ShootBehavior;
+import controllers.BulletController;
+import controllers.GameController;
 import gamemain.Game;
 
 import java.awt.event.KeyEvent;
 import java.util.BitSet;
+import java.util.Vector;
 
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
-public class PlayerModel extends GameModel implements CanMove {
+public class PlayerModel extends GameModel implements GameModelCanMove , GameModelCanShoot{
+    // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
+
+    // Speed mặc địch
     private final float SPEED = 1.5F;
+    // Speed để có thể thay đổi từ bên ngoài
     private final float speed;
+
+    // Move
     private MoveBehavior moveBehavior;
+    // shoot
+    private ShootBehavior shootBehavior;
+    // Nhận vào các phím
+    private BitSet bitSet;
+    // Đạn để shoot
+    private int numberOfBullet;
+    private Vector<GameController> bullet;
 
-    BitSet bitSet;
-
-    public PlayerModel(int x, int y, int width, int height, BitSet bitSet) {
+    public PlayerModel(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height);
         this.bitSet = bitSet;
+        this.bullet = bullet;
+        this.numberOfBullet = 1;
         this.speed = SPEED;
     }
 
+    // Xác định move theo hướng nào
     @Override
     public void move() {
         if (bitSet.get(KeyEvent.VK_UP)) {
@@ -87,7 +106,13 @@ public class PlayerModel extends GameModel implements CanMove {
         if (moveBehavior != null) {
             moveBehavior.move(this);
         }
+
+        shoot();
+        if (shootBehavior != null) {
+            shootBehavior.shoot(this);
+        }
         setMoveBehavior(null);
+        shootBehavior = null;
     }
 
     public MoveBehavior getMoveBehavior() {
@@ -96,5 +121,26 @@ public class PlayerModel extends GameModel implements CanMove {
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
         this.moveBehavior = moveBehavior;
+    }
+
+    @Override
+    public void shoot() {
+        if(bitSet.get(KeyEvent.VK_SPACE)){
+            shootBehavior = new NormalShoot();
+        }
+    }
+
+    @Override
+    public void shootNormal() {
+        int numBull = 0;
+        if(numBull<numberOfBullet){
+            BulletController bulletController = new BulletController(this.getMidX(),this.getMidY());
+            bullet.add(bulletController);
+        }
+    }
+
+    @Override
+    public void shootSpecial() {
+
     }
 }

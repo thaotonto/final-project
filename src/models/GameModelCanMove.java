@@ -1,62 +1,19 @@
 package models;
 
-import begavior.move.MoveBehavior;
 import gamemain.Game;
 
 /**
- * Created by TrKaJv on 10-Mar-17.
+ * Created by TrKaJv on 11-Mar-17.
  */
-public class GameModelCanMove extends GameModel implements CanMove{
-    protected MoveBehavior moveBehavior;
-    public float speed = 0.9F;
+public interface GameModelCanMove {
+    public void move();
 
-    public GameModelCanMove(int x, int y, int width, int height) {
-        super(x, y, width, height);
-    }
+    public void moveUp();
 
-    public void move() {
+    public void moveDown() ;
 
-    }
+    public void moveLeft();
 
-    public void moveUp() {
-        if (y - speed > 0) {
-            y -= speed;
-        }
-    }
-
-    public void moveDown() {
-        if (y + speed < Game.FRAME_HEIGHT - this.getHeight()) {
-            y += speed;
-        }
-    }
-
-    public void moveLeft() {
-        if (x - speed > 0) {
-            x -= speed;
-        }
-    }
-
-    public void moveRight() {
-        if (x + speed < Game.FRAME_WIDTH - this.getWidth()) {
-            x += speed;
-        }
-    }
-
-    public MoveBehavior getMoveBehavior() {
-        return moveBehavior;
-    }
-
-    public void setMoveBehavior(MoveBehavior moveBehavior) {
-        this.moveBehavior = moveBehavior;
-    }
-
-    @Override
-    public void run() {
-        move();
-        if (moveBehavior != null) {
-            moveBehavior.move(this);
-        }
-    }
-
+    public void moveRight();
 
 }
