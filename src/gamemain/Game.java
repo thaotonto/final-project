@@ -2,6 +2,7 @@ package gamemain;
 
 import manager.GameManager;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -16,8 +17,8 @@ import java.util.BitSet;
 public class Game extends Frame {
 
     public static final int GAME_LOOP_TIME = 17;
-    public static final int FRAME_WIDTH = 1000;
-    public static final int FRAME_HEIGHT = 600;
+    public static final int FRAME_WIDTH = 1366  ;
+    public static final int FRAME_HEIGHT = 768;
 
     // Biến
     private int turn;
@@ -31,7 +32,7 @@ public class Game extends Frame {
         // Bỏ nút - , vuông , x góc trên bên phải của màn hình
         setUndecorated(true);
         // Set full màn hình
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         setVisible(true);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
