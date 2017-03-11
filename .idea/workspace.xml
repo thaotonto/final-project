@@ -2,50 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c10331e2-b799-4e33-b543-54e9f7ee4eb1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/behavior/shoot/NormalShoot.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/behavior/shoot/ShootBehavior.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/behavior/shoot/SpecialShoot.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveDownBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveDownLeftBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveDownRightBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveLeftBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveRightBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveUpBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveUpLeftBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/begavior/move/MoveUpRightBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/models/CanMove.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/models/CanShoot.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet1.png" afterPath="$PROJECT_DIR$/resources/bullet-1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet2.png" afterPath="$PROJECT_DIR$/resources/bullet-2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveDownBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveDownBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveDownLeftBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveDownLeftBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveDownRightBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveDownRightBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveLeftBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveLeftBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveRightBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveRightBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveUpBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveUpBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveUpLeftBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveUpLeftBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/begavior/move/MoveUpRightBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveUpRightBehavior.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/CanMove.java" afterPath="$PROJECT_DIR$/src/models/GameModelCanMove.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/CanShoot.java" afterPath="$PROJECT_DIR$/src/models/GameModelCanShoot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/Models/GameModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/Models/GameModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/controllers/BulletController.class" afterPath="$PROJECT_DIR$/out/production/final-project/controllers/BulletController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/controllers/PlayerController.class" afterPath="$PROJECT_DIR$/out/production/final-project/controllers/PlayerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/gamemain/Game$2.class" afterPath="$PROJECT_DIR$/out/production/final-project/gamemain/Game$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/manager/GameManager.class" afterPath="$PROJECT_DIR$/out/production/final-project/manager/GameManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/manager/PlayerManger.class" afterPath="$PROJECT_DIR$/out/production/final-project/manager/PlayerManger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/BulletModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/BulletModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/GameModelCanMove.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/GameModelCanMove.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/PlayerModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/PlayerModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/BulletController.java" afterPath="$PROJECT_DIR$/src/controllers/BulletController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/PlayerController.java" afterPath="$PROJECT_DIR$/src/controllers/PlayerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gamemain/Game.java" afterPath="$PROJECT_DIR$/src/gamemain/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/manager/GameManager.java" afterPath="$PROJECT_DIR$/src/manager/GameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/manager/PlayerManger.java" afterPath="$PROJECT_DIR$/src/manager/PlayerManger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/BulletModel.java" afterPath="$PROJECT_DIR$/src/models/BulletModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/GameModel.java" afterPath="$PROJECT_DIR$/src/models/GameModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/PlayerModel.java" afterPath="$PROJECT_DIR$/src/models/PlayerModel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -75,8 +31,8 @@
       <file leaf-file-name="PlayerModel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/PlayerModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="114" column="21" lean-forward="true" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+            <state relative-caret-position="237">
+              <caret line="129" column="31" lean-forward="false" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -718,7 +674,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1158,8 +1114,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/PlayerModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="114" column="21" lean-forward="true" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+        <state relative-caret-position="237">
+          <caret line="129" column="31" lean-forward="false" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

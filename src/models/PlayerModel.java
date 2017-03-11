@@ -14,7 +14,7 @@ import java.util.Vector;
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
-public class PlayerModel extends GameModel implements GameModelCanMove , GameModelCanShoot{
+public class PlayerModel extends GameModel implements GameModelCanMove, GameModelCanShoot {
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
@@ -31,14 +31,15 @@ public class PlayerModel extends GameModel implements GameModelCanMove , GameMod
     // Nhận vào các phím
     private BitSet bitSet;
     // Đạn để shoot
-    private int numberOfBullet;
+    int numberOfBullet = 0;
+    private int numberOfBulletMax;
     private Vector<GameController> bullet;
 
     public PlayerModel(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height);
         this.bitSet = bitSet;
         this.bullet = bullet;
-        this.numberOfBullet = 1;
+        this.numberOfBulletMax = 1;
         this.speed = SPEED;
     }
 
@@ -125,16 +126,16 @@ public class PlayerModel extends GameModel implements GameModelCanMove , GameMod
 
     @Override
     public void shoot() {
-        if(bitSet.get(KeyEvent.VK_SPACE)){
+        if (bitSet.get(KeyEvent.VK_SPACE)) {
             shootBehavior = new NormalShoot();
         }
     }
 
     @Override
     public void shootNormal() {
-        int numBull = 0;
-        if(numBull<numberOfBullet){
-            BulletController bulletController = new BulletController(this.getMidX(),this.getMidY());
+        if (numberOfBullet < numberOfBulletMax) {
+            numberOfBullet++;
+            BulletController bulletController = new BulletController(this.getMidX(), this.getMidY());
             bullet.add(bulletController);
         }
     }
