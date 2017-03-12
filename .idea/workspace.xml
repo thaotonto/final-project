@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c10331e2-b799-4e33-b543-54e9f7ee4eb1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/behavior/shoot/NormalShootLeft.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/PlayerController2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/PlayerModel2.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/behavior/shoot/NormalShoot.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/controllers/PlayerController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/final-project/models/PlayerModel.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/behavior/shoot/NormalShoot.java" afterPath="$PROJECT_DIR$/src/behavior/shoot/NormalShootRight.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/PlayerController.java" afterPath="$PROJECT_DIR$/src/controllers/PlayerController1.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/PlayerModel.java" afterPath="$PROJECT_DIR$/src/models/PlayerModel1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/behavior/move/MoveDownBehavior.class" afterPath="$PROJECT_DIR$/out/production/final-project/behavior/move/MoveDownBehavior.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/behavior/shoot/SpecialShoot.class" afterPath="$PROJECT_DIR$/out/production/final-project/behavior/shoot/SpecialShoot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/manager/BackGroundManager.class" afterPath="$PROJECT_DIR$/out/production/final-project/manager/BackGroundManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/manager/PlayerManger.class" afterPath="$PROJECT_DIR$/out/production/final-project/manager/PlayerManger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/BulletModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/BulletModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/GameModelCanMove.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/GameModelCanMove.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/GameModelCanShoot.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/GameModelCanShoot.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/behavior/move/MoveDownBehavior.java" afterPath="$PROJECT_DIR$/src/behavior/move/MoveDownBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/behavior/shoot/SpecialShoot.java" afterPath="$PROJECT_DIR$/src/behavior/shoot/SpecialShoot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/manager/BackGroundManager.java" afterPath="$PROJECT_DIR$/src/manager/BackGroundManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/manager/GameManager.java" afterPath="$PROJECT_DIR$/src/manager/GameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/manager/PlayerManger.java" afterPath="$PROJECT_DIR$/src/manager/PlayerManger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/BulletModel.java" afterPath="$PROJECT_DIR$/src/models/BulletModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/GameModelCanMove.java" afterPath="$PROJECT_DIR$/src/models/GameModelCanMove.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/GameModelCanShoot.java" afterPath="$PROJECT_DIR$/src/models/GameModelCanShoot.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +21,8 @@
       <file leaf-file-name="PlayerModel1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/PlayerModel1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+            <state relative-caret-position="1444">
+              <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,6 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -339,7 +316,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -613,14 +589,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22617246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22919819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -632,6 +607,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -650,9 +626,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="14" column="108" lean-forward="false" selection-start-line="14" selection-start-column="108" selection-end-line="14" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,9 +641,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -678,9 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -689,8 +657,7 @@
         <state relative-caret-position="170">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#397#398#0" expanded="false" />
+            <element signature="e#484#485#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -705,10 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#157#158#0" expanded="false" />
-            <element signature="e#185#186#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,9 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -736,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,34 +703,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/lol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/lol.java" />
     <entry file="file://$PROJECT_DIR$/src/models/GameModelCanShoot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/GameModelCanMoveAndShoot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/GameModelCanMoveAndShoot.java" />
     <entry file="file://$PROJECT_DIR$/src/models/GameModelCanMove.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -810,9 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="1136" column="0" lean-forward="false" selection-start-line="1136" selection-start-column="0" selection-end-line="1136" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -907,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,8 +996,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/PlayerModel1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="1444">
+          <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
