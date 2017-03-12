@@ -30,7 +30,7 @@ public class Game extends Frame {
 
     public Game() {
         // Bỏ nút - , vuông , x góc trên bên phải của màn hình
-        setUndecorated(true);
+//        setUndecorated(true);
         // Set full màn hình
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
