@@ -11,6 +11,7 @@ import java.awt.*;
 public class GameController {
     protected GameModel model;
     protected GameView view;
+    protected boolean active = true;
 
     public GameController(GameModel model, GameView view) {
         this.model = model;
@@ -35,5 +36,12 @@ public class GameController {
 
     public boolean checkContact(GameController other) {
         return model.checkContact(other.model);
+    }
+
+    public void onContact(GameController other) {
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

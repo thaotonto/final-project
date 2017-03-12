@@ -18,4 +18,5 @@ public class ObjectController extends GameController {
         this(new ObjectModel(x,y,ObjectModel.DEFAULT_WIDTH, ObjectModel.DEFAULT_HEIGHT),
                 new ObjectView(Utils.loadImageFromres("round.png")));
     }
+
 }

@@ -21,6 +21,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     private float x2 = x;
     private float y1 = x;
     private float y2 = x;
+    protected int damage=10;
 
     public BulletModel(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -131,5 +132,13 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
         this.moveBehavior = moveBehavior;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

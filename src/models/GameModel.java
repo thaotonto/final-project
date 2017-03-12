@@ -10,6 +10,7 @@ public class GameModel {
     protected float y;
     protected int width;
     protected int height;
+    protected int hp;
 
     public GameModel(int x, int y, int width, int height) {
         this.x = x;
@@ -57,5 +58,13 @@ public class GameModel {
         Rectangle obj1 = new Rectangle((int) x, (int) y, width, height);
         Rectangle obj2 = new Rectangle((int) otherGameModel.x, (int) otherGameModel.y, otherGameModel.width, otherGameModel.height);
         return (obj1.intersects(obj2));
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void getHit(int damage) {
+        this.hp -= damage;
     }
 }

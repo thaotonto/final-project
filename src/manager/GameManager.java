@@ -42,6 +42,8 @@ public class GameManager {
             gameControllers.get(i).run();
         }
 
+        checkCollide();
+
         //xóa đối tượng đi ra ngoài màn
         clearOutScreen();
     }
@@ -55,7 +57,8 @@ public class GameManager {
 
         // vẽ các đối tượng throng game
         for (int i = 0; i < gameControllers.size(); i++) {
-            gameControllers.get(i).draw(g);
+            if (gameControllers.get(i).isActive())
+                gameControllers.get(i).draw(g);
         }
     }
 
@@ -69,6 +72,20 @@ public class GameManager {
                     || controller.getModel().getY() < (0 - controller.getModel().getHeight())
                     || controller.getModel().getY() > (Game.FRAME_HEIGHT + controller.getModel().getHeight())) {
                 iterator.remove();
+            }
+        }
+    }
+
+    public void checkCollide() {
+        for (int i = 0; i < gameControllers.size() - 1; i++) {
+            for (int j = i + 1; j < gameControllers.size(); j++) {
+                GameController gi = gameControllers.get(i);
+                GameController gj = gameControllers.get(j);
+                if (gj.isActive() && gj.isActive())
+                    if (gi.checkContact(gj)) {
+                        gi.onContact(gj);
+                        gj.onContact(gi);
+                    }
             }
         }
     }

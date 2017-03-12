@@ -1,5 +1,6 @@
 package controllers;
 
+import models.BulletModel;
 import models.GameModel;
 import models.PlayerModel1;
 import models.PlayerModel2;
@@ -49,5 +50,13 @@ public class PlayerController2 extends GameController {
         // Vẽ đảo
         island.draw(graphics);
         super.draw(graphics);
+    }
+
+    public void onContact(GameController other) {
+        if (other instanceof BulletController) {
+            if (other.model instanceof BulletModel) {
+                model.getHit(((BulletModel) other.model).getDamage());
+            }
+        }
     }
 }

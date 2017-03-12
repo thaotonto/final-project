@@ -1,5 +1,6 @@
 package controllers;
 
+import models.BulletModel;
 import models.GameModel;
 import models.PlayerModel1;
 import models.PlayerModel2;
@@ -22,8 +23,8 @@ public class PlayerController1 extends GameController {
         super(model, view);
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
-                (int)model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
-                (int)model.getY() + model.getHeight() - 20,
+                (int) model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
+                (int) model.getY() + model.getHeight() - 20,
                 island.getWidth(null),
                 island.getHeight(null)),
                 new GameView(island));
@@ -49,5 +50,12 @@ public class PlayerController1 extends GameController {
         // Vẽ đảo
         island.draw(graphics);
         super.draw(graphics);
+    }
+
+    public void onContact(GameController other) {
+        if (other instanceof BulletController) {
+            if (other.model instanceof BulletModel)
+            model.getHit( ((BulletModel) other.model).getDamage() );
+        }
     }
 }

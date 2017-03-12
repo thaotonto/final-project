@@ -44,6 +44,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
         this.bullet = bullet;
         this.numberOfBulletMax = 5;
         this.speed = SPEED;
+        this.hp=100;
     }
 
     // Xác định move theo hướng nào
@@ -166,7 +167,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
             // Tăng lượng đạn đã bắn
             numberOfBullet++;
             // Bắn
-            BulletController bulletController = new BulletController(this.getMidX(), this.getMidY());
+            BulletController bulletController = new BulletController((int)this.getX() + DEFAULT_WIDTH + 5 , this.getMidY());
             ((BulletModel)bulletController.getModel()).setMoveBehavior(new MoveRightBehavior());
             bullet.add(bulletController);
         }
@@ -180,4 +181,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     public void shootSpecial() {
 
     }
+
+
+
 }
