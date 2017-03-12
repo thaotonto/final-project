@@ -19,7 +19,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
-
+    public static final float ANGLE_CHANGE = 0.1f;
     // Speed mặc địch
     private final float SPEED = 1.5F;
     // Speed để có thể thay đổi từ bên ngoài
@@ -32,6 +32,10 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Nhận vào các phím
     private BitSet bitSet;
     // Đạn để shoot
+
+    //góc bắn
+    private float angle;
+
     private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
     private int numberOfBulletMax;  //Đạn max
     private int timeDelayShoot = 200;   // Khoản cách của mỗi viên đạn (về time)
@@ -45,6 +49,15 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
         this.numberOfBulletMax = 5;
         this.speed = SPEED;
         this.hp=100;
+        angle = 0;
+    }
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public int getNumberOfBullet() {
+        return numberOfBullet;
     }
 
     // Xác định move theo hướng nào
@@ -147,6 +160,13 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Set khi bắn
     @Override
     public void shoot() {
+        if(bitSet.get(KeyEvent.VK_W)){
+            angle += ANGLE_CHANGE;
+        }
+        if(bitSet.get(KeyEvent.VK_S)){
+            angle -= ANGLE_CHANGE;
+        }
+
         if (bitSet.get(KeyEvent.VK_SPACE)) {
             shootBehavior = new NormalShootRight();
         }
@@ -167,7 +187,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
             // Tăng lượng đạn đã bắn
             numberOfBullet++;
             // Bắn
-            BulletController bulletController = new BulletController((int)this.getX() + DEFAULT_WIDTH + 5 , this.getMidY());
+            BulletController bulletController = new BulletController((int)this.getX() + DEFAULT_WIDTH + 5 , this.getMidY(),angle);
             ((BulletModel)bulletController.getModel()).setMoveBehavior(new MoveRightBehavior());
             bullet.add(bulletController);
         }

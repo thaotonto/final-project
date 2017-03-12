@@ -5,7 +5,6 @@ import models.PlayerModel1;
 import utils.Utils;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 /**

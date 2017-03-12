@@ -6,7 +6,7 @@ import models.PlayerModel1;
 import models.PlayerModel2;
 import utils.Utils;
 import views.GameView;
-import views.PlayerView;
+import views.PlayerView2;
 
 import java.awt.*;
 import java.util.BitSet;
@@ -19,7 +19,7 @@ public class PlayerController2 extends GameController {
     // Đảo nó đứng
     GameController island;
 
-    public PlayerController2(PlayerModel2 model, PlayerView view) {
+    public PlayerController2(PlayerModel2 model, PlayerView2 view) {
         super(model, view);
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
@@ -32,7 +32,7 @@ public class PlayerController2 extends GameController {
 
     public PlayerController2(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
         this(new PlayerModel2(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
-                new PlayerView(Utils.loadImageFromres(iconPath)));
+                new PlayerView2(Utils.loadImageFromres(iconPath)));
     }
 
     @Override

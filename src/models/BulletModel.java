@@ -22,10 +22,14 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     private float y1 = x;
     private float y2 = x;
     protected int damage=10;
+    private float speedX;
+    private float speedY;
+    private float angle;
 
-    public BulletModel(int x, int y, int width, int height) {
+    public BulletModel(int x, int y, int width, int height,float angle) {
         super(x, y, width, height);
         this.speed = SPEED;
+        this.angle = angle;
     }
 
     @Override
@@ -44,12 +48,46 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
     @Override
     public void moveLeft() {
-        x -= speed;
+       AngleChangeLeft();
+       x -= speedX;
+       y -= speedY;
     }
 
     @Override
     public void moveRight() {
-        x += speed;
+        AngleChangeRight();
+        x += speedX;
+        y += speedY;
+    }
+
+    public void AngleChangeLeft(){
+        System.out.println(angle);
+        if(angle > 0){
+            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
+            speedX = -(int) (speed*Math.cos(Math.toRadians(angle)));
+        }
+        else if(angle < 0){
+            speedX = -(int) (speed*Math.sin(Math.toRadians(90+angle)));
+            speedY = (int) (speed*Math.sin(-Math.toRadians(angle)));
+        } else if(angle == 0){
+            speedY = 0;
+            speedX = speed;
+        }
+    }
+
+    public void AngleChangeRight(){
+
+        if(angle > 0){
+            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
+            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
+        }
+        else if(angle < 0){
+            speedX = (int) (speed*Math.sin(Math.toRadians(90+angle)));
+            speedY = (int) (speed*Math.sin(-Math.toRadians(angle)));
+        } else if(angle == 0){
+            speedY = 0;
+            speedX = speed;
+        }
     }
 
     public void smartMove() {

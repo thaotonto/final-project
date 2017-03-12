@@ -1,7 +1,6 @@
 package controllers;
 
 import models.BulletModel;
-import models.PlayerModel1;
 import utils.Utils;
 import views.BulletView;
 
@@ -15,8 +14,8 @@ public class BulletController extends GameController {
         super(model, view);
     }
 
-    public BulletController (int x, int y){
-        this(new BulletModel(x,y,BulletModel.DEFAULT_WIDTH, BulletModel.DEFAULT_HEIGHT),
+    public BulletController (int x, int y,float angle){
+        this(new BulletModel(x,y,BulletModel.DEFAULT_WIDTH, BulletModel.DEFAULT_HEIGHT,angle),
                 new BulletView(Utils.loadImageFromres("bullet-1-0.png")));
     }
 

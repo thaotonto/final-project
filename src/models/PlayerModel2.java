@@ -32,6 +32,9 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
     // Nhận vào các phím
     private BitSet bitSet;
     // Đạn để shoot
+
+    //góc bắn
+    private float angle;
     private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
     private int numberOfBulletMax;  //Đạn max
     private int timeDelayShoot = 200;   // Khoản cách của mỗi viên đạn (về time)
@@ -45,6 +48,15 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
         this.numberOfBulletMax = 5;
         this.speed = SPEED;
         this.hp = 100;
+        angle = 0;
+    }
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public int getNumberOfBullet() {
+        return numberOfBullet;
     }
 
     // Xác định move theo hướng nào
@@ -171,7 +183,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
             // Tăng lượng đạn đã bắn
             numberOfBullet++;
             // Bắn
-            BulletController bulletController = new BulletController((int) this.getX() - DEFAULT_WIDTH - 5, this.getMidY());
+            BulletController bulletController = new BulletController((int) this.getX() - DEFAULT_WIDTH - 5, this.getMidY(),angle);
             ((BulletModel) bulletController.getModel()).setMoveBehavior(new MoveLeftBehavior());
             bullet.add(bulletController);
         }

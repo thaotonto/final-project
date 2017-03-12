@@ -3,10 +3,9 @@ package controllers;
 import models.BulletModel;
 import models.GameModel;
 import models.PlayerModel1;
-import models.PlayerModel2;
 import utils.Utils;
 import views.GameView;
-import views.PlayerView;
+import views.PlayerView1;
 
 import java.awt.*;
 import java.util.BitSet;
@@ -19,7 +18,7 @@ public class PlayerController1 extends GameController {
     // Đảo nó đứng
     GameController island;
 
-    public PlayerController1(PlayerModel1 model, PlayerView view) {
+    public PlayerController1(PlayerModel1 model, PlayerView1 view) {
         super(model, view);
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
@@ -32,7 +31,7 @@ public class PlayerController1 extends GameController {
 
     public PlayerController1(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
         this(new PlayerModel1(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
-                new PlayerView(Utils.loadImageFromres(iconPath)));
+                new PlayerView1(Utils.loadImageFromres(iconPath)));
     }
 
     @Override
