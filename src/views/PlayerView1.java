@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class PlayerView1 extends GameView {
     private String img = "angle.png";
+
     public PlayerView1(Image image) {
         super(image);
     }
@@ -19,18 +20,25 @@ public class PlayerView1 extends GameView {
     @Override
     public void draw(Graphics2D graphics, GameModel model) {
         super.draw(graphics, model);
-        if(model instanceof PlayerModel1){
-            if(((PlayerModel1) model).getNumberOfBullet() == 0){
-//                BufferedImage image = (BufferedImage) Utils.loadImageFromres(img);
-//                BufferedImage buffer = new BufferedImage(image.getWidth(null), image.getHeight(null), image.getType());
-//                Graphics2D rotateGraphics = (Graphics2D) buffer.getGraphics();
-//                rotateGraphics.translate(model.getX() + model.getWidth(), model.getMidY());
-//                rotateGraphics.rotate(((PlayerModel1) model).getAngle());
-//                rotateGraphics.drawImage(image, 0,0,50,10,null);
-//                graphics.drawImage(buffer, (int) (model.getX() + model.getWidth()), model.getMidY(),model.getWidth(),model.getHeight(),null);
-//                graphics.rotate(-((PlayerModel1) model).getAngle());
-//                graphics.translate(0, 0);
+        if (model instanceof PlayerModel1) {
+            BasicStroke basicStroke = new BasicStroke(5,BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL );
+            graphics.setStroke(basicStroke);
+            graphics.setColor(new Color(185, 61, 0));
+            int speed = 100;
+            int speedX = 0;
+            int speedY = 0;
+            if(((PlayerModel1) model).getAngle() > 0){
+                speedY = -(int) (speed*Math.sin(Math.toRadians(((PlayerModel1) model).getAngle())));
+                speedX = (int) (speed*Math.cos(Math.toRadians(((PlayerModel1) model).getAngle())));
             }
+            else if(((PlayerModel1) model).getAngle() < 0){
+                speedX = (int) (speed*Math.sin(Math.toRadians(90+((PlayerModel1) model).getAngle())));
+                speedY = (int) (speed*Math.sin(-Math.toRadians(((PlayerModel1) model).getAngle())));
+            } else if(((PlayerModel1) model).getAngle() == 0){
+                speedY = 0;
+                speedX = speed;
+            }
+            graphics.drawLine((int) (model.getX()+model.getWidth()), model.getMidY(), (int) (model.getX()+model.getWidth())+speedX, model.getMidY()+speedY);
         }
     }
 }

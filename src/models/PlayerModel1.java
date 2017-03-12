@@ -19,7 +19,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
-    public static final float ANGLE_CHANGE = 1f;
+    public static final float ANGLE_CHANGE = 2f;
     // Speed mặc địch
     private final float SPEED = 1.5F;
     // Speed để có thể thay đổi từ bên ngoài
@@ -52,7 +52,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
         this.bullet = bullet;
         this.numberOfBulletMax = 5;
         this.speed = SPEED;
-        this.hp=100;
+        this.hp = 100;
         angle = 0;
     }
 
@@ -164,11 +164,16 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Set khi bắn
     @Override
     public void shoot() {
-        if(bitSet.get(KeyEvent.VK_W)){
-            angle += ANGLE_CHANGE;
+        if (bitSet.get(KeyEvent.VK_W)) {
+            if (angle <= 70) {
+                angle += ANGLE_CHANGE;
+            }
+
         }
-        if(bitSet.get(KeyEvent.VK_S)){
-            angle -= ANGLE_CHANGE;
+        if (bitSet.get(KeyEvent.VK_S)) {
+            if (angle >= -70) {
+                angle -= ANGLE_CHANGE;
+            }
         }
 
         if (bitSet.get(KeyEvent.VK_SPACE)) {
@@ -191,8 +196,8 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
             // Tăng lượng đạn đã bắn
             numberOfBullet++;
             // Bắn
-            BulletController bulletController = new BulletController((int)this.getX() + DEFAULT_WIDTH + 5 , this.getMidY(),angle);
-            ((BulletModel)bulletController.getModel()).setMoveBehavior(new MoveRightBehavior());
+            BulletController bulletController = new BulletController((int) this.getX() + DEFAULT_WIDTH + 5, this.getMidY(), angle);
+            ((BulletModel) bulletController.getModel()).setMoveBehavior(new MoveRightBehavior());
             bullet.add(bulletController);
         }
     }
@@ -205,7 +210,6 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     public void shootSpecial() {
 
     }
-
 
 
 }
