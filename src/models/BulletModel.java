@@ -49,8 +49,8 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     @Override
     public void moveLeft() {
        AngleChangeLeft();
-       x -= speedX;
-       y -= speedY;
+       x += speedX;
+       y += speedY;
     }
 
     @Override
@@ -63,12 +63,12 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     public void AngleChangeLeft(){
         System.out.println(angle);
         if(angle > 0){
-            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
-            speedX = -(int) (speed*Math.cos(Math.toRadians(angle)));
+            speedY = -(int) (speed*Math.sin(-Math.toRadians(angle)));
+            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
         }
         else if(angle < 0){
-            speedX = -(int) (speed*Math.sin(Math.toRadians(90+angle)));
-            speedY = (int) (speed*Math.sin(-Math.toRadians(angle)));
+            speedX = (int) (speed*Math.sin(Math.toRadians(90+angle)));
+            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
         } else if(angle == 0){
             speedY = 0;
             speedX = speed;

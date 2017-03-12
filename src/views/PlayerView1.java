@@ -21,19 +21,24 @@ public class PlayerView1 extends GameView {
     public void draw(Graphics2D graphics, GameModel model) {
         super.draw(graphics, model);
         if (model instanceof PlayerModel1) {
-            int speed = 10;
+            BasicStroke basicStroke = new BasicStroke(5,BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL );
+            graphics.setStroke(basicStroke);
+            graphics.setColor(new Color(185, 61, 0));
+            int speed = 100;
             int speedX = 0;
             int speedY = 0;
-            if (((PlayerModel1) model).getNumberOfBullet() == 0) {
-                if (((PlayerModel1) model).getAngle() > 0) {
-                    speedY = -(int) (speed * Math.sin(-Math.toRadians(((PlayerModel1) model).getNumberOfBullet())));
-                    speedX = (int) (speed * Math.cos(Math.toRadians(((PlayerModel1) model).getNumberOfBullet())));
-                } else if (((PlayerModel1) model).getAngle() < 0) {
-                    speedX = (int) (speed * Math.sin(Math.toRadians(90 + ((PlayerModel1) model).getNumberOfBullet())));
-                    speedY = -(int) (speed * Math.sin(Math.toRadians(((PlayerModel1) model).getNumberOfBullet())));
-                }
+            if(((PlayerModel1) model).getAngle() > 0){
+                speedY = -(int) (speed*Math.sin(Math.toRadians(((PlayerModel1) model).getAngle())));
+                speedX = (int) (speed*Math.cos(Math.toRadians(((PlayerModel1) model).getAngle())));
             }
-            graphics.drawLine(model.getMidX(), model.getMidY(), speedX, speedY);
+            else if(((PlayerModel1) model).getAngle() < 0){
+                speedX = (int) (speed*Math.sin(Math.toRadians(90+((PlayerModel1) model).getAngle())));
+                speedY = (int) (speed*Math.sin(-Math.toRadians(((PlayerModel1) model).getAngle())));
+            } else if(((PlayerModel1) model).getAngle() == 0){
+                speedY = 0;
+                speedX = speed;
+            }
+            graphics.drawLine(model.getMidX(), model.getMidY(), model.getMidX()+speedX, model.getMidY()+speedY);
         }
     }
 }
