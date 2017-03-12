@@ -1,7 +1,8 @@
 package models;
 
 import behavior.move.*;
-import behavior.shoot.NormalShoot;
+import behavior.shoot.NormalShootLeft;
+import behavior.shoot.NormalShootRight;
 import behavior.shoot.ShootBehavior;
 import controllers.BulletController;
 import controllers.GameController;
@@ -14,7 +15,7 @@ import java.util.Vector;
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
-public class PlayerModel extends GameModel implements GameModelCanMove, GameModelCanShoot {
+public class PlayerModel2 extends GameModel implements GameModelCanMove, GameModelCanShoot {
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
@@ -37,7 +38,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
     private int timeCount = 0;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
     private Vector<GameController> bullet;  // Vector gameObject chung để add đạn
 
-    public PlayerModel(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
+    public PlayerModel2(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height);
         this.bitSet = bitSet;
         this.bullet = bullet;
@@ -54,28 +55,28 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
         if (bitSet.get(KeyEvent.VK_DOWN)) {
             setMoveBehavior(new MoveDownBehavior());
         }
-        if (bitSet.get(KeyEvent.VK_LEFT)) {
-            setMoveBehavior(new MoveLeftBehavior());
-        }
-        if (bitSet.get(KeyEvent.VK_RIGHT)) {
-            setMoveBehavior(new MoveRightBehavior());
-        }
+//        if (bitSet.get(KeyEvent.VK_LEFT)) {
+//            setMoveBehavior(new MoveLeftBehavior());
+//        }
+//        if (bitSet.get(KeyEvent.VK_RIGHT)) {
+//            setMoveBehavior(new MoveRightBehavior());
+//        }
 
 
-        if (bitSet.get(KeyEvent.VK_UP) && bitSet.get(KeyEvent.VK_RIGHT)) {
-            setMoveBehavior(new MoveUpRightBehavior());
-        }
-        if (bitSet.get(KeyEvent.VK_UP) && bitSet.get(KeyEvent.VK_LEFT)) {
-            setMoveBehavior(new MoveUpLeftBehavior());
-        }
-
-        if (bitSet.get(KeyEvent.VK_DOWN) && bitSet.get(KeyEvent.VK_LEFT)) {
-            setMoveBehavior(new MoveDownLeftBehavior());
-        }
-
-        if (bitSet.get(KeyEvent.VK_DOWN) && bitSet.get(KeyEvent.VK_RIGHT)) {
-            setMoveBehavior(new MoveDownRightBehavior());
-        }
+//        if (bitSet.get(KeyEvent.VK_UP) && bitSet.get(KeyEvent.VK_RIGHT)) {
+//            setMoveBehavior(new MoveUpRightBehavior());
+//        }
+//        if (bitSet.get(KeyEvent.VK_UP) && bitSet.get(KeyEvent.VK_LEFT)) {
+//            setMoveBehavior(new MoveUpLeftBehavior());
+//        }
+//
+//        if (bitSet.get(KeyEvent.VK_DOWN) && bitSet.get(KeyEvent.VK_LEFT)) {
+//            setMoveBehavior(new MoveDownLeftBehavior());
+//        }
+//
+//        if (bitSet.get(KeyEvent.VK_DOWN) && bitSet.get(KeyEvent.VK_RIGHT)) {
+//            setMoveBehavior(new MoveDownRightBehavior());
+//        }
     }
 
     public void moveUp() {
@@ -100,6 +101,11 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
         if (x + speed < Game.FRAME_WIDTH - this.getWidth()) {
             x += speed;
         }
+    }
+
+    @Override
+    public void smartMove() {
+
     }
 
     @Override
@@ -141,7 +147,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
     @Override
     public void shoot() {
         if (bitSet.get(KeyEvent.VK_SPACE)) {
-            shootBehavior = new NormalShoot();
+            shootBehavior = new NormalShootLeft();
         }
 
         if (bitSet.get(KeyEvent.VK_C)) {
@@ -150,7 +156,11 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
     }
 
     @Override
-    public void shootNormal() {
+    public void shootNormalRight() {
+    }
+
+    @Override
+    public void shootNormalLeft() {
         // Tăng time kể từ lần bắn trước
         timeCount += Game.GAME_LOOP_TIME;
 
@@ -161,6 +171,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
             numberOfBullet++;
             // Bắn
             BulletController bulletController = new BulletController(this.getMidX(), this.getMidY());
+            ((BulletModel)bulletController.getModel()).setMoveBehavior(new MoveLeftBehavior());
             bullet.add(bulletController);
         }
     }

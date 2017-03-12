@@ -5,6 +5,7 @@ package models;
  */
 public interface GameModelCanShoot {
     public void shoot();
-    public void shootNormal();
+    public void shootNormalRight();
+    public void shootNormalLeft();
     public void shootSpecial();
 }

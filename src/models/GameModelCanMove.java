@@ -16,4 +16,6 @@ public interface GameModelCanMove {
 
     public void moveRight();
 
+    public void smartMove();
+
 }

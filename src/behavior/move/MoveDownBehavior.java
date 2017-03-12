@@ -1,7 +1,8 @@
 package behavior.move;
 
 import models.GameModel;
-import models.PlayerModel;
+import models.GameModelCanMove;
+import models.PlayerModel1;
 
 /**
  * Created by TrKaJv on 10-Mar-17.
@@ -9,8 +10,8 @@ import models.PlayerModel;
 public class MoveDownBehavior extends MoveBehavior {
     @Override
     public void move(GameModel model) {
-        if (model instanceof PlayerModel) {
-            ((PlayerModel)model).moveDown();
+        if (model instanceof GameModelCanMove) {
+            ((GameModelCanMove)model).moveDown();
         }
     }
 }

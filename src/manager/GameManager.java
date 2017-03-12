@@ -36,10 +36,10 @@ public class GameManager {
             controller.run();
         }
 
-            // Chạy các đối tượng khác
-            for (int i =0;i<gameControllers.size(); i++) {
-                gameControllers.get(i).run();
-            }
+        // Chạy các đối tượng khác
+        for (int i = 0; i < gameControllers.size(); i++) {
+            gameControllers.get(i).run();
+        }
 
         //xóa đối tượng đi ra ngoài màn
         clearOutScreen();
@@ -53,7 +53,7 @@ public class GameManager {
         }
 
         // vẽ các đối tượng throng game
-        for (int i =0;i<gameControllers.size(); i++) {
+        for (int i = 0; i < gameControllers.size(); i++) {
             gameControllers.get(i).draw(g);
         }
     }

@@ -1,13 +1,11 @@
 package manager;
 
 import controllers.GameController;
-import controllers.PlayerController;
 import gamemain.Game;
 import models.GameModel;
 import utils.Utils;
 import views.GameView;
 
-import java.awt.*;
 import java.util.Vector;
 
 /**
