@@ -26,6 +26,7 @@ public class GameManager {
         this.bitSet2 = bitSet2;
 
         BackGroundManager.addBackground(backGrounds);
+        ObjectManager.addObject(gameControllers);
         PlayerManger.addPlayer(gameControllers, bitSet1, bitSet2);
     }
 

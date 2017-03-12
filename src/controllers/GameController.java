@@ -32,4 +32,8 @@ public class GameController {
     public GameView getView() {
         return view;
     }
+
+    public boolean checkContact(GameController other) {
+        return model.checkContact(other.model);
+    }
 }
