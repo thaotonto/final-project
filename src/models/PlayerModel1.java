@@ -35,8 +35,9 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
 
     //góc bắn
     private float angle;
+    private static boolean canMove = true;
 
-    private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
+    private static int numberOfBullet = 0; //Đếm lượng đạn đã shoot
     private int numberOfBulletMax;  //Đạn max
     private int timeDelayShoot = 200;   // Khoản cách của mỗi viên đạn (về time)
     private int timeCount = 0;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
@@ -153,7 +154,8 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     }
 
     // Khi đổi lại lượt
-    private void resetShoot() {
+    public static void resetShoot() {
+        canMove = true;
         numberOfBullet = 0;
     }
 
@@ -172,7 +174,8 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
             }
         }
 
-        if (bitSet.get(KeyEvent.VK_SPACE)) {
+        if (bitSet.get(KeyEvent.VK_SPACE )) {
+            canMove = false;
             shootBehavior = new NormalShootRight();
         }
 

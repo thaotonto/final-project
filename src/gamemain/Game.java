@@ -21,7 +21,7 @@ public class Game extends Frame {
     public static final int FRAME_HEIGHT = 600;
 
     // Biến
-    private int turn;
+    public static int turn;
     Thread loop;
     private BitSet bitSet1; // Lưu lại các hành động khi chơi game
     private BitSet bitSet2;
@@ -80,6 +80,7 @@ public class Game extends Frame {
                         bitSet2.set(e.getKeyCode());
                     }
                 }
+//                System.out.println(turn);
             }
 
             @Override
@@ -98,7 +99,7 @@ public class Game extends Frame {
         turn = 1;
         bitSet1 = new BitSet(256);  // Khởi tạo bitset
         bitSet2 = new BitSet(256);  // Khởi tạo bitset
-        gameManager = new GameManager(bitSet1, bitSet2);   //Khởi tạo gameManager
+        gameManager = new GameManager(bitSet1, bitSet2, turn);   //Khởi tạo gameManager
         backImage = new BufferedImage(FRAME_WIDTH, FRAME_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 
         loop = new Thread(new Runnable() {

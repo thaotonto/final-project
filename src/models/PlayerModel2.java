@@ -35,7 +35,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
 
     //góc bắn
     private float angle;
-    private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
+    private static int numberOfBullet = 0; //Đếm lượng đạn đã shoot
     private int numberOfBulletMax;  //Đạn max
     private int timeDelayShoot = 200;   // Khoản cách của mỗi viên đạn (về time)
     private int timeCount = 0;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
@@ -152,7 +152,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
     }
 
     // Khi đổi lại lượt
-    private void resetShoot() {
+    public static void resetShoot() {
         numberOfBullet = 0;
     }
 
