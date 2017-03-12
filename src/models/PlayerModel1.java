@@ -19,7 +19,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
-    public static final float ANGLE_CHANGE = 2f;
+    public static final float ANGLE_CHANGE = 3f;
     // Speed mặc địch
     private final float SPEED = 1.5F;
     // Speed để có thể thay đổi từ bên ngoài
@@ -31,6 +31,10 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     private ShootBehavior shootBehavior;
     // Nhận vào các phím
     private BitSet bitSet;
+
+    public BitSet getBitSet() {
+        return bitSet;
+    }
     // Đạn để shoot
 
     //góc bắn

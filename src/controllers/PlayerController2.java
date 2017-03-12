@@ -5,10 +5,12 @@ import models.GameModel;
 import models.PlayerModel1;
 import models.PlayerModel2;
 import utils.Utils;
+import views.CharacterView;
 import views.GameView;
 import views.PlayerView2;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.BitSet;
 import java.util.Vector;
 
@@ -18,6 +20,11 @@ import java.util.Vector;
 public class PlayerController2 extends GameController {
     // Đảo nó đứng
     GameController island;
+    private boolean checkShoot = false;
+
+    public PlayerController2(GameModel model, CharacterView view) {
+        super(model, view);
+    }
 
     public PlayerController2(PlayerModel2 model, PlayerView2 view) {
         super(model, view);
@@ -29,16 +36,30 @@ public class PlayerController2 extends GameController {
                 island.getHeight(null)),
                 new GameView(island));
     }
-
     public PlayerController2(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
         this(new PlayerModel2(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
-                new PlayerView2(Utils.loadImageFromres(iconPath)));
+                new CharacterView(Utils.loadImageFromres(iconPath)));
+        Image island = Utils.loadImageFromres("BG-1-3.png");
+        this.island = new GameController(new GameModel(
+                (int)model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
+                (int)model.getY() + model.getHeight() - 20,
+                island.getWidth(null),
+                island.getHeight(null)),
+                new GameView(island));
     }
 
     @Override
     public void run() {
         if (model instanceof PlayerModel2) {
             ((PlayerModel2) model).run();
+        }
+        if(((PlayerModel2)model).getBitSet().get(KeyEvent.VK_SPACE)){
+            checkShoot = true;
+        }
+        if(checkShoot){
+            if(!((CharacterView)view).explodeStartShot(2)){
+                checkShoot = false;
+            }
         }
         // Set vị trí đảo theo vị trí nó
         island.getModel().setX(model.getX() + (model.getWidth() - island.getModel().getWidth()) / 2);
