@@ -11,12 +11,22 @@ public class GameModel {
     protected int width;
     protected int height;
     protected int hp;
+    protected boolean isAlive;
 
     public GameModel(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        isAlive = true;
+    }
+
+    public void Death(){
+        isAlive = false;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 
     public float getX() {
@@ -66,5 +76,8 @@ public class GameModel {
 
     public void getHit(int damage) {
         this.hp -= damage;
+        if(hp < 0){
+            this.Death();
+        }
     }
 }

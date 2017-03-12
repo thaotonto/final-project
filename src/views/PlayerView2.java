@@ -37,7 +37,7 @@ public class PlayerView2 extends GameView {
                 speedY = 0;
                 speedX = speed;
             }
-            graphics.drawLine(model.getMidX(), model.getMidY(), model.getMidX()+speedX, model.getMidY()+speedY);
+            graphics.drawLine((int) model.getX(), model.getMidY(), (int) (model.getX()+speedX), model.getMidY()+speedY);
         }
     }
 }
