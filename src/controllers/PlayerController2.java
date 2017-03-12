@@ -53,7 +53,7 @@ public class PlayerController2 extends GameController {
         if (model instanceof PlayerModel2) {
             ((PlayerModel2) model).run();
         }
-        if(((PlayerModel2)model).getBitSet().get(KeyEvent.VK_SPACE)){
+        if(((PlayerModel2)model).getBitSet().get(KeyEvent.VK_NUMPAD0)){
             checkShoot = true;
         }
         if(checkShoot){
