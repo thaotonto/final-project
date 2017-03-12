@@ -48,33 +48,16 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
     @Override
     public void moveLeft() {
-        AngleChangeLeft();
-        x += speedX;
-        y += speedY;
     }
 
     @Override
     public void moveRight() {
-        AngleChangeRight();
+        angleChangeRight();
         x += speedX;
         y += speedY;
     }
 
-    public void AngleChangeLeft(){
-        if(angle > 0){
-            speedY = -(int) (speed*Math.sin(-Math.toRadians(angle)));
-            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
-        }
-        else if(angle < 0){
-            speedX = (int) (speed*Math.sin(Math.toRadians(90+angle)));
-            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
-        } else if(angle == 0){
-            speedY = 0;
-            speedX = speed;
-        }
-    }
-
-    public void AngleChangeRight(){
+    public void angleChangeRight(){
 
         if(angle > 0){
             speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
@@ -172,9 +155,6 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
     }
 
-    public MoveBehavior getMoveBehavior() {
-        return moveBehavior;
-    }
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
         this.moveBehavior = moveBehavior;
@@ -184,7 +164,4 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
 }

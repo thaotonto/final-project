@@ -152,7 +152,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove {
             // Tăng lượng đạn đã bắn
             // Bắn
             BulletController1 bulletController1 = new BulletController1((int) this.getX() + DEFAULT_WIDTH + 5, this.getMidY(), angle);
-            ((BulletModel1) bulletController1.getModel()).setMoveBehavior(new MoveRightBehavior());
+            ((BulletModel1) bulletController1.getModel()).setMoveBehavior(new MoveLeftHeroBehavior());
             bullet.add(bulletController1);
         }
     }

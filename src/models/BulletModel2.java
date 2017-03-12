@@ -55,9 +55,6 @@ public class BulletModel2 extends GameModel implements GameModelCanMove {
 
     @Override
     public void moveRight() {
-        AngleChangeRight();
-        x += speedX;
-        y += speedY;
     }
 
     public void AngleChangeLeft(){
@@ -73,22 +70,6 @@ public class BulletModel2 extends GameModel implements GameModelCanMove {
             speedX = speed;
         }
     }
-
-    public void AngleChangeRight(){
-
-        if(angle > 0){
-            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
-            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
-        }
-        else if(angle < 0){
-            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
-            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
-        } else if(angle == 0){
-            speedY = 0;
-            speedX = speed;
-        }
-    }
-
 
     public void smartMove() {
         // Đập cạnh bên phải

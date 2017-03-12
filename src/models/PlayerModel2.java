@@ -2,7 +2,6 @@ package models;
 
 import behavior.move.*;
 import behavior.shoot.ShootBehavior;
-import controllers.BulletController1;
 import controllers.BulletController2;
 import controllers.GameController;
 import gamemain.Game;
@@ -150,7 +149,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove {
             timeCount = 0;
             // Bắn
             BulletController2 bulletController2 = new BulletController2((int) this.getX() - DEFAULT_WIDTH - 5, this.getMidY(), angle);
-            ((BulletModel2) bulletController2.getModel()).setMoveBehavior(new MoveLeftBehavior());
+            ((BulletModel2) bulletController2.getModel()).setMoveBehavior(new MoveRightHeroBehavior());
             bullet.add(bulletController2);
         }
     }
