@@ -17,7 +17,7 @@ import java.util.BitSet;
 public class Game extends Frame {
 
     public static final int GAME_LOOP_TIME = 17;
-    public static final int FRAME_WIDTH = 1000  ;
+    public static final int FRAME_WIDTH = 1200  ;
     public static final int FRAME_HEIGHT = 600;
 
     // Biến
