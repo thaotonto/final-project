@@ -34,7 +34,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     // Đạn để shoot
     private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
     private int numberOfBulletMax;  //Đạn max
-    private int timeDelayShoot = 500;   // Khoản cách của mỗi viên đạn (về time)
+    private int timeDelayShoot = 200;   // Khoản cách của mỗi viên đạn (về time)
     private int timeCount = 0;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
     private Vector<GameController> bullet;  // Vector gameObject chung để add đạn
 
