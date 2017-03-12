@@ -1,5 +1,7 @@
 package models;
 
+import java.awt.*;
+
 /**
  * Created by Thaotonto on 3/9/2017.
  */
@@ -40,14 +42,20 @@ public class GameModel {
         this.y = y;
     }
 
-    public int getMidX(){
-        return ((int)(x+width/2));
+    public int getMidX() {
+        return ((int) (x + width / 2));
     }
 
-    public int getMidY(){
-        return ((int)(y+height/2));
+    public int getMidY() {
+        return ((int) (y + height / 2));
     }
 
     public void run() {
+    }
+
+    public boolean checkContact(GameModel otherGameModel) {
+        Rectangle obj1 = new Rectangle((int) x, (int) y, width, height);
+        Rectangle obj2 = new Rectangle((int) otherGameModel.x, (int) otherGameModel.y, otherGameModel.width, otherGameModel.height);
+        return (obj1.intersects(obj2));
     }
 }
