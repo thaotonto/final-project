@@ -1,6 +1,6 @@
 package controllers;
 
-import models.BulletModel;
+import models.BulletModel1;
 import models.GameModel;
 import models.PlayerModel1;
 import models.PlayerModel2;
@@ -74,9 +74,9 @@ public class PlayerController2 extends GameController {
     }
 
     public void onContact(GameController other) {
-        if (other instanceof BulletController) {
-            if (other.model instanceof BulletModel) {
-                model.getHit(((BulletModel) other.model).getDamage());
+        if (other instanceof BulletController1) {
+            if (other.model instanceof BulletModel1) {
+                model.getHit(((BulletModel1) other.model).getDamage());
             }
         }
     }

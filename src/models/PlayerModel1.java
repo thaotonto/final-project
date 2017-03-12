@@ -2,7 +2,7 @@ package models;
 
 import behavior.move.*;
 import behavior.shoot.ShootBehavior;
-import controllers.BulletController;
+import controllers.BulletController1;
 import controllers.GameController;
 import gamemain.Game;
 
@@ -137,23 +137,23 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove {
             }
         }
 
-        if (bitSet.get(KeyEvent.VK_SPACE )) {
+        timeCount += Game.GAME_LOOP_TIME;
+        if (bitSet.get(KeyEvent.VK_SPACE)) {
             shootNormal();
         }
     }
 
     public void shootNormal() {
         // Tăng time kể từ lần bắn trước
-        timeCount += Game.GAME_LOOP_TIME;
 
         if (timeCount >= timeDelayShoot) {      // Đủ time bắn
             // set lại
             timeCount = 0;
             // Tăng lượng đạn đã bắn
             // Bắn
-            BulletController bulletController = new BulletController((int) this.getX() + DEFAULT_WIDTH + 5, this.getMidY(), angle);
-            ((BulletModel) bulletController.getModel()).setMoveBehavior(new MoveRightBehavior());
-            bullet.add(bulletController);
+            BulletController1 bulletController1 = new BulletController1((int) this.getX() + DEFAULT_WIDTH + 5, this.getMidY(), angle);
+            ((BulletModel1) bulletController1.getModel()).setMoveBehavior(new MoveRightBehavior());
+            bullet.add(bulletController1);
         }
     }
 }

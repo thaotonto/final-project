@@ -6,7 +6,7 @@ import gamemain.Game;
 /**
  * Created by TrKaJv on 11-Mar-17.
  */
-public class BulletModel extends GameModel implements GameModelCanMove {
+public class BulletModel1 extends GameModel implements GameModelCanMove {
     // Kích thước mặc định
     public static final int DEFAULT_WIDTH = 30;
     public static final int DEFAULT_HEIGHT = 30;
@@ -19,14 +19,14 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
     private float x1 = x;
     private float x2 = x;
-    private float y1 = x;
-    private float y2 = x;
+    private float y1 = y;
+    private float y2 = y;
     protected int damage=10;
     private float speedX;
     private float speedY;
     private float angle;
 
-    public BulletModel(int x, int y, int width, int height,float angle) {
+    public BulletModel1(int x, int y, int width, int height, float angle) {
         super(x, y, width, height);
         this.speed = SPEED;
         this.angle = angle;
@@ -48,9 +48,9 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
     @Override
     public void moveLeft() {
-       AngleChangeLeft();
-       x += speedX;
-       y += speedY;
+        AngleChangeLeft();
+        x += speedX;
+        y += speedY;
     }
 
     @Override
@@ -61,7 +61,6 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     }
 
     public void AngleChangeLeft(){
-        System.out.println(angle);
         if(angle > 0){
             speedY = -(int) (speed*Math.sin(-Math.toRadians(angle)));
             speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
@@ -82,72 +81,80 @@ public class BulletModel extends GameModel implements GameModelCanMove {
             speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
         }
         else if(angle < 0){
-            speedX = (int) (speed*Math.sin(Math.toRadians(90+angle)));
-            speedY = (int) (speed*Math.sin(-Math.toRadians(angle)));
+            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
+            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
         } else if(angle == 0){
             speedY = 0;
             speedX = speed;
         }
     }
 
-    public void smartMove() {
-//        time_live += GameWindow.TIME_GAME_LOOP;
-//        if (time_live >= TIM_LIVE_MAX) {
-//            isAlive = false;
-//        }
 
+    public void smartMove() {
         // Đập cạnh bên phải
         if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
-            moveLeft();
+            System.out.println("phải");
+//            moveLeft();
+            speedX=-speedX;
+            x+=speedX;
             if (y2 < y1) {
-                moveDown();
+//                moveDown();
+                y+=speedY;
+
             } else {
-                moveUp();
+//                moveUp();
+                y+=speedY;
             }
             // Đập cạnh bên trái
         } else if ((x + (x1 - x2)) < 0) {
-            moveRight();
+            System.out.println("trái");
+            speedX=-speedX;
+            x+=speedX;
             if (y2 < y1) {
-                moveDown();
+//                moveDown();
+                y+=speedY;
             } else {
-                moveUp();
+//                moveUp();
+                y+=speedY;
             }
             // Đập cạnh dưới
-        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT - DEFAULT_HEIGHT - 100)) {
-            moveUp();
-//            moveLeft();
+        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT )) {
+            System.out.println("dưới");
+//            moveUp();
+            speedY = -speedY;
+            y+=speedY;
             if (x2 < x1) {
-                moveRight();
+                x+=speedX;
             } else {
-                moveLeft();
+                x+=speedX;
             }
             // Đập cạnh trên
-        } else if ((y + (y1 - y2)) < 70) {
-            moveDown();
+        } else if ((y + (y1 - y2)) < 0) {
+            System.out.println("trên");
+            speedY = -speedY;
+            y+=speedY;
             if (x2 < x1) {
-                moveRight();
+                x+=speedX;
             } else {
-                moveLeft();
+                x+=speedX;
             }
         } else {
+            System.out.println("========tiếp");
             // Đang di chuyển sang trái
             if (x2 > x1) {
-                moveLeft();
+                x+=speedX;
             } else if (x2 == x1) {
-//                if (init == 0) {
-//                    moveLeft();
-//                } else {
-//                    moveRight();
-//                }
-                moveBehavior.move(this);
-            } else {
+                System.out.println("ok");
+
                 moveRight();
+            } else {
+                x+=speedX;
             }
             // Đang di chuyển xuống dưới
             if (y2 > y1) {
-                moveUp();
+                y+=speedY;
             } else {
-                moveDown();
+                y+=speedY;
             }
         }
 
@@ -156,6 +163,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
         x1 = x;
         y2 = y1;
         y1 = y;
+
     }
 
     @Override

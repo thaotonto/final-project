@@ -1,6 +1,7 @@
 package controllers;
 
-import models.BulletModel;
+import models.BulletModel1;
+import models.BulletModel2;
 import utils.Utils;
 import views.BulletView;
 
@@ -8,14 +9,14 @@ import views.BulletView;
 /**
  * Created by TrKaJv on 11-Mar-17.
  */
-public class BulletController extends GameController {
+public class BulletController2 extends GameController {
 
-    public BulletController(BulletModel model, BulletView view) {
+    public BulletController2(BulletModel2 model, BulletView view) {
         super(model, view);
     }
 
-    public BulletController (int x, int y,float angle){
-        this(new BulletModel(x,y,BulletModel.DEFAULT_WIDTH, BulletModel.DEFAULT_HEIGHT,angle),
+    public BulletController2(int x, int y, float angle){
+        this(new BulletModel2(x,y, BulletModel1.DEFAULT_WIDTH, BulletModel1.DEFAULT_HEIGHT,angle),
                 new BulletView(Utils.loadImageFromres("bullet-1-0.png")));
     }
 

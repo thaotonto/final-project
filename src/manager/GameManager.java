@@ -1,10 +1,8 @@
 package manager;
 
-import controllers.BulletController;
+import controllers.BulletController1;
 import controllers.GameController;
 import gamemain.Game;
-import models.PlayerModel1;
-import models.PlayerModel2;
 
 import java.awt.*;
 import java.util.BitSet;
@@ -53,7 +51,7 @@ public class GameManager {
 
     public boolean changeTurn() {
         for (int i = 0; i < gameControllers.size(); i++) {
-            if (gameControllers.get(i) instanceof BulletController) {
+            if (gameControllers.get(i) instanceof BulletController1) {
                 return false;
             }
         }

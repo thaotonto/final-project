@@ -10,7 +10,7 @@ public class MoveRightBehavior extends MoveBehavior {
     @Override
     public void move(GameModel model) {
         if (model instanceof GameModelCanMove) {
-            ((GameModelCanMove)model).moveRight();
+            ((GameModelCanMove)model).smartMove();
         }
     }
 }
