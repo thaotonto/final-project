@@ -17,11 +17,10 @@ import java.util.BitSet;
 public class Game extends Frame {
 
     public static final int GAME_LOOP_TIME = 17;
-    public static final int FRAME_WIDTH = 1200  ;
+    public static final int FRAME_WIDTH = 1200;
     public static final int FRAME_HEIGHT = 600;
 
     // Biến
-    public static int turn;
     Thread loop;
     private BitSet bitSet1; // Lưu lại các hành động khi chơi game
     private BitSet bitSet2;
@@ -64,19 +63,19 @@ public class Game extends Frame {
                     System.exit(0);
                 } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     // Pause
-                } else if (e.getKeyCode() == KeyEvent.VK_C) {
-                    // đổi turn
-                    if (turn == 1) {
-                        bitSet1.set(e.getKeyCode());
-                    } else if (turn == 2) {
-                        bitSet2.set(e.getKeyCode());
-                    }
-                    turn = 3 - turn;
                 } else {
                     // Phím điều khiển khi chơi game
-                    if (turn == 1) {
+                    if (e.getKeyCode() == KeyEvent.VK_W
+                            || e.getKeyCode() == KeyEvent.VK_S
+                            || e.getKeyCode() == KeyEvent.VK_A
+                            || e.getKeyCode() == KeyEvent.VK_D
+                            || e.getKeyCode() == KeyEvent.VK_SPACE) {
                         bitSet1.set(e.getKeyCode());
-                    } else if (turn == 2) {
+                    } else if (e.getKeyCode() == KeyEvent.VK_UP
+                            || e.getKeyCode() == KeyEvent.VK_DOWN
+                            || e.getKeyCode() == KeyEvent.VK_LEFT
+                            || e.getKeyCode() == KeyEvent.VK_RIGHT
+                            || e.getKeyCode() == KeyEvent.VK_NUMPAD0) {
                         bitSet2.set(e.getKeyCode());
                     }
                 }
@@ -85,21 +84,17 @@ public class Game extends Frame {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if (turn == 1) {
                     bitSet1.clear(e.getKeyCode());
-                } else if (turn == 2) {
                     bitSet2.clear(e.getKeyCode());
-                }
             }
         });
     }
 
     // Khởi tạo các đối tượng ban đầu
     private void addObjectInit() {
-        turn = 1;
         bitSet1 = new BitSet(256);  // Khởi tạo bitset
         bitSet2 = new BitSet(256);  // Khởi tạo bitset
-        gameManager = new GameManager(bitSet1, bitSet2, turn);   //Khởi tạo gameManager
+        gameManager = new GameManager(bitSet1, bitSet2);   //Khởi tạo gameManager
         backImage = new BufferedImage(FRAME_WIDTH, FRAME_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 
         loop = new Thread(new Runnable() {

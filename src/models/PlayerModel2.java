@@ -1,8 +1,6 @@
 package models;
 
 import behavior.move.*;
-import behavior.shoot.NormalShootLeft;
-import behavior.shoot.NormalShootRight;
 import behavior.shoot.ShootBehavior;
 import controllers.BulletController;
 import controllers.GameController;
@@ -15,7 +13,7 @@ import java.util.Vector;
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
-public class PlayerModel2 extends GameModel implements GameModelCanMove, GameModelCanShoot {
+public class PlayerModel2 extends GameModel implements GameModelCanMove {
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
@@ -39,17 +37,14 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
 
     //góc bắn
     private float angle;
-    private static int numberOfBullet = 0; //Đếm lượng đạn đã shoot
-    private int numberOfBulletMax;  //Đạn max
     private int timeDelayShoot = 200;   // Khoản cách của mỗi viên đạn (về time)
-    private int timeCount = 0;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
+    private int timeCount = timeDelayShoot;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
     private Vector<GameController> bullet;  // Vector gameObject chung để add đạn
 
     public PlayerModel2(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height);
         this.bitSet = bitSet;
         this.bullet = bullet;
-        this.numberOfBulletMax = 5;
         this.speed = SPEED;
         this.hp = 100;
         angle = 180;
@@ -57,10 +52,6 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
 
     public float getAngle() {
         return angle;
-    }
-
-    public int getNumberOfBullet() {
-        return numberOfBullet;
     }
 
     // Xác định move theo hướng nào
@@ -72,28 +63,6 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
         if (bitSet.get(KeyEvent.VK_DOWN)) {
             setMoveBehavior(new MoveDownBehavior());
         }
-//        if (bitSet.get(KeyEvent.VK_LEFT)) {
-//            setMoveBehavior(new MoveLeftBehavior());
-//        }
-//        if (bitSet.get(KeyEvent.VK_RIGHT)) {
-//            setMoveBehavior(new MoveRightBehavior());
-//        }
-
-
-//        if (bitSet.get(KeyEvent.VK_UP) && bitSet.get(KeyEvent.VK_RIGHT)) {
-//            setMoveBehavior(new MoveUpRightBehavior());
-//        }
-//        if (bitSet.get(KeyEvent.VK_UP) && bitSet.get(KeyEvent.VK_LEFT)) {
-//            setMoveBehavior(new MoveUpLeftBehavior());
-//        }
-//
-//        if (bitSet.get(KeyEvent.VK_DOWN) && bitSet.get(KeyEvent.VK_LEFT)) {
-//            setMoveBehavior(new MoveDownLeftBehavior());
-//        }
-//
-//        if (bitSet.get(KeyEvent.VK_DOWN) && bitSet.get(KeyEvent.VK_RIGHT)) {
-//            setMoveBehavior(new MoveDownRightBehavior());
-//        }
     }
 
     public void moveUp() {
@@ -139,9 +108,6 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
         // set shoot (Nhận xem move bên nào)
         shoot();
         // Nếu bắn đủ số đạn rồi thì không bắn nữa
-        if (numberOfBullet >= numberOfBulletMax) {
-            shootBehavior = null;
-        }
         if (shootBehavior != null) {
             shootBehavior.shoot(this);
         }
@@ -155,58 +121,37 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
         this.moveBehavior = moveBehavior;
     }
 
-    // Khi đổi lại lượt
-    public static void resetShoot() {
-        numberOfBullet = 0;
-    }
-
     // Set khi bắn
-    @Override
     public void shoot() {
-        if (bitSet.get(KeyEvent.VK_W)) {
+        if (bitSet.get(KeyEvent.VK_LEFT)) {
             if (angle <= 240) {
                 angle += ANGLE_CHANGE;
             }
 
         }
-        if (bitSet.get(KeyEvent.VK_S)) {
+        if (bitSet.get(KeyEvent.VK_RIGHT)) {
             if (angle >= 110) {
                 angle -= ANGLE_CHANGE;
             }
         }
 
-        if (bitSet.get(KeyEvent.VK_SPACE)) {
-            shootBehavior = new NormalShootLeft();
-        }
-
-        if (bitSet.get(KeyEvent.VK_C)) {
-            resetShoot();
+        if (bitSet.get(KeyEvent.VK_NUMPAD0)) {
+            shootNormal();
         }
     }
 
-    @Override
-    public void shootNormalRight() {
-    }
-
-    @Override
-    public void shootNormalLeft() {
+    public void shootNormal() {
         // Tăng time kể từ lần bắn trước
         timeCount += Game.GAME_LOOP_TIME;
 
         if (timeCount >= timeDelayShoot) {      // Đủ time bắn
             // set lại
             timeCount = 0;
-            // Tăng lượng đạn đã bắn
-            numberOfBullet++;
             // Bắn
-            BulletController bulletController = new BulletController((int) this.getX() - DEFAULT_WIDTH - 5, this.getMidY(),angle);
+            BulletController bulletController = new BulletController((int) this.getX() - DEFAULT_WIDTH - 5, this.getMidY(), angle);
             ((BulletModel) bulletController.getModel()).setMoveBehavior(new MoveLeftBehavior());
             bullet.add(bulletController);
         }
     }
 
-    @Override
-    public void shootSpecial() {
-
-    }
 }

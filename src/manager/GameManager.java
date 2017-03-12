@@ -17,13 +17,12 @@ import java.util.Vector;
 
 // Quản lí các đối tượng trong game
 public class GameManager {
-    boolean check = false;
     BitSet bitSet1;
     BitSet bitSet2;
     Vector<GameController> gameControllers;
     Vector<GameController> backGrounds;
 
-    public GameManager(BitSet bitSet1, BitSet bitSet2, int turn) {
+    public GameManager(BitSet bitSet1, BitSet bitSet2) {
         this.gameControllers = new Vector<>();
         this.backGrounds = new Vector<>();
         this.bitSet1 = bitSet1;
@@ -50,25 +49,11 @@ public class GameManager {
 
         //xóa đối tượng đi ra ngoài màn
         clearOutScreen();
-
-        if (changeTurn() == true && check == true) {
-            check = false;
-            Game.turn = 3 - Game.turn;
-            if(Game.turn ==1){
-                PlayerModel1.resetShoot();
-            }else {
-                PlayerModel2.resetShoot();
-            }
-            bitSet1.clear();
-            bitSet2.clear();
-        }
-        System.out.println(Game.turn);
     }
 
     public boolean changeTurn() {
         for (int i = 0; i < gameControllers.size(); i++) {
             if (gameControllers.get(i) instanceof BulletController) {
-                check = true;
                 return false;
             }
         }

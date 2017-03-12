@@ -10,7 +10,7 @@ public class NormalShootRight extends ShootBehavior{
     @Override
     public void shoot(GameModel model) {
         if(model instanceof PlayerModel1){
-            ((PlayerModel1) model).shootNormalRight();
+            ((PlayerModel1) model).shootNormal();
         }
     }
 }
