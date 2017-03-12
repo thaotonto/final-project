@@ -115,12 +115,12 @@ public class PlayerModel extends GameModel implements GameModelCanMove, GameMode
 
         // set shoot (Nhận xem move bên nào)
         shoot();
-        if (shootBehavior != null) {
-            shootBehavior.shoot(this);
-        }
         // Nếu bắn đủ số đạn rồi thì không bắn nữa
         if (numberOfBullet >= numberOfBulletMax) {
             shootBehavior = null;
+        }
+        if (shootBehavior != null) {
+            shootBehavior.shoot(this);
         }
     }
 
