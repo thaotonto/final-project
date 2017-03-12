@@ -166,7 +166,7 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
             // Tăng lượng đạn đã bắn
             numberOfBullet++;
             // Bắn
-            BulletController bulletController = new BulletController(this.getMidX(), this.getMidY());
+            BulletController bulletController = new BulletController((int)this.getX()+DEFAULT_WIDTH+5, this.getMidY());
             ((BulletModel)bulletController.getModel()).setMoveBehavior(new MoveRightBehavior());
             bullet.add(bulletController);
         }
