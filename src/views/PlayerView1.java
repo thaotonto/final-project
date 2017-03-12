@@ -21,15 +21,15 @@ public class PlayerView1 extends GameView {
         super.draw(graphics, model);
         if(model instanceof PlayerModel1){
             if(((PlayerModel1) model).getNumberOfBullet() == 0){
-                BufferedImage image = (BufferedImage) Utils.loadImageFromres(img);
-                BufferedImage buffer = new BufferedImage(image.getWidth(null), image.getHeight(null), image.getType());
-                Graphics2D rotateGraphics = (Graphics2D) buffer.getGraphics();
+//                BufferedImage image = (BufferedImage) Utils.loadImageFromres(img);
+//                BufferedImage buffer = new BufferedImage(image.getWidth(null), image.getHeight(null), image.getType());
+//                Graphics2D rotateGraphics = (Graphics2D) buffer.getGraphics();
 //                rotateGraphics.translate(model.getX() + model.getWidth(), model.getMidY());
-                rotateGraphics.rotate(((PlayerModel1) model).getAngle());
-                rotateGraphics.drawImage(image, 0,0,50,10,null);
-                graphics.drawImage(buffer, (int) (model.getX() + model.getWidth()), model.getMidY(),model.getWidth(),model.getHeight(),null);
+//                rotateGraphics.rotate(((PlayerModel1) model).getAngle());
+//                rotateGraphics.drawImage(image, 0,0,50,10,null);
+//                graphics.drawImage(buffer, (int) (model.getX() + model.getWidth()), model.getMidY(),model.getWidth(),model.getHeight(),null);
 //                graphics.rotate(-((PlayerModel1) model).getAngle());
-                graphics.translate(0, 0);
+//                graphics.translate(0, 0);
             }
         }
     }

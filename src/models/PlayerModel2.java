@@ -19,7 +19,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
-
+    public static final float ANGLE_CHANGE = 1f;
     // Speed mặc địch
     private final float SPEED = 1.5F;
     // Speed để có thể thay đổi từ bên ngoài
@@ -48,7 +48,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
         this.numberOfBulletMax = 5;
         this.speed = SPEED;
         this.hp = 100;
-        angle = 0;
+        angle = 180;
     }
 
     public float getAngle() {
@@ -159,6 +159,13 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
     // Set khi bắn
     @Override
     public void shoot() {
+        if(bitSet.get(KeyEvent.VK_W)){
+            angle += ANGLE_CHANGE;
+        }
+        if(bitSet.get(KeyEvent.VK_S)){
+            angle -= ANGLE_CHANGE;
+        }
+
         if (bitSet.get(KeyEvent.VK_SPACE)) {
             shootBehavior = new NormalShootLeft();
         }
