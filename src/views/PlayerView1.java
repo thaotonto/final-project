@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class PlayerView1 extends GameView {
     private String img = "angle.png";
+
     public PlayerView1(Image image) {
         super(image);
     }
@@ -19,18 +20,20 @@ public class PlayerView1 extends GameView {
     @Override
     public void draw(Graphics2D graphics, GameModel model) {
         super.draw(graphics, model);
-        if(model instanceof PlayerModel1){
-            if(((PlayerModel1) model).getNumberOfBullet() == 0){
-                BufferedImage image = (BufferedImage) Utils.loadImageFromres(img);
-                BufferedImage buffer = new BufferedImage(image.getWidth(null), image.getHeight(null), image.getType());
-                Graphics2D rotateGraphics = (Graphics2D) buffer.getGraphics();
-//                rotateGraphics.translate(model.getX() + model.getWidth(), model.getMidY());
-                rotateGraphics.rotate(((PlayerModel1) model).getAngle());
-                rotateGraphics.drawImage(image, 0,0,50,10,null);
-                graphics.drawImage(buffer, (int) (model.getX() + model.getWidth()), model.getMidY(),model.getWidth(),model.getHeight(),null);
-//                graphics.rotate(-((PlayerModel1) model).getAngle());
-                graphics.translate(0, 0);
+        if (model instanceof PlayerModel1) {
+            int speed = 10;
+            int speedX = 0;
+            int speedY = 0;
+            if (((PlayerModel1) model).getNumberOfBullet() == 0) {
+                if (((PlayerModel1) model).getAngle() > 0) {
+                    speedY = -(int) (speed * Math.sin(-Math.toRadians(((PlayerModel1) model).getNumberOfBullet())));
+                    speedX = (int) (speed * Math.cos(Math.toRadians(((PlayerModel1) model).getNumberOfBullet())));
+                } else if (((PlayerModel1) model).getAngle() < 0) {
+                    speedX = (int) (speed * Math.sin(Math.toRadians(90 + ((PlayerModel1) model).getNumberOfBullet())));
+                    speedY = -(int) (speed * Math.sin(Math.toRadians(((PlayerModel1) model).getNumberOfBullet())));
+                }
             }
+            graphics.drawLine(model.getMidX(), model.getMidY(), speedX, speedY);
         }
     }
 }
