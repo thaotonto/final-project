@@ -1,0 +1,100 @@
+package views;
+
+import java.awt.*;
+
+/**
+ * Created by TrKaJv on 10-Mar-17.
+ */
+public class CharacterView extends GameView {
+
+    private Animation explosionStartShot;
+    private Animation explosionStartShot2;
+    private Animation explosionShot;
+    private Animation explosionShot2;
+    private Animation explosionGetHit;
+    private Animation explosionGetHit2;
+    private Animation explosionDie;
+    private Animation explosionDie2;
+    public CharacterView(Image image) {
+        super(image);
+        explosionStartShot = new Animation(10, 100, "ninja-left/ninja-");
+        explosionStartShot2 = new Animation(10, 100, "ninja-right/ninja-");
+        explosionShot = new Animation(10, 100, "ninja-left/ninja-shot");
+        explosionShot2 = new Animation(10, 100, "ninja-right/ninja-shot");
+        explosionGetHit =  new Animation(10, 100, "ninja-left/ninja-hit");
+        explosionGetHit2 =  new Animation(10, 100, "ninja-right/ninja-hit");
+        explosionDie  =  new Animation(10, 100, "ninja-left/ninja-die");
+        explosionDie2  =  new Animation(10, 100, "ninja-right/ninja-die");
+    }
+    public boolean explodeStartShot(int i) {
+        if(i==1){
+            Image temp = explosionStartShot.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        } else if(i==2){
+            Image temp = explosionStartShot2.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public boolean explodeShot(int i) {
+       // explosion = new Animation(11, 1000, "ninja-left/ninja-shot");
+        if(i==1){
+            Image temp = explosionShot.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        } else if(i==2){
+            Image temp = explosionShot2.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public boolean explodeGetHit(int i) {
+      //  explosion = new Animation(11, 1000, "ninja-left/ninja-hit");
+        if(i==1){
+            Image temp = explosionGetHit.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        } else if(i==2){
+            Image temp = explosionGetHit2.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public boolean explodeDie(int i) {
+        //  explosion = new Animation(11, 1000, "ninja-left/ninja-hit");
+        if(i==1){
+            Image temp = explosionDie.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        } else if(i==2){
+            Image temp = explosionDie2.getImage();
+            if (temp != null) {
+                image = temp;
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

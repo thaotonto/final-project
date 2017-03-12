@@ -31,6 +31,10 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove, GameMod
     private ShootBehavior shootBehavior;
     // Nhận vào các phím
     private BitSet bitSet;
+
+    public BitSet getBitSet() {
+        return bitSet;
+    }
     // Đạn để shoot
 
     //góc bắn

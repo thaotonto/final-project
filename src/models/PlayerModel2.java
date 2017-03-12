@@ -33,6 +33,10 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove, GameMod
     private BitSet bitSet;
     // Đạn để shoot
 
+    public BitSet getBitSet() {
+        return bitSet;
+    }
+
     //góc bắn
     private float angle;
     private int numberOfBullet = 0; //Đếm lượng đạn đã shoot
