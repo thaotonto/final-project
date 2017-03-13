@@ -1,6 +1,7 @@
 package controllers;
 
 import models.BulletModel1;
+import models.BulletModel2;
 import utils.Utils;
 import views.BulletView;
 
@@ -22,7 +23,7 @@ public class BulletController1 extends GameController {
     public void onContact(GameController other) {
         if (other instanceof PlayerController1 || other instanceof PlayerController2) {
            active = false;
-           other.getModel().getHit(1000);
+           other.getModel().getHit(((BulletModel1)model).getDamage());
         }
 
         if(other instanceof ObjectController){

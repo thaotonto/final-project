@@ -83,6 +83,10 @@ public class GameManager {
                     || controller.getModel().getY() > (Game.FRAME_HEIGHT + controller.getModel().getHeight())) {
                 iterator.remove();
             }
+
+            if(!controller.getModel().isAlive()){
+                iterator.remove();
+            }
         }
     }
 
