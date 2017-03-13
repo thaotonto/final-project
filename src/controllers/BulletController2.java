@@ -22,8 +22,7 @@ public class BulletController2 extends GameController {
 
     public void onContact(GameController other) {
         if (other instanceof PlayerController1 || other instanceof PlayerController2) {
-            active = false;
-            other.getModel().getHit(((BulletModel2) model).getDamage());
+            model.setAlive(false);
         }
 
         if (other instanceof ObjectController) {

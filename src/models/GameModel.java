@@ -77,4 +77,8 @@ public class GameModel {
             isAlive = false;
         }
     }
+
+    public int getHp() {
+        return hp;
+    }
 }
