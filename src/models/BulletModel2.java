@@ -61,12 +61,12 @@ public class BulletModel2 extends GameModel implements GameModelCanMove {
 
     public void AngleChangeLeft(){
         if(angle > 0){
-            speedY = -(int) (speed*Math.sin(-Math.toRadians(angle)));
-            speedX = (int) (speed*Math.cos(Math.toRadians(angle)));
+            speedY = -(float) (speed*Math.sin(-Math.toRadians(angle)));
+            speedX = (float) (speed*Math.cos(Math.toRadians(angle)));
         }
         else if(angle < 0){
-            speedX = (int) (speed*Math.sin(Math.toRadians(90+angle)));
-            speedY = -(int) (speed*Math.sin(Math.toRadians(angle)));
+            speedX = (float) (speed*Math.sin(Math.toRadians(90+angle)));
+            speedY = -(float) (speed*Math.sin(Math.toRadians(angle)));
         } else if(angle == 0){
             speedY = 0;
             speedX = speed;
