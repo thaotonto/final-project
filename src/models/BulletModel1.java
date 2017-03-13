@@ -3,6 +3,8 @@ package models;
 import behavior.move.MoveBehavior;
 import gamemain.Game;
 
+import java.awt.*;
+
 /**
  * Created by TrKaJv on 11-Mar-17.
  */
@@ -76,7 +78,7 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
     public void smartMove() {
         // Đập cạnh bên phải
         if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
-            System.out.println("phải");
+//            System.out.println("phải");
 //            moveLeft();
             speedX=-speedX;
             x+=speedX;
@@ -90,7 +92,7 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
             }
             // Đập cạnh bên trái
         } else if ((x + (x1 - x2)) < 0) {
-            System.out.println("trái");
+//            System.out.println("trái");
             speedX=-speedX;
             x+=speedX;
             if (y2 < y1) {
@@ -102,7 +104,7 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
             }
             // Đập cạnh dưới
         } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT )) {
-            System.out.println("dưới");
+//            System.out.println("dưới");
 //            moveUp();
             speedY = -speedY;
             y+=speedY;
@@ -113,7 +115,7 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
             }
             // Đập cạnh trên
         } else if ((y + (y1 - y2)) < 0) {
-            System.out.println("trên");
+//            System.out.println("trên");
             speedY = -speedY;
             y+=speedY;
             if (x2 < x1) {
@@ -122,13 +124,11 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
                 x+=speedX;
             }
         } else {
-            System.out.println("========tiếp");
+//            System.out.println("========tiếp");
             // Đang di chuyển sang trái
             if (x2 > x1) {
                 x+=speedX;
             } else if (x2 == x1) {
-                System.out.println("ok");
-
                 moveRight();
             } else {
                 x+=speedX;
@@ -155,6 +155,10 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
     }
 
+    @Override
+    public Rectangle getRect() {
+        return (new Rectangle((int)x+5, (int)y+5, width-10, height-10));
+    }
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
         this.moveBehavior = moveBehavior;

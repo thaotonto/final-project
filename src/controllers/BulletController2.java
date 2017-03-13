@@ -15,19 +15,19 @@ public class BulletController2 extends GameController {
         super(model, view);
     }
 
-    public BulletController2(int x, int y, float angle){
-        this(new BulletModel2(x,y, BulletModel1.DEFAULT_WIDTH, BulletModel1.DEFAULT_HEIGHT,angle),
+    public BulletController2(int x, int y, float angle) {
+        this(new BulletModel2(x, y, BulletModel1.DEFAULT_WIDTH, BulletModel1.DEFAULT_HEIGHT, angle),
                 new BulletView(Utils.loadImageFromres("bullet-1-0.png")));
     }
 
     public void onContact(GameController other) {
         if (other instanceof PlayerController1 || other instanceof PlayerController2) {
-           active = false;
-           other.getModel().getHit(1000);
+            active = false;
+            other.getModel().getHit(((BulletModel2) model).getDamage());
         }
 
-        if(other instanceof ObjectController){
-
+        if (other instanceof ObjectController) {
+            model.setAlive(false);
         }
     }
 }

@@ -95,7 +95,7 @@ public class GameManager {
             for (int j = i + 1; j < gameControllers.size(); j++) {
                 GameController gi = gameControllers.get(i);
                 GameController gj = gameControllers.get(j);
-                if (gj.isActive() && gj.isActive())
+//                if (gj.isActive() && gj.isActive())
                     if (gi.checkContact(gj)) {
                         gi.onContact(gj);
                         gj.onContact(gi);

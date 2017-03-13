@@ -1,5 +1,7 @@
 package models;
 
+import utils.Utils;
+
 import java.awt.*;
 
 /**
@@ -24,6 +26,10 @@ public class GameModel {
 
     public boolean isAlive() {
         return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 
     public float getX() {
@@ -61,19 +67,13 @@ public class GameModel {
     public void run() {
     }
 
-    public boolean checkContact(GameModel otherGameModel) {
-        Rectangle obj1 = new Rectangle((int) x, (int) y, width, height);
-        Rectangle obj2 = new Rectangle((int) otherGameModel.x, (int) otherGameModel.y, otherGameModel.width, otherGameModel.height);
-        return (obj1.intersects(obj2));
-    }
-
-    public int getHp() {
-        return hp;
+    public Rectangle getRect() {
+        return (new Rectangle((int) x, (int) y, width, height));
     }
 
     public void getHit(int damage) {
         this.hp -= damage;
-        if(hp < 0){
+        if (hp <= 0) {
             isAlive = false;
         }
     }
