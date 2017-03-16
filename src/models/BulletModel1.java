@@ -145,13 +145,9 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
         }
     }
     public void caculateSpeedOnContact(){
-        speedX = 5;
-        speedY = 5;
         float[] speedXY = Utils.findSpeed(objContact, x1, y1, x2, y2);
         speedX = speedXY[0];
         speedY = speedXY[1];
-        System.out.println(speedX);
-        System.out.println(speedY);
     }
 
     @Override

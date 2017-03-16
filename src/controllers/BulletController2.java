@@ -2,6 +2,7 @@ package controllers;
 
 import models.BulletModel1;
 import models.BulletModel2;
+import models.ObjectModel;
 import utils.Utils;
 import views.BulletView;
 
@@ -26,7 +27,8 @@ public class BulletController2 extends GameController {
         }
 
         if (other instanceof ObjectController) {
-            model.setAlive(false);
+            ((BulletModel2)model).setContact(true);
+            ((BulletModel2)model).setObjContact((ObjectModel) other.getModel());
         }
     }
 }
