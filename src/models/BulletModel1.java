@@ -2,6 +2,7 @@ package models;
 
 import behavior.move.MoveBehavior;
 import gamemain.Game;
+import utils.Utils;
 
 import java.awt.*;
 
@@ -28,6 +29,8 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
     private float speedY;
     private float angle;
     private boolean contact;
+
+    ObjectModel objContact;
 
     public BulletModel1(int x, int y, int width, int height, float angle) {
         super(x, y, width, height);
@@ -77,59 +80,6 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
 
     public void smartMove() {
-//        // Đập cạnh bên phải
-//        if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
-//            speedX=-speedX;
-////            x+=speedX;
-//            if (y2 < y1) {
-////                y+=speedY;
-//
-//            } else {
-////                y+=speedY;
-//            }
-//            // Đập cạnh bên trái
-//        } else if ((x + (x1 - x2)) < 0) {
-//            speedX=-speedX;
-////            x+=speedX;
-//            if (y2 < y1) {
-////                y+=speedY;
-//            } else {
-////                y+=speedY;
-//            }
-//            // Đập cạnh dưới
-//        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT -BulletModel1.DEFAULT_WIDTH*2)) {
-//            speedY = -speedY;
-////            y+=speedY;
-//            if (x2 < x1) {
-////                x+=speedX;
-//            } else {
-////                x+=speedX;
-//            }
-//            // Đập cạnh trên
-//        } else if ((y + (y1 - y2)) < 0) {
-//            speedY = -speedY;
-////            y+=speedY;
-//            if (x2 < x1) {
-////                x+=speedX;
-//            } else {
-////                x+=speedX;
-//            }
-//        } else {
-//            // Đang di chuyển sang trái
-//            if (x2 > x1) {
-////                x+=speedX;
-//            } else if (x2 == x1) {
-//                moveRight();
-//            } else {
-////                x+=speedX;
-//            }
-//            // Đang di chuyển xuống dưới
-//            if (y2 > y1) {
-////                y+=speedY;
-//            } else {
-////                y+=speedY;
-//            }
-//        }
 
         x+=speedX;
         y+=speedY;
@@ -197,6 +147,11 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
     public void caculateSpeedOnContact(){
         speedX = 5;
         speedY = 5;
+        float[] speedXY = Utils.findSpeed(objContact, x1, y1, x2, y2);
+        speedX = speedXY[0];
+        speedY = speedXY[1];
+        System.out.println(speedX);
+        System.out.println(speedY);
     }
 
     @Override
@@ -221,6 +176,10 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
     public int getDamage() {
         return damage;
+    }
+
+    public void setObjContact(ObjectModel objContact) {
+        this.objContact = objContact;
     }
 
     public void setContact(boolean contact) {

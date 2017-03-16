@@ -72,4 +72,61 @@ public class Utils {
         }
     }
 
+
+    public static float[] findSpeed(ObjectModel model, float x1, float y1, float x2, float y2) {
+        float x_o = model.getMidX();
+        float y_o = model.getMidY();
+        System.out.println("x_o = "+x_o);
+        System.out.println("y_o = "+y_o);
+        System.out.println("x_1 = "+x1);
+        System.out.println("y_1 = "+y1);
+
+        // Chỉ phương tam - 1
+        float n1 = x1 - x_o;
+        float n2 = y1 - y_o;
+        System.out.println("n1 = "+n1);
+        System.out.println("n2 = "+n2);
+
+        float t_1_a = (-n2);
+        float t_1_b = (n1);
+        float t_1_c = -(n1*y_o) + (n2*x_o);
+
+        float t_2_a = (n1);
+        float t_2_b = (n2);
+        float t_2_c = -(n1*x2)-(n2*y2);
+
+//        float temp_tu = (t_1_c*t_2_b)/t_1_a - t_2_c;
+//        float temp_mau = t_2_a+(-t_1_b*t_2_b)/t_1_a  ;
+//
+//        float x_f = temp_tu/temp_mau;
+//        float y_f = (-t_1_b*x_f-t_1_c)/t_1_a;
+        float xy_f[] = ghpt(t_1_a,t_1_b,t_1_c,
+                t_2_a,t_2_b,t_2_c);
+        float x_f = xy_f[0];
+        float y_f = xy_f[1];
+        System.out.println("x_f = "+x_f);
+        System.out.println("y_f = "+y_f);
+
+        float x_next = (x_f - x2) + x_f;
+        float y_next = (y_f - y2) + y_f;
+        System.out.println("x_next = "+x_next);
+        System.out.println("y_next = "+y_next);
+
+        float speedX = x_next - x1;
+        float speedY = y_next - y1;
+
+        float[] ok={speedX,speedY};
+        return ok;
+    }
+
+    public static float[] ghpt(float a1, float b1,float c1,
+                               float a2,float b2,float c2){
+        float y_tu =-c2 +((a2*c1)/a1);
+        float y_mau = b2 +((b1*(-a2))/a1);
+
+        float y_f = y_tu/y_mau;
+        float x_f = (-c1 -b1*(y_f))/a1;
+        float[] ok = {x_f,y_f};
+        return  ok;
+    }
 }

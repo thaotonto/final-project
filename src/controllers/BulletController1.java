@@ -30,6 +30,7 @@ public class BulletController1 extends GameController {
 
         if (other instanceof ObjectController) {
             ((BulletModel1)model).setContact(true);
+            ((BulletModel1)model).setObjContact((ObjectModel) other.getModel());
         }
     }
 }
