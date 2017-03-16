@@ -27,6 +27,7 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
     private float speedX;
     private float speedY;
     private float angle;
+    private boolean contact;
 
     public BulletModel1(int x, int y, int width, int height, float angle) {
         super(x, y, width, height);
@@ -193,10 +194,20 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
             }
         }
     }
+    public void caculateSpeedOnContact(){
+        speedX = 5;
+        speedY = 5;
+    }
 
     @Override
     public void run() {
+        if(contact == true){
+            caculateSpeedOnContact();
+        }else {
+            caculateSpeed();
+        }
         moveBehavior.move(this);
+        contact = false;
     }
 
     @Override
@@ -212,4 +223,7 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
         return damage;
     }
 
+    public void setContact(boolean contact) {
+        this.contact = contact;
+    }
 }

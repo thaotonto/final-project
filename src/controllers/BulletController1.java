@@ -29,7 +29,7 @@ public class BulletController1 extends GameController {
         }
 
         if (other instanceof ObjectController) {
-            model.setAlive(false);
+            ((BulletModel1)model).setContact(true);
         }
     }
 }

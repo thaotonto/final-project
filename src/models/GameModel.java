@@ -81,4 +81,5 @@ public class GameModel {
     public int getHp() {
         return hp;
     }
+
 }
