@@ -1,6 +1,8 @@
 package gamemain;
 
 import manager.GameManager;
+import utils.MouseInput;
+import views.GameMenuView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +21,7 @@ public class Game extends Frame {
     public static final int GAME_LOOP_TIME = 17;
     public static final int FRAME_WIDTH = 1200;
     public static final int FRAME_HEIGHT = 600;
+    public static GameMenuView.MenuType menuType;
 
     // Biến
     Thread loop;
@@ -28,6 +31,8 @@ public class Game extends Frame {
     private BufferedImage backImage;
 
     public Game() {
+        //menu home
+        menuType = GameMenuView.MenuType.HOME;
         // Bỏ nút - , vuông , x góc trên bên phải của màn hình
 //        setUndecorated(true);
         // Set full màn hình
@@ -88,6 +93,8 @@ public class Game extends Frame {
                     bitSet2.clear(e.getKeyCode());
             }
         });
+
+        this.addMouseListener(new MouseInput());
     }
 
     // Khởi tạo các đối tượng ban đầu
@@ -116,7 +123,12 @@ public class Game extends Frame {
     @Override
     public void update(Graphics g) {
         Graphics2D back_g = (Graphics2D) backImage.getGraphics();
-        gameManager.draw(back_g);
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.draw(back_g);
+        if(menuType == GameMenuView.MenuType.START){
+            gameManager.draw(back_g);
+        }
+
         g.drawImage(backImage, 0, 0, null);
     }
 }

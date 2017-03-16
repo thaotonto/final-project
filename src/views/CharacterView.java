@@ -3,8 +3,10 @@ package views;
 import models.GameModel;
 import models.PlayerModel1;
 import models.PlayerModel2;
+import utils.Utils;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 
 /**
  * Created by TrKaJv on 10-Mar-17.
@@ -53,6 +55,7 @@ public class CharacterView extends GameView {
                 speedX = speed;
             }
             graphics.drawLine((int) (model.getX()+model.getWidth()), model.getMidY(), (int) (model.getX()+model.getWidth())+speedX, model.getMidY()+speedY);
+
         }
         if(model instanceof PlayerModel2){
             BasicStroke basicStroke = new BasicStroke(5,BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL );

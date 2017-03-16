@@ -19,7 +19,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove {
     public static final int DEFAULT_HEGHT = 100;
     public static final float ANGLE_CHANGE = 3f;
     // Speed mặc địch
-    private final float SPEED = 1.5F;
+    private final float SPEED = 3.5F;
     // Speed để có thể thay đổi từ bên ngoài
     private final float speed;
 
