@@ -76,71 +76,62 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
 
     public void smartMove() {
-        // Đập cạnh bên phải
-        if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
-//            System.out.println("phải");
-//            moveLeft();
-            speedX=-speedX;
-            x+=speedX;
-            if (y2 < y1) {
-//                moveDown();
-                y+=speedY;
+//        // Đập cạnh bên phải
+//        if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
+//            speedX=-speedX;
+////            x+=speedX;
+//            if (y2 < y1) {
+////                y+=speedY;
+//
+//            } else {
+////                y+=speedY;
+//            }
+//            // Đập cạnh bên trái
+//        } else if ((x + (x1 - x2)) < 0) {
+//            speedX=-speedX;
+////            x+=speedX;
+//            if (y2 < y1) {
+////                y+=speedY;
+//            } else {
+////                y+=speedY;
+//            }
+//            // Đập cạnh dưới
+//        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT -BulletModel1.DEFAULT_WIDTH*2)) {
+//            speedY = -speedY;
+////            y+=speedY;
+//            if (x2 < x1) {
+////                x+=speedX;
+//            } else {
+////                x+=speedX;
+//            }
+//            // Đập cạnh trên
+//        } else if ((y + (y1 - y2)) < 0) {
+//            speedY = -speedY;
+////            y+=speedY;
+//            if (x2 < x1) {
+////                x+=speedX;
+//            } else {
+////                x+=speedX;
+//            }
+//        } else {
+//            // Đang di chuyển sang trái
+//            if (x2 > x1) {
+////                x+=speedX;
+//            } else if (x2 == x1) {
+//                moveRight();
+//            } else {
+////                x+=speedX;
+//            }
+//            // Đang di chuyển xuống dưới
+//            if (y2 > y1) {
+////                y+=speedY;
+//            } else {
+////                y+=speedY;
+//            }
+//        }
 
-            } else {
-//                moveUp();
-                y+=speedY;
-            }
-            // Đập cạnh bên trái
-        } else if ((x + (x1 - x2)) < 0) {
-//            System.out.println("trái");
-            speedX=-speedX;
-            x+=speedX;
-            if (y2 < y1) {
-//                moveDown();
-                y+=speedY;
-            } else {
-//                moveUp();
-                y+=speedY;
-            }
-            // Đập cạnh dưới
-        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT )) {
-//            System.out.println("dưới");
-//            moveUp();
-            speedY = -speedY;
-            y+=speedY;
-            if (x2 < x1) {
-                x+=speedX;
-            } else {
-                x+=speedX;
-            }
-            // Đập cạnh trên
-        } else if ((y + (y1 - y2)) < 0) {
-//            System.out.println("trên");
-            speedY = -speedY;
-            y+=speedY;
-            if (x2 < x1) {
-                x+=speedX;
-            } else {
-                x+=speedX;
-            }
-        } else {
-//            System.out.println("========tiếp");
-            // Đang di chuyển sang trái
-            if (x2 > x1) {
-                x+=speedX;
-            } else if (x2 == x1) {
-                moveRight();
-            } else {
-                x+=speedX;
-            }
-            // Đang di chuyển xuống dưới
-            if (y2 > y1) {
-                y+=speedY;
-            } else {
-                y+=speedY;
-            }
-        }
-
+        x+=speedX;
+        y+=speedY;
 
         x2 = x1;
         x1 = x;
@@ -149,10 +140,63 @@ public class BulletModel1 extends GameModel implements GameModelCanMove {
 
     }
 
+    public void caculateSpeed(){
+        // Đập cạnh bên phải
+        if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
+            speedX=-speedX;
+            if (y2 < y1) {
+//                y+=speedY;
+            } else {
+//                y+=speedY;
+            }
+            // Đập cạnh bên trái
+        } else if ((x + (x1 - x2)) < 0) {
+            speedX=-speedX;
+//            x+=speedX;
+            if (y2 < y1) {
+//                y+=speedY;
+            } else {
+//                y+=speedY;
+            }
+            // Đập cạnh dưới
+        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT -BulletModel1.DEFAULT_WIDTH*2)) {
+            speedY = -speedY;
+//            y+=speedY;
+            if (x2 < x1) {
+//                x+=speedX;
+            } else {
+//                x+=speedX;
+            }
+            // Đập cạnh trên
+        } else if ((y + (y1 - y2)) < 0) {
+            speedY = -speedY;
+//            y+=speedY;
+            if (x2 < x1) {
+//                x+=speedX;
+            } else {
+//                x+=speedX;
+            }
+        } else {
+            // Đang di chuyển sang trái
+            if (x2 > x1) {
+//                x+=speedX;
+            } else if (x2 == x1) {
+                moveRight();
+            } else {
+//                x+=speedX;
+            }
+            // Đang di chuyển xuống dưới
+            if (y2 > y1) {
+//                y+=speedY;
+            } else {
+//                y+=speedY;
+            }
+        }
+    }
+
     @Override
     public void run() {
         moveBehavior.move(this);
-
     }
 
     @Override
