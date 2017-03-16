@@ -1,5 +1,6 @@
 package controllers;
 
+import models.BulletModel;
 import models.BulletModel1;
 import models.BulletModel2;
 import models.ObjectModel;
@@ -27,8 +28,8 @@ public class BulletController2 extends GameController {
         }
 
         if (other instanceof ObjectController) {
-            ((BulletModel2)model).setContact(true);
-            ((BulletModel2)model).setObjContact((ObjectModel) other.getModel());
+            ((BulletModel)model).setContact(true);
+            ((BulletModel)model).setObjContact((ObjectModel) other.getModel());
         }
     }
 }
