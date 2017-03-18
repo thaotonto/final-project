@@ -156,4 +156,6 @@ public class PlayerModel1 extends GameModel implements GameModelCanMove {
             bullet.add(bulletController1);
         }
     }
+
+
 }

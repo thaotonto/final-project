@@ -1,6 +1,7 @@
 package controllers;
 
 import models.BulletModel1;
+import models.BulletModel2;
 import models.GameModel;
 import models.PlayerModel1;
 import utils.Utils;
@@ -25,21 +26,11 @@ public class PlayerController1 extends GameController {
         super(model, view);
     }
 
-    public PlayerController1(PlayerModel1 model, PlayerView1 view) {
-        super(model, view);
-        Image island = Utils.loadImageFromres("BG-1-3.png");
-        this.island = new GameController(new GameModel(
-                (int) model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
-                (int) model.getY() + model.getHeight() - 20,
-                island.getWidth(null),
-                island.getHeight(null)),
-                new GameView(island));
-    }
-
     public PlayerController1(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
         this(new PlayerModel1(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
                 new CharacterView(Utils.loadImageFromres(iconPath)));
         Image island = Utils.loadImageFromres("BG-1-3.png");
+
         this.island = new GameController(new GameModel(
                 (int) model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
                 (int) model.getY() + model.getHeight() - 20,
@@ -75,9 +66,10 @@ public class PlayerController1 extends GameController {
     }
 
     public void onContact(GameController other) {
-        if (other instanceof BulletController1) {
-            if (other.model instanceof BulletModel1)
-            model.getHit( ((BulletModel1) other.model).getDamage() );
+        if (other instanceof BulletController2) {
+            if (other.model instanceof BulletModel2)
+            model.getHit( ((BulletModel2) other.model).getDamage() );
+            System.out.println(model.getHp());
         }
     }
 }

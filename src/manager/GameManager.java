@@ -2,12 +2,16 @@ package manager;
 
 import controllers.BulletController1;
 import controllers.GameController;
+import controllers.PlayerController1;
+import controllers.PlayerController2;
 import gamemain.Game;
 
 import java.awt.*;
 import java.util.BitSet;
 import java.util.Iterator;
 import java.util.Vector;
+
+import static gamemain.Main.gameFrame;
 
 /**
  * Created by TrKaJv on 10-Mar-17.
@@ -83,6 +87,16 @@ public class GameManager {
                     || controller.getModel().getY() > (Game.FRAME_HEIGHT + controller.getModel().getHeight())) {
                 iterator.remove();
             }
+
+            if (!controller.getModel().isAlive()) {
+                if (controller instanceof PlayerController1) {
+                    gameFrame.setGameOver(1);
+                }
+                if (controller instanceof PlayerController2) {
+                    gameFrame.setGameOver(2);
+                }
+                iterator.remove();
+            }
         }
     }
 
@@ -91,11 +105,11 @@ public class GameManager {
             for (int j = i + 1; j < gameControllers.size(); j++) {
                 GameController gi = gameControllers.get(i);
                 GameController gj = gameControllers.get(j);
-                if (gj.isActive() && gj.isActive())
-                    if (gi.checkContact(gj)) {
-                        gi.onContact(gj);
-                        gj.onContact(gi);
-                    }
+//                if (gj.isActive() && gj.isActive())
+                if (gi.checkContact(gj)) {
+                    gi.onContact(gj);
+                    gj.onContact(gi);
+                }
             }
         }
     }

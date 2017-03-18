@@ -135,6 +135,7 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove {
             }
         }
 
+        timeCount += Game.GAME_LOOP_TIME;
         if (bitSet.get(KeyEvent.VK_NUMPAD0)) {
             shootNormal();
         }
@@ -142,7 +143,6 @@ public class PlayerModel2 extends GameModel implements GameModelCanMove {
 
     public void shootNormal() {
         // Tăng time kể từ lần bắn trước
-        timeCount += Game.GAME_LOOP_TIME;
 
         if (timeCount >= timeDelayShoot) {      // Đủ time bắn
             // set lại

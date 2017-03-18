@@ -1,27 +1,25 @@
 package gamemain;
 
 import manager.GameManager;
-import utils.MouseInput;
-import views.GameMenuView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.BitSet;
+import java.awt.event.KeyListener;
+
+import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 
 /**
  * Created by Thaotonto on 3/9/2017.
  */
-public class Game extends Frame {
+public class Game extends JPanel implements Runnable, KeyListener {
 
     public static final int GAME_LOOP_TIME = 17;
     public static final int FRAME_WIDTH = 1200;
     public static final int FRAME_HEIGHT = 600;
-    public static GameMenuView.MenuType menuType;
+    public static int win = 0;
 
     // Biến
     Thread loop;
@@ -31,79 +29,24 @@ public class Game extends Frame {
     private BufferedImage backImage;
 
     public Game() {
-        //menu home
-        menuType = GameMenuView.MenuType.HOME;
-        // Bỏ nút - , vuông , x góc trên bên phải của màn hình
-//        setUndecorated(true);
-        // Set full màn hình
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        setVisible(true);
-        setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        // Cho ra giữa màn
-        setLocationRelativeTo(null);
-
+        addKeyListener(this);
+        setFocusable(true);
         // Thêm và khởi tạo các object abn đầu
         addObjectInit();
         // Thêm các event về phím và tắt màn hình
-        addEvents();
+        addKeyListener(this);
         //loop game
         loop.start();
     }
 
-    // Thêm các event về phím và tắt màn hình
-    private void addEvents() {
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-
-        addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                // Thoát game
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    System.exit(0);
-                } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    // Pause
-                } else {
-                    // Phím điều khiển khi chơi game
-                    if (e.getKeyCode() == KeyEvent.VK_W
-                            || e.getKeyCode() == KeyEvent.VK_S
-                            || e.getKeyCode() == KeyEvent.VK_A
-                            || e.getKeyCode() == KeyEvent.VK_D
-                            || e.getKeyCode() == KeyEvent.VK_SPACE) {
-                        bitSet1.set(e.getKeyCode());
-                    } else if (e.getKeyCode() == KeyEvent.VK_UP
-                            || e.getKeyCode() == KeyEvent.VK_DOWN
-                            || e.getKeyCode() == KeyEvent.VK_LEFT
-                            || e.getKeyCode() == KeyEvent.VK_RIGHT
-                            || e.getKeyCode() == KeyEvent.VK_NUMPAD0) {
-                        bitSet2.set(e.getKeyCode());
-                    }
-                }
-//                System.out.println(turn);
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                    bitSet1.clear(e.getKeyCode());
-                    bitSet2.clear(e.getKeyCode());
-            }
-        });
-
-        this.addMouseListener(new MouseInput());
-    }
 
     // Khởi tạo các đối tượng ban đầu
     private void addObjectInit() {
         bitSet1 = new BitSet(256);  // Khởi tạo bitset
         bitSet2 = new BitSet(256);  // Khởi tạo bitset
+
         gameManager = new GameManager(bitSet1, bitSet2);   //Khởi tạo gameManager
         backImage = new BufferedImage(FRAME_WIDTH, FRAME_HEIGHT, BufferedImage.TYPE_INT_ARGB);
-
         loop = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -121,14 +64,50 @@ public class Game extends Frame {
     }
 
     @Override
-    public void update(Graphics g) {
-        Graphics2D back_g = (Graphics2D) backImage.getGraphics();
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.draw(back_g);
-        if(menuType == GameMenuView.MenuType.START){
-            gameManager.draw(back_g);
-        }
-
-        g.drawImage(backImage, 0, 0, null);
+    protected void paintComponent(Graphics graphics) {
+        Graphics2D g2d = (Graphics2D) graphics;
+        super.paintComponent(graphics);
+        gameManager.draw(g2d);
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            System.exit(0);
+        } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            // Pause
+        } else {
+            // Phím điều khiển khi chơi game
+            if (e.getKeyCode() == KeyEvent.VK_W
+                    || e.getKeyCode() == KeyEvent.VK_S
+                    || e.getKeyCode() == KeyEvent.VK_A
+                    || e.getKeyCode() == KeyEvent.VK_D
+                    || e.getKeyCode() == KeyEvent.VK_SPACE) {
+                bitSet1.set(e.getKeyCode());
+            } else if (e.getKeyCode() == KeyEvent.VK_UP
+                    || e.getKeyCode() == KeyEvent.VK_DOWN
+                    || e.getKeyCode() == KeyEvent.VK_LEFT
+                    || e.getKeyCode() == KeyEvent.VK_RIGHT
+                    || e.getKeyCode() == KeyEvent.VK_NUMPAD0) {
+                bitSet2.set(e.getKeyCode());
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        bitSet1.clear(e.getKeyCode());
+        bitSet2.clear(e.getKeyCode());
+    }
+
+    @Override
+    public void run() {
+
+    }
+
 }
