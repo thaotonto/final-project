@@ -14,6 +14,8 @@ import java.awt.event.KeyEvent;
 import java.util.BitSet;
 import java.util.Vector;
 
+import static gamemain.gamescene.PlayScene.playerWin;
+
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
@@ -67,9 +69,9 @@ public class PlayerController1 extends GameController {
 
     public void onContact(GameController other) {
         if (other instanceof BulletController2) {
-            if (other.model instanceof BulletModel2)
-            model.getHit( ((BulletModel2) other.model).getDamage() );
-            System.out.println(model.getHp());
+            if (other.model instanceof BulletModel2) {
+                model.getHit(((BulletModel2) other.model).getDamage());
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import static gamemain.Main.gameFrame;
+import static gamemain.gamescene.PlayScene.playerWin;
 
 /**
  * Created by TrKaJv on 10-Mar-17.
@@ -90,10 +91,12 @@ public class GameManager {
 
             if (!controller.getModel().isAlive()) {
                 if (controller instanceof PlayerController1) {
-                    gameFrame.setGameOver(1);
+//                    gameFrame.setGameOver(1);
+                    playerWin = 2;
                 }
                 if (controller instanceof PlayerController2) {
-                    gameFrame.setGameOver(2);
+//                    gameFrame.setGameOver(2);
+                    playerWin = 1;
                 }
                 iterator.remove();
             }
