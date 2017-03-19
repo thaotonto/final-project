@@ -1,15 +1,12 @@
 package gamemain;
 
 import manager.GameManager;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.BitSet;
 import java.awt.event.KeyListener;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 
 /**
  * Created by Thaotonto on 3/9/2017.
