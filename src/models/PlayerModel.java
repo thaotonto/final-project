@@ -59,12 +59,12 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     // Xác định move theo hướng nào
     @Override
     public void move() {
-        if (bitSet.get(KeyEvent.VK_W)) {
-            setMoveBehavior(new MoveUpBehavior());
-        }
-        if (bitSet.get(KeyEvent.VK_S)) {
-            setMoveBehavior(new MoveDownBehavior());
-        }
+//        if (bitSet.get(KeyEvent.VK_W)) {
+//            setMoveBehavior(new MoveUpBehavior());
+//        }
+//        if (bitSet.get(KeyEvent.VK_S)) {
+//            setMoveBehavior(new MoveDownBehavior());
+//        }
     }
 
     public void moveUp() {
@@ -98,20 +98,20 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
 
     @Override
     public void run() {
-        super.run();
-        // set move (Nhận xem move bên nào)
-        move();
-        //move
-        if (moveBehavior != null) {
-            moveBehavior.move(this);
-        }
-        setMoveBehavior(null);
-
-        // set shoot (Nhận xem move bên nào)
-        shoot();
-        if (shootBehavior != null) {
-            shootBehavior.shoot(this);
-        }
+//        super.run();
+//        // set move (Nhận xem move bên nào)
+//        move();
+//        //move
+//        if (moveBehavior != null) {
+//            moveBehavior.move(this);
+//        }
+//        setMoveBehavior(null);
+//
+//        // set shoot (Nhận xem move bên nào)
+//        shoot();
+//        if (shootBehavior != null) {
+//            shootBehavior.shoot(this);
+//        }
     }
 
     public MoveBehavior getMoveBehavior() {
@@ -124,4 +124,5 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
 
     public void shoot() {
     }
+
 }

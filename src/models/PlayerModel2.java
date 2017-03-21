@@ -60,16 +60,16 @@ public class PlayerModel2 extends PlayerModel {
 //        return angle;
 //    }
 //
-//    // Xác định move theo hướng nào
-//    @Override
-//    public void move() {
-//        if (bitSet.get(KeyEvent.VK_UP)) {
-//            setMoveBehavior(new MoveUpBehavior());
-//        }
-//        if (bitSet.get(KeyEvent.VK_DOWN)) {
-//            setMoveBehavior(new MoveDownBehavior());
-//        }
-//    }
+    // Xác định move theo hướng nào
+    @Override
+    public void move() {
+        if (bitSet.get(KeyEvent.VK_UP)) {
+            setMoveBehavior(new MoveUpBehavior());
+        }
+        if (bitSet.get(KeyEvent.VK_DOWN)) {
+            setMoveBehavior(new MoveDownBehavior());
+        }
+    }
 //
 //    public void moveUp() {
 //        if (y - speed > 0) {
