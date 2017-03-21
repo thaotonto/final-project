@@ -14,6 +14,8 @@ import java.awt.event.KeyEvent;
 import java.util.BitSet;
 import java.util.Vector;
 
+import static gamemain.gamescene.PlayScene.playerWin;
+
 /**
  * Created by TrKaJv on 10-Mar-17.
  */
