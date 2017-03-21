@@ -36,7 +36,9 @@ public class Game extends Frame implements Runnable,Subcriber{
         setVisible(true);
         currentScene = new MenuScene();
         backStack = new Stack<>();
+        addMouseListener(currentScene);
         addKeyListener(currentScene);
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -80,6 +82,7 @@ public class Game extends Frame implements Runnable,Subcriber{
     public void detach(){
         if(currentScene != null){
             removeKeyListener(currentScene);
+            removeMouseListener(currentScene);
         }
     }
 
@@ -87,6 +90,7 @@ public class Game extends Frame implements Runnable,Subcriber{
         detach();
         currentScene = gameScene;
         addKeyListener(currentScene);
+        addMouseListener(currentScene);
     }
 
     // Khởi tạo các đối tượng ban đầu
