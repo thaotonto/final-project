@@ -16,7 +16,7 @@ public class PlayerInforView extends GameView {
 
     @Override
     public void draw(Graphics2D graphics, GameModel gameModel) {
-        if(gameModel instanceof PlayerModel){
+        if(gameModel instanceof PlayerInforModel){
             BasicStroke basicStroke = new BasicStroke(1,BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND);
             (graphics).setStroke(basicStroke);
             graphics.setFont(new java.awt.Font("Britannic",-1, 12));
@@ -27,13 +27,13 @@ public class PlayerInforView extends GameView {
 
             graphics.setColor(new Color(255, 18, 0));
             graphics.drawString("HP", gameModel.getX()+20, gameModel.getY()+20);
-            graphics.fillRect( (int)gameModel.getX()+50,(int) gameModel.getY()+10, gameModel.getHp(), 10);
-            graphics.drawRect((int) gameModel.getX()+50,(int) gameModel.getY()+10, PlayerInforModel.DEFAULT_WIDTH-55, 10);
+            graphics.fillRect( (int)gameModel.getX()+50,(int) gameModel.getY()+10, ((PlayerInforModel)gameModel).getHPLeght(), 10);
+            graphics.drawRect((int) gameModel.getX()+50,(int) gameModel.getY()+10, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
 
-            graphics.setColor(new Color(255, 250, 35));
-            graphics.drawString("SHIELD", gameModel.getX()+3, gameModel.getY()+40);
-//            graphics.fillRect( gameModel.getX()+50, gameModel.getY()+30, ((HPModel) gameModel).getARLength(), 10);
-//            graphics.drawRect( gameModel.getX()+50, gameModel.getY()+30, HPModel.DEFAULT_WIDTH-55, 10);
+            graphics.setColor(new Color(9, 19, 255));
+            graphics.drawString("MANA", gameModel.getX()+3, gameModel.getY()+40);
+            graphics.fillRect( (int)gameModel.getX()+50, (int)gameModel.getY()+30, ((PlayerInforModel)gameModel).getTimeCanShoot(), 10);
+            graphics.drawRect( (int)gameModel.getX()+50, (int)gameModel.getY()+30, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
 
             graphics.setColor(new Color(0, 0, 0));
             graphics.drawString(((PlayerInforModel) gameModel).getPlayerModel().getHp()+"", gameModel.getX()+60, gameModel.getY()+20);

@@ -26,6 +26,6 @@ public class PlayerInforController extends GameController {
     }
 
     public void draw(Graphics2D graphics){
-        view.draw(graphics, model);
+        (view).draw(graphics, model);
     }
 }

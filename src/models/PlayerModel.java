@@ -1,13 +1,10 @@
 package models;
 
 import behavior.move.MoveBehavior;
-import behavior.move.MoveDownBehavior;
-import behavior.move.MoveUpBehavior;
 import behavior.shoot.ShootBehavior;
 import controllers.GameController;
 import gamemain.Game;
 
-import java.awt.event.KeyEvent;
 import java.util.BitSet;
 import java.util.Vector;
 
@@ -21,6 +18,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     public static final float ANGLE_CHANGE = 1f;
     // Speed mặc địch
     protected final float SPEED = 3.5F;
+    public static final int TIME_DELAY_SHOOT = 500;   // Khoản cách của mỗi viên đạn (về time)
     // Speed để có thể thay đổi từ bên ngoài
     protected  float speed;
 
@@ -39,8 +37,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     //góc bắn
     protected float angle;
 
-    protected int timeDelayShoot = 500;   // Khoản cách của mỗi viên đạn (về time)
-    protected int timeCount = timeDelayShoot;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
+    protected int timeCount = TIME_DELAY_SHOOT;  // thời gian đã trôi qua kể từ khi 1 viên dc bắn ra
     protected Vector<GameController> bullet;  // Vector gameObject chung để add đạn
 
     public PlayerModel(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
@@ -125,4 +122,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     public void shoot() {
     }
 
+    public int getTimeCount() {
+        return timeCount;
+    }
 }
