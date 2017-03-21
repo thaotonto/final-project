@@ -27,7 +27,7 @@ public class MouseInput implements MouseListener{
         int mouseY = e.getY();
         if(mouseX >= 450 && mouseX <= 750){
             if(mouseY >= 225 && mouseY <= 325){
-                Game.menuType = GameMenuView.MenuType.START;
+              //  Game.menuType = GameMenuView.MenuType.START;
 
             }
         }

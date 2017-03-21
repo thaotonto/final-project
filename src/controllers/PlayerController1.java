@@ -48,7 +48,7 @@ public class PlayerController1 extends GameController {
             checkShootSpace = true;
         }
         if(checkShootSpace){
-            if(!((CharacterView)view).explodeStartShot(1)){
+            if(!((CharacterView)view).explodeShot(1)){
                 checkShootSpace = false;
             }
         }
