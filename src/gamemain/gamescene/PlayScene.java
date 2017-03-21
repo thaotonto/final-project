@@ -6,6 +6,7 @@ import manager.GameManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.BitSet;
 
 /**
@@ -70,5 +71,30 @@ public class PlayScene implements GameScene{
     public void keyReleased(KeyEvent e) {
         bitSet1.clear(e.getKeyCode());
         bitSet2.clear(e.getKeyCode());
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
