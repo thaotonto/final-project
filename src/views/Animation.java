@@ -6,6 +6,7 @@ import models.PlayerModel2;
 import utils.Utils;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by QuanT on 3/11/2017.
@@ -13,36 +14,35 @@ import java.awt.*;
 public class Animation {
     private long lastTime;
     private int index=0;
-    private int size;
     private int delay;
     private Image image;
-    private String url;
+    private ArrayList<String> listUrl;
 
-    public Animation(int size, int delay, String url) {
+    public Animation( int delay, ArrayList<String> listUrl) {
         this.delay = delay;
         this.delay = delay;
-        this.size = size;
-        this.url = url;
+        this.listUrl = listUrl;
     }
 
 
 
     public Image getImage() {
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastTime > delay && index <= size) {
+        if (currentTime - lastTime > delay && index <= listUrl.size()) {
             lastTime = currentTime;
-            if (index == size) {
+            if (index == listUrl.size()) {
                 index = 0;
                 return null;
             }
-           index++;
-            image = Utils.loadImageFromres(url +index  + ".png");
+
+            image = Utils.loadImageFromres(listUrl.get(index));
+            index++;
         }
         return image;
     }
 
     public void reload() {
-        if (index == size) {
+        if (index == listUrl.size()) {
             index = 0;
         }
     }

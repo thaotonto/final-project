@@ -7,11 +7,20 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Thaotonto on 3/9/2017.
  */
 public class Utils {
+    public static ArrayList<String> getlistURLImage(String url , int number){
+        ArrayList<String> listString  = new ArrayList<>();
+        for(int i=0 ; i < number ; i++ ){
+            listString.add(url+(i+1)+".png");
+        }
+        return listString;
+    }
+
     public static Image loadImageFromres(String url) {
         try {
             Image image = ImageIO.read(new File("resources/" + url));

@@ -23,6 +23,7 @@ public class PlayerController2 extends GameController {
     // Đảo nó đứng
     GameController island;
     private boolean checkShoot = false;
+    boolean checkGetHit = false;
 
     public PlayerController2(GameModel model, CharacterView view) {
         super(model, view);
@@ -58,11 +59,27 @@ public class PlayerController2 extends GameController {
         if(((PlayerModel2)model).getBitSet().get(KeyEvent.VK_NUMPAD0)){
             checkShoot = true;
         }
+        // neu no ban thi get animation ban
         if(checkShoot){
-            if(!((CharacterView)view).explodeStartShot(2)){
+            if(!((CharacterView)view).explodeShot(2)){
                 checkShoot = false;
             }
         }
+        // neu no trung dan thi get animation trung dan
+        if(checkGetHit){
+
+            if(!((CharacterView)view).explodeGetHit(2)){
+                checkGetHit = false;
+            }
+        }
+        // neu no die get animation die
+       /* if(model.isAlive()){
+            while(((CharacterView)view).explodeDie(2)){
+
+            }
+
+        }*/
+
         // Set vị trí đảo theo vị trí nó
         island.getModel().setX(model.getX() + (model.getWidth() - island.getModel().getWidth()) / 2);
         island.getModel().setY(model.getY() + model.getHeight() - 20);
@@ -76,9 +93,14 @@ public class PlayerController2 extends GameController {
     }
 
     public void onContact(GameController other) {
+
         if (other instanceof BulletController1) {
+
             if (other.model instanceof BulletModel1) {
+                // neu no trung dan thi checkGetHit la False ,trung dan
+                checkGetHit = true;
                 model.getHit(((BulletModel1) other.model).getDamage());
+
             }
         }
     }

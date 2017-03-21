@@ -13,8 +13,7 @@ import java.awt.geom.AffineTransform;
  */
 public class CharacterView extends GameView {
 
-    private Animation explosionStartShot;
-    private Animation explosionStartShot2;
+
     private Animation explosionShot;
     private Animation explosionShot2;
     private Animation explosionGetHit;
@@ -23,14 +22,12 @@ public class CharacterView extends GameView {
     private Animation explosionDie2;
     public CharacterView(Image image) {
         super(image);
-        explosionStartShot = new Animation(10, 100, "ninja-left/ninja-");
-        explosionStartShot2 = new Animation(10, 100, "ninja-right/ninja-");
-        explosionShot = new Animation(10, 100, "ninja-left/ninja-shot");
-        explosionShot2 = new Animation(10, 100, "ninja-right/ninja-shot");
-        explosionGetHit =  new Animation(10, 100, "ninja-left/ninja-hit");
-        explosionGetHit2 =  new Animation(10, 100, "ninja-right/ninja-hit");
-        explosionDie  =  new Animation(10, 100, "ninja-left/ninja-die");
-        explosionDie2  =  new Animation(10, 100, "ninja-right/ninja-die");
+        explosionShot = new Animation(100, Utils.getlistURLImage("/ninja-left/ninja-shot/ninja-shot" , 12));
+        explosionShot2 = new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-shot/ninja-shot",12));
+        explosionGetHit =  new Animation(100, Utils.getlistURLImage("/ninja-left/ninja-hit/ninja-hit" , 11));
+        explosionGetHit2 =  new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-hit/ninja-hit",12));
+        explosionDie  =  new Animation( 100, Utils.getlistURLImage("/ninja-left/ninja-die/ninja-die" , 10));
+        explosionDie2  =  new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-die/ninja-die",10));
     }
 
     @Override
@@ -80,23 +77,7 @@ public class CharacterView extends GameView {
     }
 
 
-    public boolean explodeStartShot(int i) {
-        if(i==1){
-            Image temp = explosionStartShot.getImage();
-            if (temp != null) {
-                image = temp;
-                return true;
-            }
-        } else if(i==2){
-            Image temp = explosionStartShot2.getImage();
-            if (temp != null) {
-                image = temp;
-                return true;
-            }
-        }
 
-        return false;
-    }
     public boolean explodeShot(int i) {
        // explosion = new Animation(11, 1000, "ninja-left/ninja-shot");
         if(i==1){
