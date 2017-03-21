@@ -25,11 +25,11 @@ public class GameOverScene implements GameScene{
         Image imageBG = Utils.loadImageFromres("BG.png");
         graphics.drawImage(imageBG, 0, 0, FRAME_WIDTH, FRAME_HEIGHT, null);
         if(playerWin == 1){
-            image = Utils.loadImageFromres("player-1-wins.png");
+            image = Utils.loadImageFromres("player-1-wins-bg.png");
         }
         if(playerWin == 2)
         {
-            image = Utils.loadImageFromres("player-2-wins.png");
+            image = Utils.loadImageFromres("player-2-wins-bg.png");
         }
         playerWin = 0;
         graphics.drawImage(this.image, (FRAME_WIDTH / 2 - width / 2), (FRAME_HEIGHT / 2 - height / 2), width, height, null);

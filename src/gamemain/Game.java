@@ -28,11 +28,12 @@ public class Game extends Frame implements Runnable,Subcriber{
 
     public Game() {
 
-        setVisible(true);
+
         // Thêm và khởi tạo các object abn đầu
         addObjectInit();
         // Thêm các event về phím và tắt màn hình
         setSize(FRAME_WIDTH,FRAME_HEIGHT);
+        setVisible(true);
         currentScene = new MenuScene();
         backStack = new Stack<>();
         addKeyListener(currentScene);
@@ -96,13 +97,13 @@ public class Game extends Frame implements Runnable,Subcriber{
             @Override
             public void run() {
                 while (true) {
-                    currentScene.run();
                     repaint();
                     try {
                         Thread.sleep(GAME_LOOP_TIME);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    currentScene.run();
                 }
             }
         });
@@ -137,7 +138,6 @@ public class Game extends Frame implements Runnable,Subcriber{
                break;
 
            case PLAY_SCENE:
-               backStack.add(currentScene);
                attach(new PlayScene());
                break;
 
