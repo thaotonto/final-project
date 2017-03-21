@@ -62,6 +62,7 @@ public class PlayerController1 extends GameController {
 
     @Override
     public void draw(Graphics2D graphics) {
+        // Vẽ hp
         // Vẽ đảo
         island.draw(graphics);
         super.draw(graphics);
