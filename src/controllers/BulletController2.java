@@ -19,7 +19,7 @@ public class BulletController2 extends GameController {
 
     public BulletController2(int x, int y, float angle) {
         this(new BulletModel2(x, y, BulletModel1.DEFAULT_WIDTH, BulletModel1.DEFAULT_HEIGHT, angle),
-                new BulletView(Utils.loadImageFromres("bullet-1-0.png")));
+                new BulletView(Utils.loadImageFromres("bullet-2-0.png")));
     }
 
     public void onContact(GameController other) {

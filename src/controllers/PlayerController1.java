@@ -22,7 +22,7 @@ import static gamemain.gamescene.PlayScene.playerWin;
 public class PlayerController1 extends GameController {
     // Đảo nó đứng
     GameController island;
-    private  boolean checkShootSpace = false;
+    private boolean checkShootSpace = false;
 
     public PlayerController1(GameModel model, CharacterView view) {
         super(model, view);
@@ -46,11 +46,11 @@ public class PlayerController1 extends GameController {
         if (model instanceof PlayerModel1) {
             ((PlayerModel1) model).run();
         }
-        if(((PlayerModel1)model).getBitSet().get(KeyEvent.VK_SPACE)){
+        if (((PlayerModel1) model).getBitSet().get(KeyEvent.VK_SPACE)) {
             checkShootSpace = true;
         }
-        if(checkShootSpace){
-            if(!((CharacterView)view).explodeShot(1)){
+        if (checkShootSpace) {
+            if (!((CharacterView) view).explodeShot(1)) {
                 checkShootSpace = false;
             }
         }

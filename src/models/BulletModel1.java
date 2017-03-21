@@ -48,7 +48,7 @@ public class BulletModel1 extends BulletModel {
         } else if ((x + (x1 - x2)) < 0) {
             speedX=-speedX;
             // Đập cạnh dưới
-        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT -BulletModel.DEFAULT_WIDTH*2)) {
+        } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT -BulletModel.DEFAULT_WIDTH)) {
             speedY = -speedY;
             // Đập cạnh trên
         } else if ((y + (y1 - y2)) < 0) {
