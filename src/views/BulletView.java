@@ -31,7 +31,6 @@ public class BulletView extends GameView {
 
     @Override
     public void draw(Graphics2D graphics, GameModel model) {
-        changeImage();
         super.draw(graphics, model);
     }
 }
