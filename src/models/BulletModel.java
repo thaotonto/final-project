@@ -79,6 +79,14 @@ public class BulletModel extends GameModel implements GameModelCanMove {
         float[] speedXY = Utils.findSpeed(objContact, x1, y1, x2, y2);
         speedX = speedXY[0];
         speedY = speedXY[1];
+
+        if(speedX*speedX + speedY*speedY < 25){
+            float newSpeed = (float) Math.sqrt(speedX*speedX + speedY*speedY);
+            float tiLe = 5/newSpeed;
+            speedX = speedX*tiLe;
+            speedY = speedY*tiLe;
+        }
+
     }
 
     @Override

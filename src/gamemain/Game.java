@@ -54,7 +54,7 @@ public class Game extends Frame implements Runnable,Subcriber{
                 if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
                     onBack();
                 }
-                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                if(e.getKeyCode() == KeyEvent.VK_R){
                     NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE,false);
                 }
             }

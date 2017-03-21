@@ -15,7 +15,7 @@ public class GameOverScene implements GameScene{
     private Image image;
     private int width = 500;
     private int height = 359;
-    private static final String message = "PRESS SPACE KEY TO REPLAY";
+    private static final String message = "PRESS R KEY TO REPLAY";
     private static final String message1 = "PRESS SPACE KEY TO COME BACK MENU";
     @Override
     public void run() {
