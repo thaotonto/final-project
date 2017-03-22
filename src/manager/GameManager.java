@@ -72,7 +72,6 @@ public class GameManager {
 
         // vẽ các đối tượng throng game
         for (int i = 0; i < gameControllers.size(); i++) {
-            if (gameControllers.get(i).isActive())
                 gameControllers.get(i).draw(g);
         }
     }
