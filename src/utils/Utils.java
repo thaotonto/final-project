@@ -4,10 +4,12 @@ import models.GameModel;
 import models.ObjectModel;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.Delayed;
 
 /**
  * Created by Thaotonto on 3/9/2017.
@@ -122,5 +124,27 @@ public class Utils {
         float x_f = (-c1 -b1*(y_f))/a1;
         float[] ok = {x_f,y_f};
         return  ok;
+    }
+
+    public static Clip playSound(String audioUrl, boolean repeat) {
+        Clip clip = null;
+        File soundFile = new File(audioUrl);
+        try {
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            if (repeat) {
+                clip.loop(clip.LOOP_CONTINUOUSLY);
+            } else {
+                clip.loop(0);
+            }
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        }
+        return clip;
     }
 }

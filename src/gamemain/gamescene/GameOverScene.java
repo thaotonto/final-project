@@ -72,9 +72,11 @@ public class GameOverScene implements GameScene{
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if (menu.contains(p)) {
+            MenuScene.clip.stop();
             NotificationCenter.getInstance().onChange(SceneType.MENU_SCENE, false);
         }
         if (restart.contains(p)) {
+            MenuScene.clip.stop();
             NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, false);
         }
     }

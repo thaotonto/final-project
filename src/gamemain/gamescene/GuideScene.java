@@ -3,6 +3,7 @@ package gamemain.gamescene;
 import gamemain.NotificationCenter;
 import utils.Utils;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -23,6 +24,8 @@ public class GuideScene implements GameScene {
 
     public GuideScene() {
         start = new Rectangle(x,y,WIDTH,HEIGHT);
+        MenuScene.clip = Utils.playSound("resources/go.wav",true);
+
     }
 
     @Override
@@ -44,6 +47,7 @@ public class GuideScene implements GameScene {
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            MenuScene.clip.stop();
             NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, true);
         }
     }
@@ -57,6 +61,7 @@ public class GuideScene implements GameScene {
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if(start.contains(p)){
+            MenuScene.clip.stop();
             NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, true);
         }
     }

@@ -5,6 +5,9 @@ import behavior.move.MoveDownBehavior;
 import behavior.move.MoveSmart;
 import behavior.move.MoveUpBehavior;
 import gamemain.Game;
+import utils.Utils;
+
+import javax.sound.sampled.Clip;
 
 /**
  * Created by Thaotonto on 3/12/2017.

@@ -2,6 +2,7 @@ package models;
 
 import utils.Utils;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 
 /**
@@ -72,6 +73,11 @@ public class GameModel {
     }
 
     public void getHit(int damage) {
+        if (this instanceof PlayerModel) {
+            Clip clip = Utils.playSound("resources/Angry-chicken.wav",false);
+            clip.setMicrosecondPosition(500000);
+            clip.start();
+        }
         this.hp -= damage;
         if (hp <= 0) {
             isAlive = false;

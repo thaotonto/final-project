@@ -4,6 +4,7 @@ import gamemain.NotificationCenter;
 import utils.Utils;
 
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 
 import java.awt.event.KeyEvent;
@@ -25,10 +26,13 @@ public class MenuScene implements GameScene {
     private int startHeight = 100;
     private int quitWidth = 350;
     private int quitHeight = 100;
+    public static Clip clip;
 
     public MenuScene() {
         start = new Rectangle(FRAME_WIDTH / 2 - startWidth / 2, FRAME_HEIGHT / 2 - startHeight / 2, startWidth, startHeight);
         quit = new Rectangle(FRAME_WIDTH / 2 - quitWidth / 2, FRAME_HEIGHT / 2 + quitHeight, quitWidth, quitHeight);
+        clip = Utils.playSound("resources/menu.wav",true);
+
     }
 
     @Override
@@ -52,6 +56,7 @@ public class MenuScene implements GameScene {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_Z) {
+            clip.stop();
             NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, true);
         }
     }
@@ -65,6 +70,7 @@ public class MenuScene implements GameScene {
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if (start.contains(p)) {
+            clip.stop();
             NotificationCenter.getInstance().onChange(SceneType.GUIDE_SCENE, true);
         }
         if (quit.contains(p)) {

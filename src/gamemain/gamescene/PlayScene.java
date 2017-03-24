@@ -3,7 +3,9 @@ package gamemain.gamescene;
 import controllers.PlayerController1;
 import gamemain.NotificationCenter;
 import manager.GameManager;
+import utils.Utils;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -32,6 +34,8 @@ public class PlayScene implements GameScene {
         bitSet1 = new BitSet(256);  // Khởi tạo bitset
         bitSet2 = new BitSet(256);  // Khởi tạo bitset
         gameManager = new GameManager(bitSet1, bitSet2);   //Khởi tạo gameManager
+        MenuScene.clip = Utils.playSound("resources/main.wav",true);
+
     }
 
     @Override
