@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Created by QuanT on 3/11/2017.
+ * Created by AnhLt on 3/11/2017.
  */
 public class Animation {
     private long lastTime;
@@ -28,11 +28,26 @@ public class Animation {
 
     public Image getImage() {
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastTime > delay && index <= listUrl.size()) {
+        if (currentTime - lastTime >= delay && index <= listUrl.size()) {
             lastTime = currentTime;
             if (index == listUrl.size()) {
                 index = 0;
                 return null;
+            }
+
+            image = Utils.loadImageFromres(listUrl.get(index));
+            index++;
+        }
+        return image;
+    }
+
+    public Image getImageFree(){
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastTime > delay && index <= listUrl.size()) {
+            lastTime = currentTime;
+            if (index == listUrl.size()) {
+                index = 0;
+                //return null;
             }
 
             image = Utils.loadImageFromres(listUrl.get(index));

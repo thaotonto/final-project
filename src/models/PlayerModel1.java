@@ -14,6 +14,9 @@ import java.util.Vector;
  * Created by TrKaJv on 10-Mar-17.
  */
 public class PlayerModel1 extends PlayerModel {
+
+
+
     public PlayerModel1(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height, bitSet, bullet);
         this.speed = SPEED;

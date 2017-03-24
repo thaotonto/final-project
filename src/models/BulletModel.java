@@ -13,14 +13,12 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     // Kích thước mặc định
     public static final int DEFAULT_WIDTH = 30;
     public static final int DEFAULT_HEIGHT = 30;
-    public static final int TIME_LIVE_MAX = 7000;
-    public static final int NUM_CONTACT_MAX = 5;
+    public static final int TIME_LIVE_MAX = 5000;
     // speed mặc định
     public static final int SPEED = 12;
     // Dùng speed này
     protected int speed;
     protected int time_live;
-    protected int num_contact;
     // Di chuyển
     protected MoveBehavior moveBehavior;
 
@@ -66,37 +64,31 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
 
     public void smartMove() {
-
         x+=speedX;
         y+=speedY;
-
         x2 = x1;
         x1 = x;
         y2 = y1;
         y1 = y;
-        checkTimeLive();
     }
 
-    public void checkTimeLive(){
-        time_live +=Game.GAME_LOOP_TIME;
-        if(time_live >=TIME_LIVE_MAX){
-            isAlive =false;
-        }
+    public void encreaseTimeLive() {
+        time_live+=Game.GAME_LOOP_TIME;
     }
 
-    public void caculateSpeedOnContact(){
+        public void caculateSpeedOnContact(){
         x -=speedX;
         y -=speedY;
         float[] speedXY = Utils.findSpeed(objContact, x1, y1, x2, y2);
         speedX = speedXY[0];
         speedY = speedXY[1];
 
-        if(speedX*speedX + speedY*speedY < 25){
+//        if(speedX*speedX + speedY*speedY < 25){
             float newSpeed = (float) Math.sqrt(speedX*speedX + speedY*speedY);
-            float tiLe = 5/newSpeed;
+            float tiLe = BulletModel.SPEED/newSpeed;
             speedX = speedX*tiLe;
             speedY = speedY*tiLe;
-        }
+//        }
 
     }
 
@@ -121,8 +113,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
         this.contact = contact;
     }
     public void changeNumContact() {
-        num_contact++;
-        if(num_contact>=NUM_CONTACT_MAX){
+        if(time_live >=TIME_LIVE_MAX){
             isAlive =false;
         }
     }

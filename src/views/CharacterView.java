@@ -12,6 +12,8 @@ import java.awt.geom.AffineTransform;
 public class CharacterView extends GameView {
 
 
+    private static final int MOOM_WIDTH = 50;
+    private static final int MOON_HEIGHT = 100;
     private Animation explosionShot;
     private Animation explosionShot2;
     private Animation explosionGetHit;
@@ -20,12 +22,12 @@ public class CharacterView extends GameView {
     private Animation explosionDie2;
     public CharacterView(Image image) {
         super(image);
-        explosionShot = new Animation(100, Utils.getlistURLImage("/ninja-left/ninja-shot/ninja-shot" , 12));
-        explosionShot2 = new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-shot/ninja-shot",12));
-        explosionGetHit =  new Animation(100, Utils.getlistURLImage("/ninja-left/ninja-hit/ninja-hit" , 11));
-        explosionGetHit2 =  new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-hit/ninja-hit",12));
-        explosionDie  =  new Animation( 100, Utils.getlistURLImage("/ninja-left/ninja-die/ninja-die" , 10));
-        explosionDie2  =  new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-die/ninja-die",10));
+        explosionShot = new Animation(51, Utils.getlistURLImage("/ninja-left/ninja-shot/ninja-shot" , 12));
+        explosionShot2 = new Animation(51, Utils.getlistURLImage("/ninja-right/ninja-shot/ninja-shot",12));
+        explosionGetHit =  new Animation(34, Utils.getlistURLImage("/ninja-left/ninja-hit/ninja-hit" , 11));
+        explosionGetHit2 =  new Animation(34, Utils.getlistURLImage("/ninja-right/ninja-hit/ninja-hit",12));
+        explosionDie  =  new Animation( 51, Utils.getlistURLImage("/ninja-left/ninja-die/ninja-die" , 10));
+        explosionDie2  =  new Animation(51, Utils.getlistURLImage("/ninja-right/ninja-die/ninja-die",10));
     }
 
     @Override
@@ -50,6 +52,15 @@ public class CharacterView extends GameView {
 //                speedX = speed;
 //            }
 //            graphics.drawLine((int) (model.getX()+model.getWidth()), model.getMidY(), (int) (model.getX()+model.getWidth())+speedX, model.getMidY()+speedY);
+            graphics.drawImage(Utils.loadImageFromres(
+                    "moon1.png"),
+//                    (int)(model.getX()+PlayerModel1.DEFAULT_WIDTH - 6 + PlayerModel1.DEFAULT_WIDTH*Math.sin(Math.toRadians(70))),
+                    (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,
+//                    (int)(model.getMidY() - PlayerModel1.DEFAULT_HEGHT*Math.sin(Math.toRadians(70))),
+                    model.getMidY() - MOOM_WIDTH,
+                    MOOM_WIDTH,
+                    MOON_HEIGHT,
+                    null);
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(-Math.toRadians(((PlayerModel1) model).getAngle()), (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,model.getMidY());
@@ -76,6 +87,13 @@ public class CharacterView extends GameView {
 //                speedX = speed;
 //            }
 //            graphics.drawLine((int) model.getX(), model.getMidY(), (int) (model.getX()+speedX), model.getMidY()+speedY);
+            graphics.drawImage(Utils.loadImageFromres(
+                    "moon2.png"),
+                    (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2 - 10,
+                    model.getMidY() - MOOM_WIDTH,
+                    MOOM_WIDTH,
+                    MOON_HEIGHT,
+                    null);
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(Math.toRadians(((PlayerModel2) model).getAngle()), (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40,model.getMidY() );
@@ -122,22 +140,22 @@ public class CharacterView extends GameView {
 
         return false;
     }
-    public boolean explodeDie(int i) {
+    public Image explodeDie(int i) {
         //  explosion = new Animation(11, 1000, "ninja-left/ninja-hit");
         if(i==1){
             Image temp = explosionDie.getImage();
             if (temp != null) {
                 image = temp;
-                return true;
+                return image;
             }
         } else if(i==2){
             Image temp = explosionDie2.getImage();
             if (temp != null) {
                 image = temp;
-                return true;
+                return image;
             }
         }
 
-        return false;
+        return null;
     }
 }

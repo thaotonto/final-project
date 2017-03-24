@@ -21,7 +21,7 @@ public class BulletController1 extends GameController {
 
     public BulletController1(int x, int y, float angle) {
         this(new BulletModel1(x, y, BulletModel1.DEFAULT_WIDTH, BulletModel1.DEFAULT_HEIGHT, angle),
-                new BulletView(Utils.loadImageFromres("bullet-1-0.png")));
+                new BulletView(Utils.loadImageFromres("chickenLeft/chickenLeft1.png")));
     }
 
     public void onContact(GameController other) {
@@ -34,5 +34,12 @@ public class BulletController1 extends GameController {
             ((BulletModel)model).setObjContact((ObjectModel) other.getModel());
             ((BulletModel)model).changeNumContact();
         }
+    }
+
+    @Override
+    public void run() {
+        super.run();
+        ((BulletView)view).explodeShot(1);
+        //System.out.println("1 da ban");
     }
 }

@@ -17,13 +17,13 @@ public class ObjectModel extends GameModel implements GameModelCanMove {
     public static final int DEFAULT_WIDTH = 100;
     public static final int DEFAULT_HEIGHT = 100;
     // speed mặc định
-    public static final int SPEED = 5;
+    public static final int SPEED = 3;
     // Dùng speed này
     private int speed;
     private MoveBehavior moveBehavior;
     private MoveBehavior oldMoveBehavior;
     private float orbitRadius = 150;
-    private float orbitSpeed = (float) (Math.PI / 64);
+    private float orbitSpeed = (float) (Math.PI / 128);
     private float radian;
     private float timeInterval = 0;
     private float orbitX = (Game.FRAME_WIDTH - ObjectModel.DEFAULT_WIDTH) / 2;

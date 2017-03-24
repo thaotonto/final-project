@@ -71,6 +71,7 @@ public class BulletModel1 extends BulletModel {
         }
         moveBehavior.move(this);
         contact = false;
+        encreaseTimeLive();
     }
 
 }
