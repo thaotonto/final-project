@@ -164,6 +164,4 @@ public class PlayerModel1 extends PlayerModel {
             bullet.add(bulletController1);
         }
     }
-
-
 }
