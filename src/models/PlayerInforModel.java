@@ -1,7 +1,5 @@
 package models;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 /**
  * Created by TrKaJv on 22-Mar-17.
  */
