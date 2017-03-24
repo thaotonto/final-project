@@ -69,7 +69,6 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
         x+=speedX;
         y+=speedY;
-
         x2 = x1;
         x1 = x;
         y2 = y1;

@@ -122,22 +122,22 @@ public class CharacterView extends GameView {
 
         return false;
     }
-    public boolean explodeDie(int i) {
+    public Image explodeDie(int i) {
         //  explosion = new Animation(11, 1000, "ninja-left/ninja-hit");
         if(i==1){
             Image temp = explosionDie.getImage();
             if (temp != null) {
                 image = temp;
-                return true;
+                return image;
             }
         } else if(i==2){
             Image temp = explosionDie2.getImage();
             if (temp != null) {
                 image = temp;
-                return true;
+                return image;
             }
         }
 
-        return false;
+        return null;
     }
 }

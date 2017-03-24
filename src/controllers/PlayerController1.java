@@ -1,5 +1,6 @@
 package controllers;
 
+import gamemain.gamescene.PlayScene;
 import models.BulletModel1;
 import models.BulletModel2;
 import models.GameModel;
@@ -22,7 +23,18 @@ import static gamemain.gamescene.PlayScene.playerWin;
 public class PlayerController1 extends GameController {
     // Đảo nó đứng
     GameController island;
-    private boolean checkShootSpace = false;
+    // check shoot kiem tra ban hay chua
+    boolean checkShoot = false;
+    boolean checkAlive = true;
+    boolean checkHit = false;
+
+    public boolean isCheckShoot() {
+        return checkShoot;
+    }
+
+    public void setCheckShoot(boolean checkShoot) {
+        this.checkShoot = checkShoot;
+    }
 
     public PlayerController1(GameModel model, CharacterView view) {
         super(model, view);
@@ -46,13 +58,29 @@ public class PlayerController1 extends GameController {
         if (model instanceof PlayerModel1) {
             ((PlayerModel1) model).run();
         }
-        if (((PlayerModel1) model).getBitSet().get(KeyEvent.VK_SPACE)) {
-            checkShootSpace = true;
+
+        // check ban hay ko va hien animation
+        if (((PlayerModel1) model).getBitSet().get(PlayScene.SHOOT_P1)) {
+            checkShoot = true;
         }
-        if (checkShootSpace) {
+        if (checkShoot) {
             if (!((CharacterView) view).explodeShot(1)) {
-                checkShootSpace = false;
+                checkShoot = false;
             }
+        }
+
+        if(checkHit){
+            if (!((CharacterView) view).explodeGetHit(1)) {
+                checkHit = false;
+            }
+        }
+
+        // check die
+        if(!model.isAlive()){
+                if(((CharacterView) view).explodeDie(1) == null){
+                    // viet code chuyen man choi o day
+                }
+
         }
 
         // Set vị trí đảo theo vị trí nó
@@ -72,6 +100,7 @@ public class PlayerController1 extends GameController {
         if (other instanceof BulletController2) {
             if (other.model instanceof BulletModel2) {
                 model.getHit(((BulletModel2) other.model).getDamage());
+                checkHit = true;
             }
         }
     }
