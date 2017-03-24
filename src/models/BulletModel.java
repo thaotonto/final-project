@@ -16,7 +16,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     public static final int TIME_LIVE_MAX = 15000;
     public static final int NUM_CONTACT_MAX = 5;
     // speed mặc định
-    public static final int SPEED = 5;
+    public static final int SPEED = 15;
     // Dùng speed này
     protected int speed;
     protected int time_live;
