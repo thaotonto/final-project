@@ -1,6 +1,7 @@
 package manager;
 
 import behavior.move.MoveDownBehavior;
+import behavior.move.MoveSmart;
 import behavior.move.MoveUpBehavior;
 import controllers.GameController;
 import controllers.ObjectController;
@@ -22,14 +23,17 @@ public class ObjectManager {
         ObjectController objectController;
 
         objectController = new ObjectController((Game.FRAME_WIDTH - ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT - ObjectModel.DEFAULT_HEIGHT) / 2);
+        GameModel gameModel = objectController.getModel();
+        if (gameModel instanceof ObjectModel) {
+            ((ObjectModel) gameModel).setMoveBehavior(new MoveSmart());
+        }
         gameControllers.add(objectController);
 
         objectController = new ObjectController((Game.FRAME_WIDTH / 2 - ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT / 2 - ObjectModel.DEFAULT_HEIGHT) / 2);
-        GameModel gameModel = objectController.getModel();
+        gameModel = objectController.getModel();
         if (gameModel instanceof ObjectModel) {
             ((ObjectModel) gameModel).setMoveBehavior(new MoveDownBehavior());
         }
-
         gameControllers.add(objectController);
 
 //        objectController = new ObjectController((Game.FRAME_WIDTH + Game.FRAME_WIDTH / 4 + ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT / 2 - ObjectModel.DEFAULT_HEIGHT) / 2);
