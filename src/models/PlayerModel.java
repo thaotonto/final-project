@@ -15,15 +15,15 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
-    public static final float ANGLE_CHANGE = 1.4f;
-    protected  int NUM_BULLET_MAX = 10;
+    public static final float ANGLE_CHANGE = 1f;
+    public static int NUM_BULLET_MAX = 10;
     protected  int TIME_ENCREASE_BULLET_MAX = 3000;
     // Speed mặc địch
     protected final float SPEED = 3.5F;
     public static final int TIME_DELAY_SHOOT = 500;   // Khoản cách của mỗi viên đạn (về time)
     // Speed để có thể thay đổi từ bên ngoài
-    protected  float numBullet = NUM_BULLET_MAX;
-    protected  float timeEncreaseBullet = 2000;
+    protected  int numBullet = NUM_BULLET_MAX;
+    protected  int timeEncreaseBullet = 2000;
 
     protected  float speed;
 
@@ -119,13 +119,13 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     }
 
     public void encreaseBullet() {
-        if(timeEncreaseBullet >= TIME_ENCREASE_BULLET_MAX && numBullet < TIME_ENCREASE_BULLET_MAX){
+        if(timeEncreaseBullet >= TIME_ENCREASE_BULLET_MAX && numBullet < NUM_BULLET_MAX){
             numBullet ++;
             timeEncreaseBullet = 0;
         }
     }
 
-    public void setNumBullet(float numBullet) {
-        this.numBullet = numBullet;
+    public int getNumBullet() {
+        return numBullet;
     }
 }
