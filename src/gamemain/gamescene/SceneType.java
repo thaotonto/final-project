@@ -6,5 +6,6 @@ package gamemain.gamescene;
 public enum SceneType {
     MENU_SCENE,
     GAMEOVER_SCENE,
-    PLAY_SCENE
+    PLAY_SCENE,
+    GUIDE_SCENE
 }
