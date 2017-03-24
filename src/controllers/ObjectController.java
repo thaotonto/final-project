@@ -22,18 +22,18 @@ public class ObjectController extends GameController {
 
     @Override
     public void onContact(GameController other) {
-        if (other instanceof BulletController1) {
-            if (model.getHp() <=1 ){
-                PlayerManger.getInstancePlayer1().getModel().getHit(20);
-            }
-            model.getHit(1);
-        }
-        if (other instanceof BulletController2) {
-            if (model.getHp() <=1 ){
-                PlayerManger.getInstancePlayer2().getModel().getHit(20);
-            }
-            model.getHit(1);
-        }
+//        if (other instanceof BulletController1) {
+//            if (model.getHp() <=1 ){
+//                PlayerManger.getInstancePlayer1().getModel().getHit(20);
+//            }
+//            model.getHit(1);
+//        }
+//        if (other instanceof BulletController2) {
+//            if (model.getHp() <=1 ){
+//                PlayerManger.getInstancePlayer2().getModel().getHit(20);
+//            }
+//            model.getHit(1);
+//        }
     }
 
     @Override
