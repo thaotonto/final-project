@@ -13,7 +13,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     // Kích thước mặc định
     public static final int DEFAULT_WIDTH = 30;
     public static final int DEFAULT_HEIGHT = 30;
-    public static final int TIME_LIVE_MAX = 15000;
+    public static final int TIME_LIVE_MAX = 7000;
     public static final int NUM_CONTACT_MAX = 5;
     // speed mặc định
     public static final int SPEED = 15;
@@ -74,12 +74,14 @@ public class BulletModel extends GameModel implements GameModelCanMove {
         x1 = x;
         y2 = y1;
         y1 = y;
+        checkTimeLive();
+    }
 
+    public void checkTimeLive(){
         time_live +=Game.GAME_LOOP_TIME;
         if(time_live >=TIME_LIVE_MAX){
             isAlive =false;
         }
-
     }
 
     public void caculateSpeedOnContact(){

@@ -1,8 +1,6 @@
 package views;
 
-import models.GameModel;
-import models.PlayerModel1;
-import models.PlayerModel2;
+import models.*;
 import utils.Utils;
 
 import java.awt.*;
@@ -54,8 +52,8 @@ public class CharacterView extends GameView {
 //            graphics.drawLine((int) (model.getX()+model.getWidth()), model.getMidY(), (int) (model.getX()+model.getWidth())+speedX, model.getMidY()+speedY);
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
-            g2d.rotate(-Math.toRadians(((PlayerModel1) model).getAngle()), model.getX()+model.getWidth(),model.getY()+model.getHeight()/2);
-            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int) (model.getX()+model.getWidth()), model.getMidY(), 50, 10,null);
+            g2d.rotate(-Math.toRadians(((PlayerModel1) model).getAngle()), (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,model.getMidY());
+            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int) model.getX()+PlayerModel1.DEFAULT_WIDTH - 6, model.getMidY() - 5, 50, 10,null);
             g2d.setTransform(originalTransform);
         }
 
@@ -63,21 +61,26 @@ public class CharacterView extends GameView {
             BasicStroke basicStroke = new BasicStroke(5,BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL );
             graphics.setStroke(basicStroke);
             graphics.setColor(new Color(185, 61, 0));
-            int speed = 100;
-            int speedX = 0;
-            int speedY = 0;
-            if(((PlayerModel2) model).getAngle() > 0){
-                speedY = -(int) (speed*Math.sin(-Math.toRadians(((PlayerModel2) model).getAngle())));
-                speedX = (int) (speed*Math.cos(Math.toRadians(((PlayerModel2) model).getAngle())));
-            }
-            else if(((PlayerModel2) model).getAngle() < 0){
-                speedX = (int) (speed*Math.sin(Math.toRadians(90+((PlayerModel2) model).getAngle())));
-                speedY = -(int) (speed*Math.sin(Math.toRadians(((PlayerModel2) model).getAngle())));
-            } else if(((PlayerModel2) model).getAngle() == 0){
-                speedY = 0;
-                speedX = speed;
-            }
-            graphics.drawLine((int) model.getX(), model.getMidY(), (int) (model.getX()+speedX), model.getMidY()+speedY);
+//            int speed = 100;
+//            int speedX = 0;
+//            int speedY = 0;
+//            if(((PlayerModel2) model).getAngle() > 0){
+//                speedY = -(int) (speed*Math.sin(-Math.toRadians(((PlayerModel2) model).getAngle())));
+//                speedX = (int) (speed*Math.cos(Math.toRadians(((PlayerModel2) model).getAngle())));
+//            }
+//            else if(((PlayerModel2) model).getAngle() < 0){
+//                speedX = (int) (speed*Math.sin(Math.toRadians(90+((PlayerModel2) model).getAngle())));
+//                speedY = -(int) (speed*Math.sin(Math.toRadians(((PlayerModel2) model).getAngle())));
+//            } else if(((PlayerModel2) model).getAngle() == 0){
+//                speedY = 0;
+//                speedX = speed;
+//            }
+//            graphics.drawLine((int) model.getX(), model.getMidY(), (int) (model.getX()+speedX), model.getMidY()+speedY);
+            Graphics2D g2d = graphics;
+            AffineTransform originalTransform = g2d.getTransform();
+            g2d.rotate(Math.toRadians(((PlayerModel2) model).getAngle()), (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40,model.getMidY() );
+            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40, model.getMidY() - 5, 50, 10,null);
+            g2d.setTransform(originalTransform);
         }
     }
 
