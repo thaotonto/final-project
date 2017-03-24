@@ -12,6 +12,8 @@ import java.awt.geom.AffineTransform;
 public class CharacterView extends GameView {
 
 
+    private static final int MOOM_WIDTH = 50;
+    private static final int MOON_HEIGHT = 100;
     private Animation explosionShot;
     private Animation explosionShot2;
     private Animation explosionGetHit;
@@ -50,6 +52,15 @@ public class CharacterView extends GameView {
 //                speedX = speed;
 //            }
 //            graphics.drawLine((int) (model.getX()+model.getWidth()), model.getMidY(), (int) (model.getX()+model.getWidth())+speedX, model.getMidY()+speedY);
+            graphics.drawImage(Utils.loadImageFromres(
+                    "moon1.png"),
+//                    (int)(model.getX()+PlayerModel1.DEFAULT_WIDTH - 6 + PlayerModel1.DEFAULT_WIDTH*Math.sin(Math.toRadians(70))),
+                    (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,
+//                    (int)(model.getMidY() - PlayerModel1.DEFAULT_HEGHT*Math.sin(Math.toRadians(70))),
+                    model.getMidY() - MOOM_WIDTH,
+                    MOOM_WIDTH,
+                    MOON_HEIGHT,
+                    null);
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(-Math.toRadians(((PlayerModel1) model).getAngle()), (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,model.getMidY());
@@ -76,6 +87,13 @@ public class CharacterView extends GameView {
 //                speedX = speed;
 //            }
 //            graphics.drawLine((int) model.getX(), model.getMidY(), (int) (model.getX()+speedX), model.getMidY()+speedY);
+            graphics.drawImage(Utils.loadImageFromres(
+                    "moon2.png"),
+                    (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2 - 10,
+                    model.getMidY() - MOOM_WIDTH,
+                    MOOM_WIDTH,
+                    MOON_HEIGHT,
+                    null);
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(Math.toRadians(((PlayerModel2) model).getAngle()), (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40,model.getMidY() );
