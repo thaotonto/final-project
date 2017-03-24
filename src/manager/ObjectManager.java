@@ -27,8 +27,9 @@ public class ObjectManager {
         objectController = new ObjectController((Game.FRAME_WIDTH / 2 - ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT / 2 - ObjectModel.DEFAULT_HEIGHT) / 2);
         GameModel gameModel = objectController.getModel();
         if (gameModel instanceof ObjectModel) {
-//            ((ObjectModel) gameModel).setMoveBehavior(new MoveDownBehavior());
+            ((ObjectModel) gameModel).setMoveBehavior(new MoveDownBehavior());
         }
+
         gameControllers.add(objectController);
 
 //        objectController = new ObjectController((Game.FRAME_WIDTH + Game.FRAME_WIDTH / 4 + ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT / 2 - ObjectModel.DEFAULT_HEIGHT) / 2);
@@ -40,7 +41,7 @@ public class ObjectManager {
         objectController = new ObjectController((Game.FRAME_WIDTH + Game.FRAME_WIDTH / 4 + ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT + Game.FRAME_HEIGHT / 4 + ObjectModel.DEFAULT_HEIGHT) / 2);
         gameModel = objectController.getModel();
         if (gameModel instanceof ObjectModel) {
-//            ((ObjectModel) gameModel).setMoveBehavior(new MoveUpBehavior());
+            ((ObjectModel) gameModel).setMoveBehavior(new MoveUpBehavior());
         }
         gameControllers.add(objectController);
 
