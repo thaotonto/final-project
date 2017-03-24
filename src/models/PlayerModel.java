@@ -16,8 +16,8 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
     public static final float ANGLE_CHANGE = 1f;
-    public static int NUM_BULLET_MAX = 10;
-    protected  int TIME_ENCREASE_BULLET_MAX = 3000;
+    public static int NUM_BULLET_MAX = 3;
+    protected  int TIME_ENCREASE_BULLET_MAX = 1500;
     // Speed mặc địch
     protected final float SPEED = 3.5F;
     public static final int TIME_DELAY_SHOOT = 500;   // Khoản cách của mỗi viên đạn (về time)

@@ -43,12 +43,12 @@ public class PlayerInforView extends GameView {
             // NUM_BULLET
             graphics.setColor(new Color(255, 150, 0));
             graphics.drawString("NUM BUL", gameModel.getX(), gameModel.getY()+60);
-            graphics.fillRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, ((PlayerInforModel)gameModel).getNumBullet()*(PlayerInforModel.DEFAULT_WIDTH_HP/10), 10);
+            graphics.fillRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, ((PlayerInforModel)gameModel).getNumBullet()*(PlayerInforModel.DEFAULT_WIDTH_HP/PlayerModel.NUM_BULLET_MAX), 10);
 
             graphics.setColor(new Color(0, 0, 0));
             graphics.drawRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
             for(int i = 0; i<PlayerModel.NUM_BULLET_MAX; i++){
-                graphics.fillRect( (int)gameModel.getX()+50+i*PlayerInforModel.DEFAULT_WIDTH_HP/PlayerModel.NUM_BULLET_MAX, (int)gameModel.getY()+50, 2, 10);
+                graphics.fillRect( (int)(gameModel.getX()+50+i*(PlayerInforModel.DEFAULT_WIDTH_HP/(float)PlayerModel.NUM_BULLET_MAX)), (int)gameModel.getY()+50, 2, 10);
             }
         }
     }
