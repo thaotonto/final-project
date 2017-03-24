@@ -155,7 +155,7 @@ public class PlayerModel2 extends PlayerModel {
             // set lại
             timeCount = 0;
             // Bắn
-            BulletController2 bulletController2 = new BulletController2((int) this.getX() - DEFAULT_WIDTH - 5, this.getMidY(), angle);
+            BulletController2 bulletController2 = new BulletController2((int) this.getX() - DEFAULT_WIDTH/2 + 31, this.getMidY() - BulletModel2.DEFAULT_HEIGHT/2, angle);
             ((BulletModel2) bulletController2.getModel()).setMoveBehavior(new MoveRightHeroBehavior());
             bullet.add(bulletController2);
         }
