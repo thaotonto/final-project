@@ -55,7 +55,7 @@ public class CharacterView extends GameView {
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(-Math.toRadians(((PlayerModel1) model).getAngle()), model.getX()+model.getWidth(),model.getY()+model.getHeight()/2);
-            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int) (model.getX()+70) + 5, model.getMidY(), 50, 10,null);
+            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int) (model.getX()+model.getWidth()), model.getMidY(), 50, 10,null);
             g2d.setTransform(originalTransform);
         }
 
