@@ -1,5 +1,6 @@
 package controllers;
 
+import gamemain.gamescene.PlayScene;
 import models.BulletModel1;
 import models.GameModel;
 import models.PlayerModel1;
@@ -56,7 +57,7 @@ public class PlayerController2 extends GameController {
         if (model instanceof PlayerModel2) {
             ((PlayerModel2) model).run();
         }
-        if(((PlayerModel2)model).getBitSet().get(KeyEvent.VK_NUMPAD0)){
+        if(((PlayerModel2)model).getBitSet().get(PlayScene.SHOOT_P2)){
             checkShoot = true;
         }
         // neu no ban thi get animation ban
@@ -73,12 +74,13 @@ public class PlayerController2 extends GameController {
             }
         }
         // neu no die get animation die
-       /* if(model.isAlive()){
-            while(((CharacterView)view).explodeDie(2)){
-
+        // check die
+        if(!model.isAlive()){
+            if(((CharacterView) view).explodeDie(2) == null){
+                // viet code chuyen man choi o day
             }
 
-        }*/
+        }
 
         // Set vị trí đảo theo vị trí nó
         island.getModel().setX(model.getX() + (model.getWidth() - island.getModel().getWidth()) / 2);
