@@ -118,6 +118,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     public void setContact(boolean contact) {
         this.contact = contact;
     }
+
     public void changeNumContact(boolean contact) {
         num_contact++;
         if(num_contact>=NUM_CONTACT_MAX){
