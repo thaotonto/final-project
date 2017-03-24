@@ -1,13 +1,15 @@
 package models;
 
+import views.PlayerInforView;
+
 /**
  * Created by TrKaJv on 22-Mar-17.
  */
 public class PlayerInforModel extends GameModel {
-    public static final int DEFAULT_WIDTH = 205;
-    public static final int DEFAULT_HEIGHT = 50;
+    public static final int DEFAULT_WIDTH = 215;
+    public static final int DEFAULT_HEIGHT = 75;
 
-    public static final int DEFAULT_WIDTH_HP = DEFAULT_WIDTH-55;
+    public static final int DEFAULT_WIDTH_HP = DEFAULT_WIDTH- PlayerInforView.START_DRAW_INFOR-5;
 
     private PlayerModel playerModel;
 
