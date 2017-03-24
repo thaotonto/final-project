@@ -15,7 +15,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     // Kích cỡ mặc định của người chơi
     public static final int DEFAULT_WIDTH = 70;
     public static final int DEFAULT_HEGHT = 100;
-    public static final float ANGLE_CHANGE = 1f;
+    public static final float ANGLE_CHANGE = 1.6f;
     public static int NUM_BULLET_MAX = 3;
     protected  int TIME_ENCREASE_BULLET_MAX = 1500;
     // Speed mặc địch
