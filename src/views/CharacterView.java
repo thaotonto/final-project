@@ -22,12 +22,12 @@ public class CharacterView extends GameView {
     private Animation explosionDie2;
     public CharacterView(Image image) {
         super(image);
-        explosionShot = new Animation(100, Utils.getlistURLImage("/ninja-left/ninja-shot/ninja-shot" , 12));
-        explosionShot2 = new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-shot/ninja-shot",12));
-        explosionGetHit =  new Animation(100, Utils.getlistURLImage("/ninja-left/ninja-hit/ninja-hit" , 11));
-        explosionGetHit2 =  new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-hit/ninja-hit",12));
-        explosionDie  =  new Animation( 100, Utils.getlistURLImage("/ninja-left/ninja-die/ninja-die" , 10));
-        explosionDie2  =  new Animation(100, Utils.getlistURLImage("/ninja-right/ninja-die/ninja-die",10));
+        explosionShot = new Animation(51, Utils.getlistURLImage("/ninja-left/ninja-shot/ninja-shot" , 12));
+        explosionShot2 = new Animation(51, Utils.getlistURLImage("/ninja-right/ninja-shot/ninja-shot",12));
+        explosionGetHit =  new Animation(34, Utils.getlistURLImage("/ninja-left/ninja-hit/ninja-hit" , 11));
+        explosionGetHit2 =  new Animation(34, Utils.getlistURLImage("/ninja-right/ninja-hit/ninja-hit",12));
+        explosionDie  =  new Animation( 51, Utils.getlistURLImage("/ninja-left/ninja-die/ninja-die" , 10));
+        explosionDie2  =  new Animation(51, Utils.getlistURLImage("/ninja-right/ninja-die/ninja-die",10));
     }
 
     @Override
