@@ -31,6 +31,8 @@ public class PlayerInforView extends GameView {
             graphics.drawString("HP", gameModel.getX()+20, gameModel.getY()+20);
             graphics.fillRect( (int)gameModel.getX()+50,(int) gameModel.getY()+10, ((PlayerInforModel)gameModel).getHPLeght(), 10);
             graphics.drawRect((int) gameModel.getX()+50,(int) gameModel.getY()+10, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
+            graphics.setColor(new Color(0, 0, 0));
+            graphics.drawString(((PlayerInforModel) gameModel).getHP()+"", gameModel.getX()+60, gameModel.getY()+20);
 
             // MANA
             graphics.setColor(new Color(9, 19, 255));
@@ -39,9 +41,15 @@ public class PlayerInforView extends GameView {
             graphics.drawRect( (int)gameModel.getX()+50, (int)gameModel.getY()+30, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
 
             // NUM_BULLET
-            graphics.setColor(new Color(255, 250, 35));
+            graphics.setColor(new Color(255, 150, 0));
             graphics.drawString("NUM BUL", gameModel.getX(), gameModel.getY()+60);
-//            graphics.drawString(((PlayerInforModel) gameModel).getPlayerModel().getArmor()+"", gameModel.getX()+60, gameModel.getY()+40);
+            graphics.fillRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, ((PlayerInforModel)gameModel).getNumBullet()*(PlayerInforModel.DEFAULT_WIDTH_HP/10), 10);
+
+            graphics.setColor(new Color(0, 0, 0));
+            graphics.drawRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
+            for(int i = 0; i<PlayerModel.NUM_BULLET_MAX; i++){
+                graphics.fillRect( (int)gameModel.getX()+50+i*PlayerInforModel.DEFAULT_WIDTH_HP/PlayerModel.NUM_BULLET_MAX, (int)gameModel.getY()+50, 2, 10);
+            }
         }
     }
 }
