@@ -6,6 +6,7 @@ import manager.GameManager;
 import utils.Utils;
 
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -35,6 +36,9 @@ public class PlayScene implements GameScene {
         bitSet2 = new BitSet(256);  // Khởi tạo bitset
         gameManager = new GameManager(bitSet1, bitSet2);   //Khởi tạo gameManager
         MenuScene.clip = Utils.playSound("resources/main.wav",true);
+        FloatControl gainControl =
+                (FloatControl) MenuScene.clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(-10.0f);
 
     }
 

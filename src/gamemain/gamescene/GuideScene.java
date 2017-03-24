@@ -4,6 +4,7 @@ import gamemain.NotificationCenter;
 import utils.Utils;
 
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -25,6 +26,9 @@ public class GuideScene implements GameScene {
     public GuideScene() {
         start = new Rectangle(x,y,WIDTH,HEIGHT);
         MenuScene.clip = Utils.playSound("resources/go.wav",true);
+        FloatControl gainControl =
+                (FloatControl) MenuScene.clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(-10.0f);
 
     }
 
