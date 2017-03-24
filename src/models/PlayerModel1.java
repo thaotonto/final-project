@@ -83,7 +83,7 @@ public class PlayerModel1 extends PlayerModel {
             numBullet--;
             // Tăng lượng đạn đã bắn
             // Bắn
-            BulletController1 bulletController1 = new BulletController1((int) this.getX() + DEFAULT_WIDTH + 5, this.getMidY(), angle);
+            BulletController1 bulletController1 = new BulletController1((int) this.getX() + DEFAULT_WIDTH - 18, this.getMidY() - BulletModel.DEFAULT_HEIGHT/2, angle);
             ((BulletModel1) bulletController1.getModel()).setMoveBehavior(new MoveLeftHeroBehavior());
             bullet.add(bulletController1);
         }
