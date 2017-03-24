@@ -61,7 +61,7 @@ public class MenuScene implements GameScene{
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if (start.contains(p)) {
-            NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, true);
+            NotificationCenter.getInstance().onChange(SceneType.GUIDE_SCENE, true);
         }
         if (quit.contains(p)) {
             System.exit(0);

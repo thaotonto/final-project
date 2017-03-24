@@ -141,6 +141,10 @@ public class Game extends Frame implements Runnable,Subcriber{
                attach(new MenuScene());
                break;
 
+           case GUIDE_SCENE:
+               attach(new GuideScene());
+               break;
+
            case PLAY_SCENE:
                attach(new PlayScene());
                break;

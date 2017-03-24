@@ -53,7 +53,7 @@ public class CharacterView extends GameView {
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(-Math.toRadians(((PlayerModel1) model).getAngle()), (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,model.getMidY());
-            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int) model.getX()+PlayerModel1.DEFAULT_WIDTH - 6, model.getMidY() - 5, 50, 10,null);
+            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int) model.getX()+PlayerModel1.DEFAULT_WIDTH - 6, model.getMidY() - 5, 70, 7,null);
             g2d.setTransform(originalTransform);
         }
 
@@ -79,7 +79,7 @@ public class CharacterView extends GameView {
             Graphics2D g2d = graphics;
             AffineTransform originalTransform = g2d.getTransform();
             g2d.rotate(Math.toRadians(((PlayerModel2) model).getAngle()), (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40,model.getMidY() );
-            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40, model.getMidY() - 5, 50, 10,null);
+            g2d.drawImage(Utils.loadImageFromres("angle.png"),(int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2+40, model.getMidY() - 5, 70, 7,null);
             g2d.setTransform(originalTransform);
         }
     }
