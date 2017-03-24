@@ -10,6 +10,10 @@ import java.awt.*;
  * Created by TrKaJv on 22-Mar-17.
  */
 public class PlayerInforView extends GameView {
+    public static final int START_DRAW_INFOR = 60;
+    public static final int PIXCEL_OF_CHAR = 8;
+    public static final int HEIGHT_LINE = 10;
+
     public PlayerInforView(Image image) {
         super(image);
     }
@@ -27,28 +31,31 @@ public class PlayerInforView extends GameView {
             graphics.drawRect((int) gameModel.getX(), (int)gameModel.getY(), gameModel.getWidth(),  gameModel.getHeight());
 
             // HP
+            String inforString = "HP";
             graphics.setColor(new Color(255, 18, 0));
-            graphics.drawString("HP", gameModel.getX()+20, gameModel.getY()+20);
-            graphics.fillRect( (int)gameModel.getX()+50,(int) gameModel.getY()+10, ((PlayerInforModel)gameModel).getHPLeght(), 10);
-            graphics.drawRect((int) gameModel.getX()+50,(int) gameModel.getY()+10, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
+            graphics.drawString(inforString, gameModel.getX()+(START_DRAW_INFOR-(inforString.length()*PIXCEL_OF_CHAR))/2, gameModel.getY()+20);
+            graphics.fillRect( (int)gameModel.getX()+START_DRAW_INFOR,(int) gameModel.getY()+10, ((PlayerInforModel)gameModel).getHPLeght(), HEIGHT_LINE);
+            graphics.drawRect((int) gameModel.getX()+START_DRAW_INFOR,(int) gameModel.getY()+10, PlayerInforModel.DEFAULT_WIDTH_HP, HEIGHT_LINE);
             graphics.setColor(new Color(0, 0, 0));
-            graphics.drawString(((PlayerInforModel) gameModel).getHP()+"", gameModel.getX()+60, gameModel.getY()+20);
+            graphics.drawString(((PlayerInforModel) gameModel).getHP()+"", gameModel.getX()+START_DRAW_INFOR, gameModel.getY()+20);
 
             // MANA
+             inforString = "MANA";
             graphics.setColor(new Color(9, 19, 255));
-            graphics.drawString("MANA", gameModel.getX()+3, gameModel.getY()+40);
-            graphics.fillRect( (int)gameModel.getX()+50, (int)gameModel.getY()+30, ((PlayerInforModel)gameModel).getTimeCanShoot(), 10);
-            graphics.drawRect( (int)gameModel.getX()+50, (int)gameModel.getY()+30, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
+            graphics.drawString(inforString,  gameModel.getX()+(START_DRAW_INFOR-(inforString.length()*PIXCEL_OF_CHAR))/2, gameModel.getY()+40);
+            graphics.fillRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+30, ((PlayerInforModel)gameModel).getTimeCanShoot(), HEIGHT_LINE);
+            graphics.drawRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+30, PlayerInforModel.DEFAULT_WIDTH_HP, HEIGHT_LINE);
 
             // NUM_BULLET
+            inforString = "NUM BUL";
             graphics.setColor(new Color(255, 150, 0));
-            graphics.drawString("NUM BUL", gameModel.getX(), gameModel.getY()+60);
-            graphics.fillRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, ((PlayerInforModel)gameModel).getNumBullet()*(PlayerInforModel.DEFAULT_WIDTH_HP/PlayerModel.NUM_BULLET_MAX), 10);
+            graphics.drawString(inforString,  gameModel.getX()+(START_DRAW_INFOR-(inforString.length()*PIXCEL_OF_CHAR))/2, gameModel.getY()+60);
+            graphics.fillRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+50, ((PlayerInforModel)gameModel).getNumBullet()*(PlayerInforModel.DEFAULT_WIDTH_HP/PlayerModel.NUM_BULLET_MAX), 10);
 
             graphics.setColor(new Color(0, 0, 0));
-            graphics.drawRect( (int)gameModel.getX()+50, (int)gameModel.getY()+50, PlayerInforModel.DEFAULT_WIDTH_HP, 10);
+            graphics.drawRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+50, PlayerInforModel.DEFAULT_WIDTH_HP, HEIGHT_LINE);
             for(int i = 0; i<PlayerModel.NUM_BULLET_MAX; i++){
-                graphics.fillRect( (int)(gameModel.getX()+50+i*(PlayerInforModel.DEFAULT_WIDTH_HP/(float)PlayerModel.NUM_BULLET_MAX)), (int)gameModel.getY()+50, 2, 10);
+                graphics.fillRect( (int)(gameModel.getX()+START_DRAW_INFOR+i*(PlayerInforModel.DEFAULT_WIDTH_HP/(float)PlayerModel.NUM_BULLET_MAX)), (int)gameModel.getY()+50, 2, HEIGHT_LINE);
             }
         }
     }
