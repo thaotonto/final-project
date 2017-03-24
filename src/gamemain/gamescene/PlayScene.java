@@ -18,11 +18,11 @@ public class PlayScene implements GameScene {
     public static final int LEFT_P1 = KeyEvent.VK_F;
     public static final int RIGHT_P1 = KeyEvent.VK_H;
     public static final int SHOOT_P1 = KeyEvent.VK_G;
-    public static final int UP_P2 = KeyEvent.VK_RIGHT;
-    public static final int DOWN_P2 = KeyEvent.VK_LEFT;
-    public static final int LEFT_P2 = KeyEvent.VK_P;
-    public static final int RIGHT_P2 = KeyEvent.VK_I;
-    public static final int SHOOT_P2 = KeyEvent.VK_O;
+    public static final int UP_P2 = KeyEvent.VK_COMMA;
+    public static final int DOWN_P2 = KeyEvent.VK_PERIOD;
+    public static final int LEFT_P2 = KeyEvent.VK_RIGHT;
+    public static final int RIGHT_P2 = KeyEvent.VK_LEFT;
+    public static final int SHOOT_P2 = KeyEvent.VK_DOWN;
     private BitSet bitSet1; // Lưu lại các hành động khi chơi game
     private BitSet bitSet2;
     GameManager gameManager; // Các đối tượng trong game các hành động
