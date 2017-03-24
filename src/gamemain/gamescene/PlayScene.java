@@ -12,7 +12,17 @@ import java.util.BitSet;
 /**
  * Created by EDGY on 3/19/2017.
  */
-public class PlayScene implements GameScene{
+public class PlayScene implements GameScene {
+    public static final int UP_P1 = KeyEvent.VK_A;
+    public static final int DOWN_P1 = KeyEvent.VK_S;
+    public static final int LEFT_P1 = KeyEvent.VK_F;
+    public static final int RIGHT_P1 = KeyEvent.VK_H;
+    public static final int SHOOT_P1 = KeyEvent.VK_G;
+    public static final int UP_P2 = KeyEvent.VK_RIGHT;
+    public static final int DOWN_P2 = KeyEvent.VK_LEFT;
+    public static final int LEFT_P2 = KeyEvent.VK_I;
+    public static final int RIGHT_P2 = KeyEvent.VK_P;
+    public static final int SHOOT_P2 = KeyEvent.VK_O;
     private BitSet bitSet1; // Lưu lại các hành động khi chơi game
     private BitSet bitSet2;
     GameManager gameManager; // Các đối tượng trong game các hành động
@@ -27,8 +37,8 @@ public class PlayScene implements GameScene{
     @Override
     public void run() {
         gameManager.run();
-        if(playerWin != 0){
-            NotificationCenter.getInstance().onChange(SceneType.GAMEOVER_SCENE,false);
+        if (playerWin != 0) {
+            NotificationCenter.getInstance().onChange(SceneType.GAMEOVER_SCENE, false);
         }
     }
 
@@ -51,17 +61,17 @@ public class PlayScene implements GameScene{
             // Pause
         } else {
             // Phím điều khiển khi chơi game
-            if (e.getKeyCode() == KeyEvent.VK_W
-                    || e.getKeyCode() == KeyEvent.VK_S
-                    || e.getKeyCode() == KeyEvent.VK_A
-                    || e.getKeyCode() == KeyEvent.VK_D
-                    || e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (e.getKeyCode() == UP_P1
+                    || e.getKeyCode() == DOWN_P1
+                    || e.getKeyCode() == LEFT_P1
+                    || e.getKeyCode() == RIGHT_P1
+                    || e.getKeyCode() == SHOOT_P1) {
                 bitSet1.set(e.getKeyCode());
-            } else if (e.getKeyCode() == KeyEvent.VK_UP
-                    || e.getKeyCode() == KeyEvent.VK_DOWN
-                    || e.getKeyCode() == KeyEvent.VK_LEFT
-                    || e.getKeyCode() == KeyEvent.VK_RIGHT
-                    || e.getKeyCode() == KeyEvent.VK_NUMPAD0) {
+            } else if (e.getKeyCode() == UP_P2
+                    || e.getKeyCode() == DOWN_P2
+                    || e.getKeyCode() == LEFT_P2
+                    || e.getKeyCode() == RIGHT_P2
+                    || e.getKeyCode() == SHOOT_P2) {
                 bitSet2.set(e.getKeyCode());
             }
         }
