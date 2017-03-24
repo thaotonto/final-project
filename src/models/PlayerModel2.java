@@ -4,6 +4,7 @@ import behavior.move.*;
 import controllers.BulletController2;
 import controllers.GameController;
 import gamemain.Game;
+import gamemain.gamescene.PlayScene;
 
 import java.awt.event.KeyEvent;
 import java.util.BitSet;
@@ -22,10 +23,10 @@ public class PlayerModel2 extends PlayerModel {
     // Xác định move theo hướng nào
     @Override
     public void move() {
-        if (bitSet.get(KeyEvent.VK_UP)) {
+        if (bitSet.get(PlayScene.UP_P2)) {
             setMoveBehavior(new MoveUpBehavior());
         }
-        if (bitSet.get(KeyEvent.VK_DOWN)) {
+        if (bitSet.get(PlayScene.DOWN_P2)) {
             setMoveBehavior(new MoveDownBehavior());
         }
     }
@@ -56,19 +57,19 @@ public class PlayerModel2 extends PlayerModel {
 
     // Set khi bắn
     public void shoot() {
-        if (bitSet.get(KeyEvent.VK_LEFT)) {
+        if (bitSet.get(PlayScene.LEFT_P2)) {
             if (angle <= 240) {
                 angle += ANGLE_CHANGE;
             }
 
         }
-        if (bitSet.get(KeyEvent.VK_RIGHT)) {
+        if (bitSet.get(PlayScene.RIGHT_P2)) {
             if (angle >= 110) {
                 angle -= ANGLE_CHANGE;
             }
         }
 
-        if (bitSet.get(KeyEvent.VK_NUMPAD0)) {
+        if (bitSet.get(PlayScene.SHOOT_P2)) {
             shootNormal();
         }
     }
