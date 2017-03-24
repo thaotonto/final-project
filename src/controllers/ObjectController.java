@@ -31,7 +31,6 @@ public class ObjectController extends GameController {
         if (other instanceof BulletController2) {
             if (model.getHp() <=1 ){
                 PlayerManger.getInstancePlayer2().getModel().getHit(20);
-                //lol
             }
             model.getHit(1);
         }
