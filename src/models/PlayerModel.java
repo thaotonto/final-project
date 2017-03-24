@@ -17,13 +17,17 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     public static final int DEFAULT_HEGHT = 100;
     public static final float ANGLE_CHANGE = 1.6f;
     public static int NUM_BULLET_MAX = 3;
+    public static  int DISTANCE_MAX = 700;
     protected  int TIME_ENCREASE_BULLET_MAX = 1500;
+    protected  int DELAY_MOVE_MAX = 1500;
     // Speed mặc địch
     protected final float SPEED = 3.5F;
-    public static final int TIME_DELAY_SHOOT = 500;   // Khoản cách của mỗi viên đạn (về time)
+    public static final int TIME_DELAY_SHOOT = 700;   // Khoản cách của mỗi viên đạn (về time)
     // Speed để có thể thay đổi từ bên ngoài
     protected  int numBullet = NUM_BULLET_MAX;
-    protected  int timeEncreaseBullet = 2000;
+    protected  int timeEncreaseBullet = TIME_ENCREASE_BULLET_MAX;
+    protected  int timeCountMove ;
+    protected  int distance = DISTANCE_MAX;
 
     protected  float speed;
 
@@ -119,6 +123,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     }
 
     public void encreaseBullet() {
+        timeEncreaseBullet +=Game.GAME_LOOP_TIME;
         if(timeEncreaseBullet >= TIME_ENCREASE_BULLET_MAX && numBullet < NUM_BULLET_MAX){
             numBullet ++;
             timeEncreaseBullet = 0;
@@ -127,5 +132,9 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
 
     public int getNumBullet() {
         return numBullet;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

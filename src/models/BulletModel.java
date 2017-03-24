@@ -13,7 +13,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     // Kích thước mặc định
     public static final int DEFAULT_WIDTH = 30;
     public static final int DEFAULT_HEIGHT = 30;
-    public static final int TIME_LIVE_MAX = 5000;
+    public static final int TIME_LIVE_MAX = 4000;
     // speed mặc định
     public static final int SPEED = 12;
     // Dùng speed này
@@ -83,12 +83,10 @@ public class BulletModel extends GameModel implements GameModelCanMove {
         speedX = speedXY[0];
         speedY = speedXY[1];
 
-//        if(speedX*speedX + speedY*speedY < 25){
             float newSpeed = (float) Math.sqrt(speedX*speedX + speedY*speedY);
             float tiLe = BulletModel.SPEED/newSpeed;
             speedX = speedX*tiLe;
             speedY = speedY*tiLe;
-//        }
 
     }
 
