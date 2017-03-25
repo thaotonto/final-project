@@ -39,7 +39,7 @@ public class PlayScene implements GameScene {
         FloatControl gainControl =
                 (FloatControl) MenuScene.clip.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(-10.0f);
-
+        playerWin = 0;
     }
 
     @Override

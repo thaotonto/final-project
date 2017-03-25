@@ -1,5 +1,6 @@
 package models;
 
+import controllers.PlayerController2;
 import gamemain.gamescene.MenuScene;
 import utils.Utils;
 
@@ -11,6 +12,7 @@ import java.awt.*;
  * Created by Thaotonto on 3/9/2017.
  */
 public class GameModel {
+    public static final int HP_MAX = 100;
     protected float x;
     protected float y;
     protected int width;
@@ -33,6 +35,7 @@ public class GameModel {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+
     }
 
     public float getX() {
@@ -74,7 +77,7 @@ public class GameModel {
         return (new Rectangle((int) x, (int) y, width, height));
     }
 
-    public void getHit(int damage) {
+    public void getHit() {
         if (this instanceof PlayerModel) {
             Clip clip = Utils.playSound("resources/Angry-chicken.wav",false);
             clip.setMicrosecondPosition(500000);
@@ -83,7 +86,7 @@ public class GameModel {
             gainControl.setValue(-5.0f);
             clip.start();
         }
-        this.hp -= damage;
+        this.hp -= BulletModel.DAMAGE;
         if (hp <= 0) {
             isAlive = false;
         }
@@ -93,4 +96,7 @@ public class GameModel {
         return hp;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 }

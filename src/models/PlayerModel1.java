@@ -6,7 +6,6 @@ import controllers.GameController;
 import gamemain.Game;
 import gamemain.gamescene.PlayScene;
 
-import java.awt.event.KeyEvent;
 import java.util.BitSet;
 import java.util.Vector;
 
@@ -16,6 +15,8 @@ import java.util.Vector;
 public class PlayerModel1 extends PlayerModel {
 
 
+    private static PlayerModel1 instance;
+
     public PlayerModel1(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height, bitSet, bullet);
         this.speed = SPEED;
@@ -23,11 +24,22 @@ public class PlayerModel1 extends PlayerModel {
         angle = 0;
     }
 
+    public static PlayerModel1 getInstance(int x, int y, BitSet bitSet, Vector<GameController> bullet) {
+//        if(instance == null) {
+        instance = new PlayerModel1(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet);
+//        }
+        return instance;
+    }
+
+    public static PlayerModel1 getInstance() {
+        return instance;
+    }
+
     // Xác định move theo hướng nào
     @Override
     public void move() {
         if (bitSet.get(PlayScene.UP_P1) || bitSet.get(PlayScene.DOWN_P1)) {
-            if (distance>0) {
+            if (distance > 0) {
 
                 if (bitSet.get(PlayScene.UP_P1)) {
 //            setMoveBehavior(new MoveUpBehavior());
@@ -91,7 +103,14 @@ public class PlayerModel1 extends PlayerModel {
         }
 
         if (bitSet.get(PlayScene.SHOOT_P1)) {
+            timeDelayShootBecauseAnimation = TIME_DELAY_SHOOT_BECAUSE_ANIMAYION;
+        }
+        if (timeDelayShootBecauseAnimation > 0) {
+            timeDelayShootBecauseAnimation -= Game.GAME_LOOP_TIME;
+        }
+        if (timeDelayShootBecauseAnimation==0) {
             shootNormal();
+            timeDelayShootBecauseAnimation = -100;
         }
     }
 
@@ -102,6 +121,7 @@ public class PlayerModel1 extends PlayerModel {
             timeCount = 0;
             timeEncreaseBullet = 0;
             numBullet--;
+            timeDelayShootBecauseAnimation = 0;
             // Tăng lượng đạn đã bắn
             // Bắn
             BulletController1 bulletController1 = new BulletController1((int) this.getX() + DEFAULT_WIDTH - 18, this.getMidY() - BulletModel.DEFAULT_HEIGHT / 2, angle);

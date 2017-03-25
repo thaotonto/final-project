@@ -17,19 +17,21 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     public static final int DEFAULT_HEGHT = 100;
     public static final float ANGLE_CHANGE = 1.6f;
     public static int NUM_BULLET_MAX = 3;
-    public static  int DISTANCE_MAX = 700;
-    protected  int TIME_ENCREASE_BULLET_MAX = 1500;
-    protected  int DELAY_MOVE_MAX = 1500;
+    public static int DISTANCE_MAX = 700;
+    protected int TIME_ENCREASE_BULLET_MAX = 1500;
+    protected int DELAY_MOVE_MAX = 1500;
     // Speed mặc địch
     protected final float SPEED = 3.5F;
     public static final int TIME_DELAY_SHOOT = 700;   // Khoản cách của mỗi viên đạn (về time)
     // Speed để có thể thay đổi từ bên ngoài
-    protected  int numBullet = NUM_BULLET_MAX;
-    protected  int timeEncreaseBullet = TIME_ENCREASE_BULLET_MAX;
-    protected  int timeCountMove ;
-    protected  int distance = DISTANCE_MAX;
+    protected int numBullet = NUM_BULLET_MAX;
+    protected int timeEncreaseBullet = TIME_ENCREASE_BULLET_MAX;
+    protected int distance = DISTANCE_MAX;
+    public int TIME_DELAY_SHOOT_BECAUSE_ANIMAYION = 17 * 7;
+    protected int timeDelayShootBecauseAnimation = 0;
+    protected int timeCountMove;
 
-    protected  float speed;
+    protected float speed;
 
 
     // Move
@@ -57,6 +59,13 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
         this.speed = SPEED;
         this.hp = 100;
         angle = 0;
+    }
+
+
+    public void hpRegen() {
+        if (hp < HP_MAX) {
+            this.hp += BulletModel.DAMAGE;
+        }
     }
 
     public float getAngle() {
@@ -123,9 +132,9 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     }
 
     public void encreaseBullet() {
-        timeEncreaseBullet +=Game.GAME_LOOP_TIME;
-        if(timeEncreaseBullet >= TIME_ENCREASE_BULLET_MAX && numBullet < NUM_BULLET_MAX){
-            numBullet ++;
+        timeEncreaseBullet += Game.GAME_LOOP_TIME;
+        if (timeEncreaseBullet >= TIME_ENCREASE_BULLET_MAX && numBullet < NUM_BULLET_MAX) {
+            numBullet++;
             timeEncreaseBullet = 0;
         }
     }

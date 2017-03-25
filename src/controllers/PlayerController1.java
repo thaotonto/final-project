@@ -30,7 +30,7 @@ public class PlayerController1 extends GameController {
     }
 
     public PlayerController1(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
-        this(new PlayerModel1(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
+        this(PlayerModel1.getInstance(x,y,bitSet,bullet),
                 new CharacterView(Utils.loadImageFromres(iconPath)));
         Image island = Utils.loadImageFromres("BG-1-3.png");
 
@@ -86,7 +86,7 @@ public class PlayerController1 extends GameController {
     public void onContact(GameController other) {
         if (other instanceof BulletController2) {
             if (other.model instanceof BulletModel2) {
-                model.getHit(((BulletModel2) other.model).getDamage());
+                model.getHit();
                 checkHit = true;
                 // Tao ra vu no
                 ExplodeCotroller explodeCotroller = new ExplodeCotroller((int)other.model.getX(), (int)other.model.getY());

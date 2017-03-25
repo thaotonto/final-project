@@ -10,6 +10,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.Delayed;
 
 /**
@@ -89,7 +90,6 @@ public class Utils {
         }
     }
 
-
     public static float[] findSpeed(ObjectModel model, float x1, float y1, float x2, float y2) {
         float x_o = model.getMidX();
         float y_o = model.getMidY();
@@ -131,7 +131,6 @@ public class Utils {
         float[] ok = {x_f, y_f};
         return ok;
     }
-
     public static Clip playSound(String audioUrl, boolean repeat) {
         Clip clip = null;
         File soundFile = new File(audioUrl);
@@ -152,5 +151,10 @@ public class Utils {
             e.printStackTrace();
         }
         return clip;
+    }
+
+    public static int randomAll(int min, int max){
+        Random rd = new Random();
+        return rd.nextInt(max - min + 1) + min;
     }
 }

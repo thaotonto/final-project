@@ -14,6 +14,8 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     public static final int DEFAULT_WIDTH = 30;
     public static final int DEFAULT_HEIGHT = 30;
     public static final int TIME_LIVE_MAX = 4000;
+    public static final int DAMAGE = 10;
+
     // speed mặc định
     public static final int SPEED = 12;
     // Dùng speed này
@@ -26,7 +28,7 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     protected float x2 = x;
     protected float y1 = y;
     protected float y2 = y;
-    protected int damage=10;
+
     protected float speedX;
     protected float speedY;
     protected float angle;
@@ -97,10 +99,6 @@ public class BulletModel extends GameModel implements GameModelCanMove {
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
         this.moveBehavior = moveBehavior;
-    }
-
-    public int getDamage() {
-        return damage;
     }
 
     public void setObjContact(ObjectModel objContact) {
