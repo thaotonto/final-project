@@ -28,7 +28,7 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
     protected int timeEncreaseBullet = TIME_ENCREASE_BULLET_MAX;
     protected int distance = DISTANCE_MAX;
     public int TIME_DELAY_SHOOT_BECAUSE_ANIMAYION = 17 * 7;
-    protected int timeDelayShootBecauseAnimation = 0;
+    protected int timeDelayShootBecauseAnimation = -100;
     protected int timeCountMove;
 
     protected float speed;
