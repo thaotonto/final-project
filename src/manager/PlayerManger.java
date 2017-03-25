@@ -5,6 +5,7 @@ import controllers.PlayerController1;
 import controllers.PlayerController2;
 import controllers.PlayerInforController;
 import gamemain.Game;
+import models.GameModel;
 import models.PlayerInforModel;
 import models.PlayerModel;
 
@@ -20,8 +21,12 @@ public class PlayerManger {
     public static void  addPlayer(Vector<GameController> gameControllers, BitSet bitSet1, BitSet bitSet2){
         PlayerController1 playerController1 = new PlayerController1(50, Game.FRAME_HEIGHT-250, bitSet1,gameControllers,"ninja-left/ninja-hit/ninja-hit11.png");
         instancePlayer1 = playerController1;
+//        instancePlayer1.getModel().setHp(GameModel.HP_MAX);
+//        instancePlayer1.getModel().setAlive(true);
         PlayerController2 playerController2 = new PlayerController2(Game.FRAME_WIDTH-130, Game.FRAME_HEIGHT-270,bitSet2,gameControllers,"ninja-right/ninja-hit/ninja-hit11.png");
         instancePlayer2 = playerController2;
+//        instancePlayer2.getModel().setHp(GameModel.HP_MAX);
+//        instancePlayer2.getModel().setAlive(true);
         gameControllers.add(playerController1);
         gameControllers.add(playerController2);
 

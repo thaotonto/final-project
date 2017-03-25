@@ -35,6 +35,7 @@ public class GameModel {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+
     }
 
     public float getX() {
@@ -95,4 +96,7 @@ public class GameModel {
         return hp;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 }

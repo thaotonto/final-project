@@ -23,9 +23,9 @@ public class PlayerModel2 extends PlayerModel {
     }
 
     public static PlayerModel2 getInstance(int x, int y, BitSet bitSet, Vector<GameController> bullet){
-        if(instance == null) {
+//        if(instance == null) {
             instance = new PlayerModel2(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet);
-        }
+//        }
         return instance;
     }
 
