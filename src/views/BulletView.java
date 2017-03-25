@@ -35,10 +35,10 @@ public class BulletView extends GameView {
     }*/
     public void explodeShot(int i) {
         if(i==1){
-            image = BulletPlayer1.getImage();
+            image = BulletPlayer1.getImageFree();
 
         } else if(i==2){
-             image = BulletPlayer2.getImage();
+             image = BulletPlayer2.getImageFree();
 
         }
     }
