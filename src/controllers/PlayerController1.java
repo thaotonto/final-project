@@ -1,10 +1,7 @@
 package controllers;
 
 import gamemain.gamescene.PlayScene;
-import models.BulletModel1;
-import models.BulletModel2;
-import models.GameModel;
-import models.PlayerModel1;
+import models.*;
 import utils.Utils;
 import views.CharacterView;
 import views.GameView;
@@ -101,6 +98,9 @@ public class PlayerController1 extends GameController {
             if (other.model instanceof BulletModel2) {
                 model.getHit(((BulletModel2) other.model).getDamage());
                 checkHit = true;
+                // Tao ra vu no
+                ExplodeCotroller explodeCotroller = new ExplodeCotroller((int)other.model.getX(), (int)other.model.getY());
+                ((PlayerModel)model).getBullet().add(explodeCotroller);
             }
         }
     }

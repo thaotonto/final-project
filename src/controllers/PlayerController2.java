@@ -1,10 +1,7 @@
 package controllers;
 
 import gamemain.gamescene.PlayScene;
-import models.BulletModel1;
-import models.GameModel;
-import models.PlayerModel1;
-import models.PlayerModel2;
+import models.*;
 import utils.Utils;
 import views.CharacterView;
 import views.GameView;
@@ -34,19 +31,20 @@ public class PlayerController2 extends GameController {
         super(model, view);
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
-                (int)model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
-                (int)model.getY() + model.getHeight() - 20,
+                (int) model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
+                (int) model.getY() + model.getHeight() - 20,
                 island.getWidth(null),
                 island.getHeight(null)),
                 new GameView(island));
     }
+
     public PlayerController2(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
         this(new PlayerModel2(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
                 new CharacterView(Utils.loadImageFromres(iconPath)));
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
-                (int)model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
-                (int)model.getY() + model.getHeight() - 20,
+                (int) model.getX() + (model.getWidth() - island.getWidth(null)) / 2,
+                (int) model.getY() + model.getHeight() - 20,
                 island.getWidth(null),
                 island.getHeight(null)),
                 new GameView(island));
@@ -57,26 +55,26 @@ public class PlayerController2 extends GameController {
         if (model instanceof PlayerModel2) {
             ((PlayerModel2) model).run();
         }
-        if(((PlayerModel2)model).getBitSet().get(PlayScene.SHOOT_P2)){
+        if (((PlayerModel2) model).getBitSet().get(PlayScene.SHOOT_P2)) {
             checkShoot = true;
         }
         // neu no ban thi get animation ban
-        if(checkShoot){
-            if(!((CharacterView)view).explodeShot(2)){
+        if (checkShoot) {
+            if (!((CharacterView) view).explodeShot(2)) {
                 checkShoot = false;
             }
         }
         // neu no trung dan thi get animation trung dan
-        if(checkGetHit){
+        if (checkGetHit) {
 
-            if(!((CharacterView)view).explodeGetHit(2)){
+            if (!((CharacterView) view).explodeGetHit(2)) {
                 checkGetHit = false;
             }
         }
         // neu no die get animation die
         // check die
-        if(!model.isAlive()){
-            if(((CharacterView) view).explodeDie(2) == null){
+        if (!model.isAlive()) {
+            if (((CharacterView) view).explodeDie(2) == null) {
                 // viet code chuyen man choi o day
             }
 
@@ -103,6 +101,9 @@ public class PlayerController2 extends GameController {
                 checkGetHit = true;
                 model.getHit(((BulletModel1) other.model).getDamage());
 
+                // Tao ra vu no
+                ExplodeCotroller explodeCotroller = new ExplodeCotroller((int)other.model.getX(), (int)other.model.getY());
+                ((PlayerModel)model).getBullet().add(explodeCotroller);
             }
         }
     }
