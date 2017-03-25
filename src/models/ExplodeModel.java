@@ -7,8 +7,8 @@ public class ExplodeModel extends  GameModel {
 
 
 
-    public static final int  WIDTH_EPLOYDE = 60;
-    public static final int  HEIGHT_EPLOYDE = 60;
+    public static final int  WIDTH_EPLOYDE = 100;
+    public static final int  HEIGHT_EPLOYDE = 100;
     public ExplodeModel(int x, int y) {
         super(x, y, WIDTH_EPLOYDE, WIDTH_EPLOYDE);
     }
