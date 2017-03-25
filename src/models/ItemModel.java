@@ -5,8 +5,8 @@ package models;
  */
 public class ItemModel extends GameModel{
     private static final int TIME_ALIVE = 100;
-    private static final int DEFAULT_WIDTH = 30;
-    private static final int DEFAULT_HEIGHT = 30;
+    private static final int DEFAULT_WIDTH = 50;
+    private static final int DEFAULT_HEIGHT = 50;
 
     public ItemModel(int x, int y) {
         super(x, y, DEFAULT_WIDTH, DEFAULT_HEIGHT);

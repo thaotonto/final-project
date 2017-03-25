@@ -1,5 +1,6 @@
 package controllers;
 
+import gamemain.Game;
 import models.GameModel;
 import models.ItemModel;
 import models.PlayerModel1;
@@ -15,7 +16,7 @@ import java.awt.*;
 public class HpItemController extends GameController{
 
     private int countAlive = 0;
-    private static final int ALIVE_TIME = 5000;
+    private static final int ALIVE_TIME = 4000;
 
     public HpItemController(GameModel model, GameView view) {
         super(model, view);
@@ -42,8 +43,8 @@ public class HpItemController extends GameController{
 
     @Override
     public void run() {
-        countAlive++;
-        if (countAlive == ALIVE_TIME) {
+        countAlive+= Game.GAME_LOOP_TIME;
+        if (countAlive >= ALIVE_TIME) {
             countAlive = 0;
             this.model.setAlive(false);
         }
