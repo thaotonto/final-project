@@ -15,8 +15,7 @@ public class ExplodeView extends GameView {
     }
 
     public boolean explodeShot() {
-        // explosion = new Animation(11, 1000, "ninja-left/ninja-shot");
-
+        // chay anh con ga bi no
             Image temp = ExplodeChicken.getImage();
             if (temp != null) {
                 image = temp;

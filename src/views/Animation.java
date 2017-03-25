@@ -24,8 +24,6 @@ public class Animation {
         this.listUrl = listUrl;
     }
 
-
-
     public Image getImage() {
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastTime >= delay && index <= listUrl.size()) {
@@ -34,7 +32,6 @@ public class Animation {
                 index = 0;
                 return null;
             }
-
             image = Utils.loadImageFromres(listUrl.get(index));
             index++;
         }
@@ -47,18 +44,10 @@ public class Animation {
             lastTime = currentTime;
             if (index == listUrl.size()) {
                 index = 0;
-                //return null;
             }
-
             image = Utils.loadImageFromres(listUrl.get(index));
             index++;
         }
         return image;
-    }
-
-    public void reload() {
-        if (index == listUrl.size()) {
-            index = 0;
-        }
     }
 }

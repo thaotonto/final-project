@@ -21,28 +21,15 @@ public class BulletView extends GameView {
         BulletPlayer1 = new Animation(98, Utils.getlistURLImage("/chickenLeft/chickenLeft" , 9));
         BulletPlayer2 = new Animation(98, Utils.getlistURLImage("/chickenRight/chickenRight",9));
     }
-    /*public void changeImage(){
-        timeCount +=Game.GAME_LOOP_TIME;
-        if(timeCount >= TIME_CHANGE_IMAGE){
-            timeCount = 0;
-            if(indexImage<=1){
-                indexImage++;
-            }else {
-                indexImage = 0;
-            }
-            image = Utils.loadImageFromres("bullet-1-"+indexImage+".png");
-        }
-    }*/
+
     public void explodeShot(int i) {
+        // i la player 1 or player 2
         if(i==1){
             image = BulletPlayer1.getImageFree();
-
         } else if(i==2){
              image = BulletPlayer2.getImageFree();
-
         }
     }
-
 
     @Override
     public void draw(Graphics2D graphics, GameModel model) {

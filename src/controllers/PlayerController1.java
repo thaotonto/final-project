@@ -20,18 +20,10 @@ import static gamemain.gamescene.PlayScene.playerWin;
 public class PlayerController1 extends GameController {
     // Đảo nó đứng
     GameController island;
-    // check shoot kiem tra ban hay chua
+    // check shoot kiem tra đã bắn đạn chưa
     boolean checkShoot = false;
-    boolean checkAlive = true;
+    // check hit kiểm tra bị trúng đạn chưa
     boolean checkHit = false;
-
-    public boolean isCheckShoot() {
-        return checkShoot;
-    }
-
-    public void setCheckShoot(boolean checkShoot) {
-        this.checkShoot = checkShoot;
-    }
 
     public PlayerController1(GameModel model, CharacterView view) {
         super(model, view);
@@ -71,15 +63,13 @@ public class PlayerController1 extends GameController {
                 checkHit = false;
             }
         }
-
         // check die
-        if(!model.isAlive()){
+       /* if(!model.isAlive()){
                 if(((CharacterView) view).explodeDie(1) == null){
                     // viet code chuyen man choi o day
                 }
 
-        }
-
+        }*/
         // Set vị trí đảo theo vị trí nó
         island.getModel().setX(model.getX() + (model.getWidth() - island.getModel().getWidth()) / 2);
         island.getModel().setY(model.getY() + model.getHeight() - 20);

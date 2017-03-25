@@ -20,7 +20,9 @@ import static gamemain.gamescene.PlayScene.playerWin;
 public class PlayerController2 extends GameController {
     // Đảo nó đứng
     GameController island;
+    // checkShoot kiem tra no có bắn ko
     private boolean checkShoot = false;
+    // checkGetHit kiểm tra nó có bị dính đạn ko
     boolean checkGetHit = false;
 
     public PlayerController2(GameModel model, CharacterView view) {
@@ -58,13 +60,13 @@ public class PlayerController2 extends GameController {
         if (((PlayerModel2) model).getBitSet().get(PlayScene.SHOOT_P2)) {
             checkShoot = true;
         }
-        // neu no ban thi get animation ban
+        // neu no bắn thi get animation bắn
         if (checkShoot) {
             if (!((CharacterView) view).explodeShot(2)) {
                 checkShoot = false;
             }
         }
-        // neu no trung dan thi get animation trung dan
+        // neu no trúng đạn thi get animation trung dan
         if (checkGetHit) {
 
             if (!((CharacterView) view).explodeGetHit(2)) {
@@ -73,12 +75,13 @@ public class PlayerController2 extends GameController {
         }
         // neu no die get animation die
         // check die
-        if (!model.isAlive()) {
+       /* if (!model.isAlive()) {
             if (((CharacterView) view).explodeDie(2) == null) {
                 // viet code chuyen man choi o day
             }
+            }
+        */
 
-        }
 
         // Set vị trí đảo theo vị trí nó
         island.getModel().setX(model.getX() + (model.getWidth() - island.getModel().getWidth()) / 2);

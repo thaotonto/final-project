@@ -11,7 +11,6 @@ import java.awt.geom.AffineTransform;
  */
 public class CharacterView extends GameView {
 
-
     private static final int MOOM_WIDTH = 50;
     private static final int MOON_HEIGHT = 100;
     private Animation explosionShot;
@@ -32,31 +31,18 @@ public class CharacterView extends GameView {
 
     @Override
     public void draw(Graphics2D graphics, GameModel model) {
+        // ve thanh ban theo toa do player 1
         super.draw(graphics, model);
         if (model instanceof PlayerModel1) {
             BasicStroke basicStroke = new BasicStroke(5,BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL );
             graphics.setStroke(basicStroke);
             graphics.setColor(new Color(185, 61, 0));
-//            int speed = 100;
-//            int speedX = 0;
-//            int speedY = 0;
-//            if(((PlayerModel1) model).getAngle() > 0){
-//                speedY = -(int) (speed*Math.sin(Math.toRadians(((PlayerModel1) model).getAngle())));
-//                speedX = (int) (speed*Math.cos(Math.toRadians(((PlayerModel1) model).getAngle())));
-//            }
-//            else if(((PlayerModel1) model).getAngle() < 0){
-//                speedX = (int) (speed*Math.sin(Math.toRadians(90+((PlayerModel1) model).getAngle())));
-//                speedY = (int) (speed*Math.sin(-Math.toRadians(((PlayerModel1) model).getAngle())));
-//            } else if(((PlayerModel1) model).getAngle() == 0){
-//                speedY = 0;
-//                speedX = speed;
-//            }
-//            graphics.drawLine((int) (model.getX()+model.getWidth()), model.getMidY(), (int) (model.getX()+model.getWidth())+speedX, model.getMidY()+speedY);
+
             graphics.drawImage(Utils.loadImageFromres(
                     "moon1.png"),
-//                    (int)(model.getX()+PlayerModel1.DEFAULT_WIDTH - 6 + PlayerModel1.DEFAULT_WIDTH*Math.sin(Math.toRadians(70))),
+
                     (int)model.getX()+PlayerModel1.DEFAULT_WIDTH - 6,
-//                    (int)(model.getMidY() - PlayerModel1.DEFAULT_HEGHT*Math.sin(Math.toRadians(70))),
+
                     model.getMidY() - MOOM_WIDTH,
                     MOOM_WIDTH,
                     MOON_HEIGHT,
@@ -69,24 +55,11 @@ public class CharacterView extends GameView {
         }
 
         if(model instanceof PlayerModel2){
+            // ve thanh ban theo toa do player 2
             BasicStroke basicStroke = new BasicStroke(5,BasicStroke.CAP_BUTT,BasicStroke.JOIN_BEVEL );
             graphics.setStroke(basicStroke);
             graphics.setColor(new Color(185, 61, 0));
-//            int speed = 100;
-//            int speedX = 0;
-//            int speedY = 0;
-//            if(((PlayerModel2) model).getAngle() > 0){
-//                speedY = -(int) (speed*Math.sin(-Math.toRadians(((PlayerModel2) model).getAngle())));
-//                speedX = (int) (speed*Math.cos(Math.toRadians(((PlayerModel2) model).getAngle())));
-//            }
-//            else if(((PlayerModel2) model).getAngle() < 0){
-//                speedX = (int) (speed*Math.sin(Math.toRadians(90+((PlayerModel2) model).getAngle())));
-//                speedY = -(int) (speed*Math.sin(Math.toRadians(((PlayerModel2) model).getAngle())));
-//            } else if(((PlayerModel2) model).getAngle() == 0){
-//                speedY = 0;
-//                speedX = speed;
-//            }
-//            graphics.drawLine((int) model.getX(), model.getMidY(), (int) (model.getX()+speedX), model.getMidY()+speedY);
+
             graphics.drawImage(Utils.loadImageFromres(
                     "moon2.png"),
                     (int)model.getX()-PlayerModel1.DEFAULT_WIDTH/2 - 10,
@@ -105,7 +78,7 @@ public class CharacterView extends GameView {
 
 
     public boolean explodeShot(int i) {
-       // explosion = new Animation(11, 1000, "ninja-left/ninja-shot");
+        // i la player 1 or player 2
         if(i==1){
             Image temp = explosionShot.getImage();
             if (temp != null) {
@@ -123,7 +96,7 @@ public class CharacterView extends GameView {
         return false;
     }
     public boolean explodeGetHit(int i) {
-      //  explosion = new Animation(11, 1000, "ninja-left/ninja-hit");
+        // i la player 1 or player 2
         if(i==1){
             Image temp = explosionGetHit.getImage();
             if (temp != null) {
@@ -137,11 +110,10 @@ public class CharacterView extends GameView {
                 return true;
             }
         }
-
         return false;
     }
     public Image explodeDie(int i) {
-        //  explosion = new Animation(11, 1000, "ninja-left/ninja-hit");
+        // i la player 1 or player 2
         if(i==1){
             Image temp = explosionDie.getImage();
             if (temp != null) {
