@@ -16,7 +16,7 @@ import java.awt.*;
 public class HpItemController extends GameController{
 
     private int countAlive = 0;
-    private static final int ALIVE_TIME = 4000;
+    private static final int ALIVE_TIME = 6000;
 
     public HpItemController(GameModel model, GameView view) {
         super(model, view);

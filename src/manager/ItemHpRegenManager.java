@@ -15,7 +15,7 @@ import java.util.Vector;
  * Created by EDGY on 3/25/2017.
  */
 public class ItemHpRegenManager {
-    public static final int DELAY_ADD_ITEM_HP = 8000;
+    public static final int DELAY_ADD_ITEM_HP = 12000;
     public static int timeCountAddItemHP = 3800;
     public static int timeAlive = 0;
 
