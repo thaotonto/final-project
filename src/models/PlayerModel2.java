@@ -100,7 +100,14 @@ public class PlayerModel2 extends PlayerModel {
         }
 
         if (bitSet.get(PlayScene.SHOOT_P2)) {
+            timeDelayShootBecauseAnimation = TIME_DELAY_SHOOT_BECAUSE_ANIMAYION;
+        }
+        if (timeDelayShootBecauseAnimation > 0) {
+            timeDelayShootBecauseAnimation -= Game.GAME_LOOP_TIME;
+        }
+        if (timeDelayShootBecauseAnimation==0) {
             shootNormal();
+            timeDelayShootBecauseAnimation = -100;
         }
     }
 
