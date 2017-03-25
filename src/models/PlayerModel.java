@@ -137,6 +137,10 @@ public class PlayerModel extends GameModel implements GameModelCanMove {
         }
     }
 
+    public Vector<GameController> getBullet() {
+        return bullet;
+    }
+
     public int getNumBullet() {
         return numBullet;
     }

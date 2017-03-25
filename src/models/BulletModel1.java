@@ -44,15 +44,19 @@ public class BulletModel1 extends BulletModel {
         // Đập cạnh bên phải
         if ((x + (x1 - x2)) > (Game.FRAME_WIDTH - DEFAULT_WIDTH)) {
             speedX=-speedX;
+            objContact = null;
             // Đập cạnh bên trái
         } else if ((x + (x1 - x2)) < 0) {
             speedX=-speedX;
+            objContact = null;
             // Đập cạnh dưới
         } else if ((y + (y1 - y2)) > (Game.FRAME_HEIGHT -BulletModel.DEFAULT_WIDTH)) {
             speedY = -speedY;
+            objContact = null;
             // Đập cạnh trên
         } else if ((y + (y1 - y2)) < 0) {
             speedY = -speedY;
+            objContact = null;
         } else {
             // Đang di chuyển sang trái
             if (x2 == x1) {
