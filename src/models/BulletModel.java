@@ -110,6 +110,11 @@ public class BulletModel extends GameModel implements GameModelCanMove {
     public void setContact(boolean contact) {
         this.contact = contact;
     }
+
+    public ObjectModel getObjContact() {
+        return objContact;
+    }
+
     public void changeNumContact() {
         if(time_live >=TIME_LIVE_MAX){
             isAlive =false;
