@@ -20,33 +20,51 @@ public class PlayerModel2 extends PlayerModel {
         this.hp = 100;
         angle = 180;
     }
+
     // Xác định move theo hướng nào
     @Override
     public void move() {
-        if (bitSet.get(PlayScene.UP_P2)) {
-            setMoveBehavior(new MoveUpBehavior());
-        }
-        if (bitSet.get(PlayScene.DOWN_P2)) {
-            setMoveBehavior(new MoveDownBehavior());
+        if (bitSet.get(PlayScene.UP_P2) || bitSet.get(PlayScene.DOWN_P2)) {
+            if (distance > 0) {
+                if (bitSet.get(PlayScene.UP_P2)) {
+//            setMoveBehavior(new MoveUpBehavior());
+                    moveUp();
+                }
+                if (bitSet.get(PlayScene.DOWN_P2)) {
+//            setMoveBehavior(new MoveDownBehavior());
+                    moveDown();
+                }
+                if (distance > 0) {
+                    distance -= SPEED;
+                }
+                timeCountMove = 0;
+            }
+        }else {
+            timeCountMove += Game.GAME_LOOP_TIME;
+            if (timeCountMove >= DELAY_MOVE_MAX) {
+                if (distance < DISTANCE_MAX) {
+                    distance += SPEED;
+                }
+            }
         }
     }
+
     @Override
     public void run() {
         super.run();
         // set move (Nhận xem move bên nào)
         move();
         //move
-        if (moveBehavior != null) {
-            moveBehavior.move(this);
-        }
-        setMoveBehavior(null);
+//        if (moveBehavior != null) {
+//            moveBehavior.move(this);
+//        }
+//        setMoveBehavior(null);
 
         // set shoot (Nhận xem move bên nào)
         shoot();
         if (timeCount < TIME_DELAY_SHOOT) {
             timeCount += Game.GAME_LOOP_TIME;
         }
-        timeEncreaseBullet +=Game.GAME_LOOP_TIME;
         encreaseBullet();
 
         // Nếu bắn đủ số đạn rồi thì không bắn nữa
@@ -76,13 +94,13 @@ public class PlayerModel2 extends PlayerModel {
 
     public void shootNormal() {
         // Tăng time kể từ lần bắn trước
-        if (timeCount >= TIME_DELAY_SHOOT && numBullet>0) {      // Đủ time bắn
+        if (timeCount >= TIME_DELAY_SHOOT && numBullet > 0) {      // Đủ time bắn
             // set lại
             timeCount = 0;
             timeEncreaseBullet = 0;
             numBullet--;
             // Bắn
-            BulletController2 bulletController2 = new BulletController2((int) this.getX() - DEFAULT_WIDTH/2 + 31, this.getMidY() - BulletModel2.DEFAULT_HEIGHT/2, angle);
+            BulletController2 bulletController2 = new BulletController2((int) this.getX() - DEFAULT_WIDTH / 2 + 31, this.getMidY() - BulletModel2.DEFAULT_HEIGHT / 2, angle);
             ((BulletModel2) bulletController2.getModel()).setMoveBehavior(new MoveRightHeroBehavior());
             bullet.add(bulletController2);
         }

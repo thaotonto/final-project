@@ -26,8 +26,8 @@ public class PlayerInforModel extends GameModel {
         return (int)(playerModel.getHp()*(DEFAULT_WIDTH_HP/(float)100));
     }
 
-    public int getTimeCanShoot(){
-        return (int)(playerModel.getTimeCount()*(DEFAULT_WIDTH_HP/(float)PlayerModel.TIME_DELAY_SHOOT));
+    public int getDistance(){
+        return (int)(playerModel.getDistance()*(DEFAULT_WIDTH_HP/(float)PlayerModel.DISTANCE_MAX));
     }
 
     public int getNumBullet() {

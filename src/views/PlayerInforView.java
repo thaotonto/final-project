@@ -40,10 +40,10 @@ public class PlayerInforView extends GameView {
             graphics.drawString(((PlayerInforModel) gameModel).getHP()+"", gameModel.getX()+START_DRAW_INFOR, gameModel.getY()+20);
 
             // MANA
-             inforString = "MANA";
+             inforString = "MOVE";
             graphics.setColor(new Color(9, 19, 255));
             graphics.drawString(inforString,  gameModel.getX()+(START_DRAW_INFOR-(inforString.length()*PIXCEL_OF_CHAR))/2, gameModel.getY()+40);
-            graphics.fillRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+30, ((PlayerInforModel)gameModel).getTimeCanShoot(), HEIGHT_LINE);
+            graphics.fillRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+30, ((PlayerInforModel)gameModel).getDistance(), HEIGHT_LINE);
             graphics.drawRect( (int)gameModel.getX()+START_DRAW_INFOR, (int)gameModel.getY()+30, PlayerInforModel.DEFAULT_WIDTH_HP, HEIGHT_LINE);
 
             // NUM_BULLET
