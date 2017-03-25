@@ -58,10 +58,10 @@ public class MenuScene implements GameScene {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_Z) {
-            clip.stop();
-            NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, true);
-        }
+//        if (e.getKeyCode() == KeyEvent.VK_Z) {
+//            clip.stop();
+//            NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE, true);
+//        }
     }
 
     @Override

@@ -46,28 +46,6 @@ public class Game extends Frame implements Runnable,Subcriber{
                 System.exit(0);
             }
         });
-        this.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
-                    onBack();
-                }
-                if(e.getKeyCode() == KeyEvent.VK_R){
-                    MenuScene.clip.stop();
-                    NotificationCenter.getInstance().onChange(SceneType.PLAY_SCENE,false);
-                }
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
-            }
-        });
         NotificationCenter.getInstance().register(this);
         //loop game
         loop.start();
