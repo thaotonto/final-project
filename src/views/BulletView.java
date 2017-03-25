@@ -18,10 +18,10 @@ public class BulletView extends GameView {
     private int indexImage = 0;
     public BulletView(Image image) {
         super(image);
-        BulletPlayer1 = new Animation(60, Utils.getlistURLImage("/chickenLeft/chickenLeft" , 9));
-        BulletPlayer2 = new Animation(60, Utils.getlistURLImage("/chickenRight/chickenRight",9));
+        BulletPlayer1 = new Animation(98, Utils.getlistURLImage("/chickenLeft/chickenLeft" , 9));
+        BulletPlayer2 = new Animation(98, Utils.getlistURLImage("/chickenRight/chickenRight",9));
     }
-    public void changeImage(){
+    /*public void changeImage(){
         timeCount +=Game.GAME_LOOP_TIME;
         if(timeCount >= TIME_CHANGE_IMAGE){
             timeCount = 0;
@@ -32,9 +32,8 @@ public class BulletView extends GameView {
             }
             image = Utils.loadImageFromres("bullet-1-"+indexImage+".png");
         }
-    }
+    }*/
     public void explodeShot(int i) {
-
         if(i==1){
             image = BulletPlayer1.getImage();
 

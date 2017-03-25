@@ -1,8 +1,10 @@
 package models;
 
+import gamemain.gamescene.MenuScene;
 import utils.Utils;
 
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.awt.*;
 
 /**
@@ -76,6 +78,9 @@ public class GameModel {
         if (this instanceof PlayerModel) {
             Clip clip = Utils.playSound("resources/Angry-chicken.wav",false);
             clip.setMicrosecondPosition(500000);
+            FloatControl gainControl =
+                    (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-5.0f);
             clip.start();
         }
         this.hp -= damage;

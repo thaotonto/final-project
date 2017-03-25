@@ -5,6 +5,7 @@ import utils.Utils;
 
 
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import java.awt.*;
 
 import java.awt.event.KeyEvent;
@@ -31,8 +32,10 @@ public class MenuScene implements GameScene {
     public MenuScene() {
         start = new Rectangle(FRAME_WIDTH / 2 - startWidth / 2, FRAME_HEIGHT / 2 - startHeight / 2, startWidth, startHeight);
         quit = new Rectangle(FRAME_WIDTH / 2 - quitWidth / 2, FRAME_HEIGHT / 2 + quitHeight, quitWidth, quitHeight);
-        clip = Utils.playSound("resources/menu.wav",true);
-
+        clip = Utils.playSound("resources/menu.wav", true);
+        FloatControl gainControl =
+                (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(-10.0f);
     }
 
     @Override

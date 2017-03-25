@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c10331e2-b799-4e33-b543-54e9f7ee4eb1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/Models/BulletModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/Models/BulletModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/Models/GameModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/Models/GameModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/gamemain/gamescene/GuideScene.class" afterPath="$PROJECT_DIR$/out/production/final-project/gamemain/gamescene/GuideScene.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/gamemain/gamescene/MenuScene.class" afterPath="$PROJECT_DIR$/out/production/final-project/gamemain/gamescene/MenuScene.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/gamemain/gamescene/PlayScene.class" afterPath="$PROJECT_DIR$/out/production/final-project/gamemain/gamescene/PlayScene.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/ObjectModel.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/ObjectModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project/models/PlayerModel2.class" afterPath="$PROJECT_DIR$/out/production/final-project/models/PlayerModel2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gamemain/gamescene/GuideScene.java" afterPath="$PROJECT_DIR$/src/gamemain/gamescene/GuideScene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gamemain/gamescene/MenuScene.java" afterPath="$PROJECT_DIR$/src/gamemain/gamescene/MenuScene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gamemain/gamescene/PlayScene.java" afterPath="$PROJECT_DIR$/src/gamemain/gamescene/PlayScene.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/GameModel.java" afterPath="$PROJECT_DIR$/src/models/GameModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/BulletView.java" afterPath="$PROJECT_DIR$/src/views/BulletView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +31,28 @@
       <file leaf-file-name="BulletView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/BulletView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+            <state relative-caret-position="115">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/GameView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Animation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -36,26 +63,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="217">
               <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveBehavior.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/behavior/move/MoveBehavior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveDownBehavior.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/behavior/move/MoveDownBehavior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -628,7 +635,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -816,14 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/ItemView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -835,14 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Animation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,10 +997,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="43" column="32" lean-forward="true" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/BulletView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+        <state relative-caret-position="115">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding />
         </state>
       </provider>
