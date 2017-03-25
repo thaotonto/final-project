@@ -15,12 +15,24 @@ import java.util.Vector;
  */
 public class PlayerModel1 extends PlayerModel {
 
+    private static PlayerModel1 instance;
 
     public PlayerModel1(int x, int y, int width, int height, BitSet bitSet, Vector<GameController> bullet) {
         super(x, y, width, height, bitSet, bullet);
         this.speed = SPEED;
         this.hp = 100;
         angle = 0;
+    }
+
+    public static PlayerModel1 getInstance(int x, int y, BitSet bitSet, Vector<GameController> bullet){
+        if(instance == null) {
+            instance = new PlayerModel1(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet);
+        }
+        return instance;
+    }
+
+    public static PlayerModel1 getInstance(){
+        return instance;
     }
 
     // Xác định move theo hướng nào

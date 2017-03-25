@@ -41,7 +41,7 @@ public class PlayerController2 extends GameController {
                 new GameView(island));
     }
     public PlayerController2(int x, int y, BitSet bitSet, Vector<GameController> bullet, String iconPath) {
-        this(new PlayerModel2(x, y, PlayerModel1.DEFAULT_WIDTH, PlayerModel1.DEFAULT_HEGHT, bitSet, bullet),
+        this(PlayerModel2.getInstance(x,y,bitSet,bullet),
                 new CharacterView(Utils.loadImageFromres(iconPath)));
         Image island = Utils.loadImageFromres("BG-1-3.png");
         this.island = new GameController(new GameModel(
@@ -101,7 +101,7 @@ public class PlayerController2 extends GameController {
             if (other.model instanceof BulletModel1) {
                 // neu no trung dan thi checkGetHit la False ,trung dan
                 checkGetHit = true;
-                model.getHit(((BulletModel1) other.model).getDamage());
+                model.getHit();
 
             }
         }
