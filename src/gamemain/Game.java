@@ -16,6 +16,7 @@ public class Game extends Frame implements Runnable,Subcriber{
     public static final int GAME_LOOP_TIME = 17;
     public static final int FRAME_WIDTH = 1200;
     public static final int FRAME_HEIGHT = 600;
+    public static final int OUTSIDE = 10;
     private GameScene currentScene;
     private Stack<GameScene> backStack;
     private BufferedImage backImage;

@@ -24,7 +24,6 @@ public class GameManager {
     BitSet bitSet2;
     Vector<GameController> gameControllers;
     Vector<GameController> backGrounds;
-
     public GameManager(BitSet bitSet1, BitSet bitSet2) {
         this.gameControllers = new Vector<>();
         this.backGrounds = new Vector<>();
@@ -38,6 +37,11 @@ public class GameManager {
 
     // Chạy run của tất cả cá đối tượng
     public void run() {
+        // add itemHP
+        ItemHpRegenManager.addHpUpItems(gameControllers);
+
+
+
         // chạy Background
         for (GameController controller : backGrounds) {
             controller.run();

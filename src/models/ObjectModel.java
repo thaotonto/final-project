@@ -39,8 +39,8 @@ public class ObjectModel extends GameModel implements GameModelCanMove {
     }
 
     @Override
-    public void getHit(int damage) {
-        this.hp -= damage;
+    public void getHit() {
+        this.hp -= BulletModel.DAMAGE;
         if (hp <= 0) {
             hp = 5;
         }
