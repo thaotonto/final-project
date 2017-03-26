@@ -5,8 +5,6 @@ package models;
  */
 public class ExplodeModel extends  GameModel {
 
-
-
     public static final int  WIDTH_EPLOYDE = 60;
     public static final int  HEIGHT_EPLOYDE = 60;
     public ExplodeModel(int x, int y) {
