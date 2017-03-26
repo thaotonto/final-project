@@ -22,7 +22,7 @@ public class ObjectManager {
     public static void addObject(Vector<GameController> gameControllers) {
         ObjectController objectController;
 
-        objectController = new ObjectController((Game.FRAME_WIDTH - ObjectModel.DEFAULT_WIDTH) / 2, (Game.FRAME_HEIGHT - ObjectModel.DEFAULT_HEIGHT) / 2);
+        objectController = new ObjectController((Game.FRAME_WIDTH - ObjectModel.DEFAULT_WIDTH) / 2 , (Game.FRAME_HEIGHT - ObjectModel.DEFAULT_HEIGHT) / 2 - 150) ;
         GameModel gameModel = objectController.getModel();
         if (gameModel instanceof ObjectModel) {
             ((ObjectModel) gameModel).setMoveBehavior(new MoveSmart());
